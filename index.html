@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Live Jogo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/jogostyle.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="jogo"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+      function loadJSON(file, callback) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open("GET", file, true);
+        xobj.onreadystatechange = function() {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+        };
+        xobj.send(null);
+      }
+
+      $(document).ready(function() {
+        loadJSON("perguntas.json", function(text) {
+          var Questoes = JSON.parse(text);
+          console.log(Questoes);
+          const ls = window.localStorage;
+
+          let questao__Id;
+
+          if (!ls.getItem("questao_id")) {
+            ls.setItem("questao_id", 0);
+            questao__Id = ls.getItem("questao_id");
+          } else {
+            let id = ls.getItem("questao_id");
+            ++id;
+            ls.setItem("questao_id", id);
+            questao__Id = ls.getItem("questao_id");
+          }
+
+          let questaoSelecionada = Questoes[questao__Id];
+
+          let template = `<div class="main">
+<div class="titulo">
+  <h1>${questaoSelecionada.enuciado}</h1>
+</div>
+<div class="row">
+  <div class="col s2 m2 l2">
+        <img style="max-width: 100%;" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Kurt&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'
+        />
+  </div>
+  <div class="col s10 m10 l10">
+    <div class="col s3 m4 l3 alternativa" data-value="a"><p style="background-color: #2f6dae;">${questaoSelecionada.alterA}</p></div>
+    <div class="col s3 m4 l3 alternativa" data-value="b"><p style="background-color: #2c9ca6;">${questaoSelecionada.alterB}</p></div>
+    <div class="col s3 m4 l3 alternativa" data-value="c"><p style="background-color: #eca82c;">${questaoSelecionada.alterC}</p></div>
+    <div class="col s3 m4 l3 alternativa" data-value="d"><p style="background-color: #d4546a;">${questaoSelecionada.alterD}</p></div>
+    <input type="hidden" value="${questaoSelecionada.alternativaCorreta}" id="resposta-correta" />
+    <input type="hidden" value="${questaoSelecionada.id}" id="questao-id" />
+  </div>
+</div>
+</div>`;
+
+          $("#jogo").html(template);
+
+          $(".alternativa").click(function() {
+            let questaoId = $("#questao-id").val();
+
+            console.log(questaoId);
+
+            let respostaCorreta = $("#resposta-correta").val();
+
+            let dataValue = $(this).attr("data-value");
+
+            if (respostaCorreta === dataValue) {
+              console.info("Sucesso!");
+            } else {
+              console.log("Erro");
+            }
+            window.location.reload();
+            //criarQuestao(questaoId);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

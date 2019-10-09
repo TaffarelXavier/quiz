@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "enuciado": "Qual a idade em que ocorre a puberdade em meninos?",
+    "alterA": "Entre os 8 e os 9 anos",
+    "alterB": "Entre os 9 e 10  anos",
+    "alterC": "Entre os 10 e 11  anos",
+    "alterD": "Entre os 11 e 12  anos",
+    "alternativaCorreta": "b"
+  },
+  {
+    "id": 2,
+    "enuciado": "Questão 2",
+    "alterA": "a",
+    "alterB": "b",
+    "alterC": "c",
+    "alterD": "d",
+    "alternativaCorreta": "c"
+  },
+  {
+    "id": 3,
+    "enuciado": "Questão 3",
+    "alterA": "d",
+    "alterB": "d",
+    "alterC": "d",
+    "alterD": "da",
+    "alternativaCorreta": "d"
+  },
+  {
+    "id": 4,
+    "enuciado": "Questão 4",
+    "alterA": "a",
+    "alterB": "d",
+    "alterC": "dd",
+    "alterD": "d",
+    "alternativaCorreta": "e"
+  },
+  {
+    "id": 5,
+    "enuciado": "Questão 4",
+    "alterA": "a",
+    "alterB": "d",
+    "alterC": "dd",
+    "alterD": "d",
+    "alternativaCorreta": "e"
+  }
+]
