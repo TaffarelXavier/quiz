@@ -31,9 +31,14 @@
       }
 
       $(document).ready(function() {
+
         loadJSON("perguntas.json", function(text) {
+
           var Questoes = JSON.parse(text);
-          console.log(Questoes);
+
+          let quantidadeQuestoes = Questoes.length;
+
+          //localStoage:
           const ls = window.localStorage;
 
           let questao__Id;
@@ -75,18 +80,21 @@
           $(".alternativa").click(function() {
             let questaoId = $("#questao-id").val();
 
-            console.log(questaoId);
+            console.log("Quantidade" + quantidadeQuestoes);
 
             let respostaCorreta = $("#resposta-correta").val();
 
             let dataValue = $(this).attr("data-value");
 
             if (respostaCorreta === dataValue) {
-              console.info("Sucesso!");
+              alert("Você acertou");
             } else {
-              console.log("Erro");
+              alert("Oh, não. Você errou!");
             }
-            window.location.reload();
+
+            if (quantidadeQuestoes != questaoId) {
+              window.location.reload();
+            }
             //criarQuestao(questaoId);
           });
         });
