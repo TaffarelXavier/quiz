@@ -1,6 +1,14 @@
 [
+  
   {
-    "id": 1,
+  "enuciado": "Com quantos anos, na mulher, inicia-se a purbedade",
+  "alterA": "9 a 10 anos",
+  "alterB": "10 a 11 anos",
+  "alterC": "11 a 12 anos",
+  "alterD": "12 a 13 anos",
+  "alternativaCorreta": "a"
+},
+  {
     "enuciado": "Qual a idade em que ocorre a puberdade em meninos?",
     "alterA": "Entre os 8 e os 9 anos",
     "alterB": "Entre os 9 e 10  anos",
@@ -9,48 +17,68 @@
     "alternativaCorreta": "b"
   },
   {
-    "id": 2,
-    "enuciado": "Questão 2",
-    "alterA": "a",
-    "alterB": "b",
-    "alterC": "c",
-    "alterD": "d",
+    "enuciado": "Qual a lei que rege os Adolescentes no Brasil?",
+    "alterA": "LEI Nº 8.068, 12/1890.",
+    "alterB": "LEI Nº 8.069, 13/1990.",
+    "alterC": "LEI Nº 8.070, 14/1990.",
+    "alterD": "LEI Nº 8.071, 15/1790.",
+    "alternativaCorreta": "b"
+  },
+  {
+    "enuciado": "Os adolescentes não gostam de:",
+    "alterA": "se expor ao risco",
+    "alterB": "ter explosões de amor",
+    "alterC": "regras",
+    "alterD": "n.d.a",
     "alternativaCorreta": "c"
   },
   {
-    "id": 3,
-    "enuciado": "Questão 3",
-    "alterA": "d",
-    "alterB": "d",
-    "alterC": "d",
-    "alterD": "da",
-    "alternativaCorreta": "d"
+    "enuciado": "Mas e, aí, o que é E.C.A???",
+    "alterA": "Estatudo da Criança e Adolescente",
+    "alterB": "Lei da Constituição Fedaral",
+    "alterC": "Estatudo da Criança somente",
+    "alterD": "Estatudo do Adolescente somente",
+    "alternativaCorreta": "a"
   },
   {
-    "id": 4,
-    "enuciado": "Questão 4",
-    "alterA": "a",
-    "alterB": "d",
-    "alterC": "dd",
-    "alterD": "d",
-    "alternativaCorreta": "e"
-  },
-  {
-    "id": 5,
-    "enuciado": "Questão 5",
-    "alterA": "a",
-    "alterB": "d",
-    "alterC": "dd",
-    "alterD": "d",
-    "alternativaCorreta": "e"
+    "enuciado": "A Adolescência é uma fase mesmo complicada, né? Então, qual a primeira mudança evidente que ocorre nessa fase?",
+    "alterA": "Mudança psicológica",
+    "alterB": "Mudança mental",
+    "alterC": "Mudança física",
+    "alterD": "Mudança comportamental",
+    "alternativaCorreta": "c"
   },
   {
     "id": 6,
-    "enuciado": "Questão 6",
-    "alterA": "a",
-    "alterB": "d",
-    "alterC": "dd",
-    "alterD": "d",
-    "alternativaCorreta": "e"
+    "enuciado": "A partir de qual fase o indivíduo cria suas próprias ideias e teorias?",
+    "alterA": "Criança",
+    "alterB": "Adolescência",
+    "alterC": "Terceira infância",
+    "alterD": "Primeira Infância",
+    "alternativaCorreta": "b"
+  },
+  {
+    "enuciado": "Qual o motivo de rebeldia na adolescência?",
+    "alterA": "Isso não é um fato 100% correto",
+    "alterB": "Ausência de pai e mãe",
+    "alterC": "Depende do contexto sociocultural",
+    "alterD": "Todas as questões estão corretas.",
+    "alternativaCorreta": "d"
+  },
+  {
+    "enuciado": "Qual as doenças mais comuns na adolescência?",
+    "alterA": "Gripe e sarampo",
+    "alterB": "Febre e câncer",
+    "alterC": "Rubêola e hepatite",
+    "alterD": "Anorexia e bulemia",
+    "alternativaCorreta": "d"
+  },
+  {
+    "enuciado": "Quais são os métodos mais confiáveis contra as DSTs?",
+    "alterA": "Dio",
+    "alterB": "Anti-inflamatórios",
+    "alterC": "Remédios",
+    "alterD": "Camisinha",
+    "alternativaCorreta": "d"
   }
 ]
