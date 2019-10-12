@@ -1,4 +1,4 @@
-# Jogo de pergunta e Resposta
+# ⚡️ Jogo de Perguntas e Respostas baseado no Quizziz.com
 
 > Este jogo foi usado na IV Amostra de Psicologia da Educação.
 
@@ -12,7 +12,7 @@ A equipe de densolvimento foi composta por:
 
 Todos alunos do 4º período de Licenciatura em Computação - *Campus - Araguatins*.
 
-# Usabilidade:
+# ⚡️ Usabilidade:
 
 
 > O Jogo é composto somente por duas telas, a principal, na qual, o participante coloca seu nome, e na tela de pergunta e resposta.
@@ -25,7 +25,7 @@ Havia um *time* regressivo de 20 segundos.
 __Você pode contribuir com este jogo__.
 
 
-# Estrutura:
+# ⚡️ Estrutura:
 Ele é composto somente de um arquivo html:
 
 - index.html
