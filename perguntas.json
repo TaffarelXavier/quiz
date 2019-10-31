@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "enuciado": "O que é um processo?",
     "alterA": "É um programa em execução",
@@ -46,5 +46,13 @@
     "alterC": "Três",
     "alterD": "Quatro",
     "alternativaCorreta": "c"
+  },
+  {
+    "enuciado": "Qual a função da memória?",
+    "alterA": "Guardar informações brutas ou geral, temporamente, ou permanentemente no computador.",
+    "alterB": "Guardar dados temporamente ou permanentemente no PC.",
+    "alterC": "Guardar dados voláteis ou permanentemente no PC.",
+    "alterD": "Guardar dados não voláteis ou permanentemente no PC.",
+    "alternativaCorreta": "b"
   }
 ]
