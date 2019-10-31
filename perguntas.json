@@ -54,5 +54,13 @@
     "alterC": "Guardar dados voláteis ou permanentemente no PC.",
     "alterD": "Guardar dados não voláteis ou permanentemente no PC.",
     "alternativaCorreta": "b"
+  },
+  {
+    "enuciado": "O sistema operacional é responsável pelas seguintes atividades em relação à\ngerência de arquivos. Marque a alternativa correta:",
+    "alterA": "I. Criar e excluir arquivos;\nII. Criar e excluir diretórios;\nIII. Fornecer suporte para manipular arquivos e diretórios;\nIV. Mapear arquivos no armazenamento secundário;\nV. Prover ferramentas de backup.",
+    "alterB": "I. Criar e excluir arquivos;\nII. Criar e excluir diretórios;\nIII. Fornecer suporte para manipular arquivos e diretórios;\nIV. Mapear arquivos no armazenamento na memória man;\nV. Prover ferramentas de backup.",
+    "alterC": "I. Criar arquivos;\nII. Criar e excluir diretórios;\nIII. Fornecer suporte para manipular arquivos e diretórios;\nIV. Mapear arquivos no armazenamento secundária;\nV. Prover ferramentas de backup.",
+    "alterD": "I. Criar e deletar arquivos;\nII. Criar e excluir diretórios;\nIII. Manipular arquivos e diretórios somente no âmbito da CPU;\nIV. Mapear arquivos no armazenamento secundária;\nV. Prover ferramentas de backup.",
+    "alternativaCorreta": "a"
   }
 ]
