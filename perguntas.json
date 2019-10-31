@@ -1,84 +1,50 @@
 [
-  
   {
-  "enuciado": "Com quantos anos, na mulher, inicia-se a purbedade",
-  "alterA": "9 a 10 anos",
-  "alterB": "10 a 11 anos",
-  "alterC": "11 a 12 anos",
-  "alterD": "12 a 13 anos",
-  "alternativaCorreta": "a"
-},
-  {
-    "enuciado": "Qual a idade em que ocorre a puberdade em meninos?",
-    "alterA": "Entre os 8 e os 9 anos",
-    "alterB": "Entre os 9 e 10  anos",
-    "alterC": "Entre os 10 e 11  anos",
-    "alterD": "Entre os 11 e 12  anos",
-    "alternativaCorreta": "b"
-  },
-  {
-    "enuciado": "Qual a lei que rege os Adolescentes no Brasil?",
-    "alterA": "LEI Nº 8.068, 12/1890.",
-    "alterB": "LEI Nº 8.069, 13/1990.",
-    "alterC": "LEI Nº 8.070, 14/1990.",
-    "alterD": "LEI Nº 8.071, 15/1790.",
-    "alternativaCorreta": "b"
-  },
-  {
-    "enuciado": "Os adolescentes não gostam de:",
-    "alterA": "se expor ao risco",
-    "alterB": "ter explosões de amor",
-    "alterC": "regras",
-    "alterD": "n.d.a",
-    "alternativaCorreta": "c"
-  },
-  {
-    "enuciado": "Mas e, aí, o que é E.C.A???",
-    "alterA": "Estatudo da Criança e Adolescente",
-    "alterB": "Lei da Constituição Fedaral",
-    "alterC": "Estatudo da Criança somente",
-    "alterD": "Estatudo do Adolescente somente",
+    "enuciado": "O que é um processo?",
+    "alterA": "É um programa em execução",
+    "alterB": "É um software em execução em terceiro plano",
+    "alterC": "É um programa em tarefa",
+    "alterD": "Tarefa em execução",
     "alternativaCorreta": "a"
   },
   {
-    "enuciado": "A Adolescência é uma fase mesmo complicada, né? Então, qual a primeira mudança evidente que ocorre nessa fase?",
-    "alterA": "Mudança psicológica",
-    "alterB": "Mudança mental",
-    "alterC": "Mudança física",
-    "alterD": "Mudança comportamental",
+    "enuciado": "Quantos estágios existem em um processo?",
+    "alterA": "Um",
+    "alterB": "Dois",
+    "alterC": "Três",
+    "alterD": "Quatro",
     "alternativaCorreta": "c"
   },
   {
-    "id": 6,
-    "enuciado": "A partir de qual fase o indivíduo cria suas próprias ideias e teorias?",
-    "alterA": "Criança",
-    "alterB": "Adolescência",
-    "alterC": "Terceira infância",
-    "alterD": "Primeira Infância",
+    "enuciado": "Quais são os estágios de um processo",
+    "alterA": "Execução, pronto e desbloqueado",
+    "alterB": "Execução, pronto e bloqueado",
+    "alterC": "Parado, pronto e desbloqueado",
+    "alterD": "pronto, Parado e bloqueado",
     "alternativaCorreta": "b"
   },
   {
-    "enuciado": "Qual o motivo de rebeldia na adolescência?",
-    "alterA": "Isso não é um fato 100% correto",
-    "alterB": "Ausência de pai e mãe",
-    "alterC": "Depende do contexto sociocultural",
-    "alterD": "Todas as questões estão corretas.",
-    "alternativaCorreta": "d"
+    "enuciado": "A maioria dos sistemas operacionais fornece certos conceitos básicos, como processos, espaços de endereçamento e arquivos, que são fundamentais para entendê-los. Nesse sentido, assinale a alternativa CORRETA.",
+    "alterA": "A cada pessoa autorizada a usar um sistema é atribuída uma UID (User identification – identificação do usuário) pelo administrador do sistema. Todo processo iniciado tem a UID de quem o iniciou.",
+    "alterB": "Um processo é basicamente um programa em execução. Associado a cada processo está seu espaço de endereçamento, uma lista de posições de memória, que vai de 0 até no máximo 1. O espaço de endereçamento contém um programa não executável, bem como os dados do programa.",
+    "alterC": "Um processo pode preencher todo seu espaço de endereçamento, porém, é necessário que haja espaço suficiente na memória para armazená-lo completamente. Em muitos computadores os endereços são de 232 bits, dando um espaço de endereçamento de 64 bitso",
+    "alterD": "O processo de endereçamento é acoplado à memória física da máquina, porém, não é maior que essa memória.",
+    "alternativaCorreta": "a"
   },
   {
-    "enuciado": "Qual as doenças mais comuns na adolescência?",
-    "alterA": "Gripe e sarampo",
-    "alterB": "Febre e câncer",
-    "alterC": "Rubêola e hepatite",
-    "alterD": "Anorexia e bulemia",
-    "alternativaCorreta": "d"
+    "enuciado": "Arquivos são unidades lógicas de informação criadas por processos. Em geral, um disco contém milhares de arquivos, um independente do outro. Nesse sentido, analise as afirmativas abaixo. <br/>I. Os processos podem ler os arquivos existentes e criar novos, se necessário. A informação armazenada em arquivos deve ser persistente, isto é, não pode ser afetada pela criação e pelo término de um processo.<br/>II. Arquivo é um mecanismo de abstração. Ele oferece meios de armazenar informações no disco e de lê-las depois. III. As regras exatas para nomear um arquivo são padrões de sistema para sistema, incluindo o fato de que todos os sistemas operacionais não permitem cadeias de caracteres como nomes de arquivos válidos. Assinale a alternativa CORRETA.",
+    "alterA": "Apenas as afirmativas I e II estão corretas.",
+    "alterB": "Todas as afirmativas estão corretas.",
+    "alterC": "Apenas as afirmativas I e III estão corretas",
+    "alterD": "Apenas as afirmativas II e III estão corretas.",
+    "alternativaCorreta": "b"
   },
   {
-    "enuciado": "Quais são os métodos mais confiáveis contra as DSTs?",
-    "alterA": "Dio",
-    "alterB": "Anti-inflamatórios",
-    "alterC": "Remédios",
-    "alterD": "Camisinha",
-    "alternativaCorreta": "d"
+    "enuciado": "Quantos estágios existem em um processo?",
+    "alterA": "Um",
+    "alterB": "Dois",
+    "alterC": "Três",
+    "alterD": "Quatro",
+    "alternativaCorreta": "c"
   }
 ]
