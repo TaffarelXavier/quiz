@@ -388,7 +388,17 @@
      * Load Json
      * */
     function loadJSON(callback) {
-
+      
+      fetch("http://127.0.0.1:3333/")
+          .then(function(response) {
+            response.text().then((result)=>{
+              console.log(result);
+            })
+          }).catch((err)=>{
+            console.log(err);
+          });
+          
+      /*
       //api rest, por exemplo:
       let questoes = JSON.parse(ls.getItem("todas_questoes"));
 
@@ -414,6 +424,7 @@
         data = JSON.parse(ls.getItem("questoes"));
         callback(data);
       }
+      */
     }
   </script>
 </body>

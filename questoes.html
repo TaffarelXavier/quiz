@@ -21,98 +21,111 @@
       integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
       crossorigin="anonymous"
     />
-
     <title>Questões</title>
-    <style>
-      label {
-        font-size: 14px !important;
-        font-weight: 900;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/questoes.css" />
   </head>
   <body>
     <div class="container">
       <h3>Adicionar Questão</h3>
       <a href="../">Voltar</a>
       <hr />
-      <form>
-        <div class="form-row">
-          <div class="col-md-12 mb-12">
-            <label for="validationDefault01">Enuciado:</label>
-            <textarea
-              class="form-control"
-              id="enuciado_id"
-              rows="3"
-              autofocus
-              name="enuciado"
-            ></textarea>
-          </div>
+      <div class="row">
+        <div class="col-md-6">
+          <form>
+            <div class="form-row">
+              <div class="col-md-12 mb-12">
+                <fieldset>
+                  <legend>
+                    <label for="validationDefault01">Enuciado:</label>
+                  </legend>
+                  <textarea
+                    class="form-control"
+                    id="enuciado_id"
+                    rows="3"
+                    autofocus
+                    name="enuciado"
+                  ></textarea>
+                </fieldset>
+              </div>
+            </div>
+            <fieldset>
+              <legend>
+                <label for="validationDefault01">Alternantiva A:</label>
+              </legend>
+              <textarea class="form-control" rows="2" name="alt_a"></textarea>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio1"
+                  name="customRadio"
+                  class="custom-control-input"
+                  data-questao="a"
+                />
+                <label class="custom-control-label" for="customRadio1"
+                  >Esta é a questão correta</label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><label>Alternantiva B:</label></legend>
+              <textarea class="form-control" rows="2" name="alt_b"></textarea>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio2"
+                  name="customRadio"
+                  class="custom-control-input"
+                  data-questao="b"
+                />
+                <label class="custom-control-label" for="customRadio2"
+                  >Esta é a questão correta</label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><label>Alternantiva C:</label></legend>
+              <textarea class="form-control" rows="2" name="alt_c"></textarea>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio3"
+                  name="customRadio"
+                  class="custom-control-input"
+                  data-questao="c"
+                />
+                <label class="custom-control-label" for="customRadio3"
+                  >Esta é a questão correta</label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><label>Alternantiva D:</label></legend>
+              <textarea class="form-control" rows="2" name="alt_d"></textarea>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio4"
+                  name="customRadio"
+                  class="custom-control-input"
+                  data-questao="d"
+                />
+                <label class="custom-control-label" for="customRadio4"
+                  >Esta é a questão correta</label
+                >
+              </div>
+            </fieldset>
+            <br />
+            <button
+              type="button"
+              id="btn-salvar-questao"
+              class="btn btn-raised  btn-lg btn-primary"
+            >
+              Salvar Nota
+            </button>
+          </form>
         </div>
-        <br />
-        <label for="enuciado_id">Alternantiva A:</label>
-        <textarea class="form-control" rows="2" name="alt_a"></textarea>
-        <div class="custom-control custom-radio">
-          <input
-            type="radio"
-            id="customRadio1"
-            name="customRadio"
-            class="custom-control-input"
-            data-questao="a"
-          />
-          <label class="custom-control-label" for="customRadio1"
-            >Esta é a questão correta</label
-          >
-        </div>
-        <br />
-
-        <label>Alternantiva B:</label>
-        <textarea class="form-control" rows="2" name="alt_b"></textarea>
-        <div class="custom-control custom-radio">
-          <input
-            type="radio"
-            id="customRadio2"
-            name="customRadio"
-            class="custom-control-input"
-            data-questao="b"
-          />
-          <label class="custom-control-label" for="customRadio2"
-            >Esta é a questão correta</label
-          >
-        </div>
-        <br />
-        <label>Alternantiva C:</label>
-        <textarea class="form-control" rows="2" name="alt_c"></textarea>
-        <div class="custom-control custom-radio">
-          <input
-            type="radio"
-            id="customRadio3"
-            name="customRadio"
-            class="custom-control-input"
-            data-questao="c"
-          />
-          <label class="custom-control-label" for="customRadio3"
-            >Esta é a questão correta</label
-          >
-        </div>
-        <br />
-
-        <label>Alternantiva D:</label>
-        <textarea class="form-control" rows="2" name="alt_d"></textarea>
-        <div class="custom-control custom-radio">
-          <input
-            type="radio"
-            id="customRadio4"
-            name="customRadio"
-            class="custom-control-input"
-            data-questao="d"
-          />
-          <label class="custom-control-label" for="customRadio4"
-            >Esta é a questão correta</label
-          >
-        </div>
-        <br />
-        <button type="button" id="btn-salvar-questao" class="btn btn-raised  btn-lg btn-primary">Salvar Nota</button>
-      </form>
+        <div class="col-md-6"></div>
+      </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -133,6 +146,7 @@
     ></script>
     <script>
       $(document).ready(function() {
+
         $("body").bootstrapMaterialDesign();
 
         const ls = window.localStorage;
@@ -196,8 +210,9 @@
             }
           }
         });
-        $("#enuciado_id").select().focus();
-
+        $("#enuciado_id")
+          .select()
+          .focus();
       });
     </script>
   </body>
