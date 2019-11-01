@@ -1,334 +1,329 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Jogo: A Adolescência</title>
-    <link rel="stylesheet" href="assets/css/materialize.min.css" />
-    <link rel="stylesheet" href="assets/css/jogostyle.css" />
-  </head>
-  <body>
-    <div class="container-fluid">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Jogo: A Adolescência</title>
+  <link rel="stylesheet" href="assets/css/materialize.min.css" />
+  <link rel="stylesheet" href="assets/css/jogostyle.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <!-- INÍCIO -->
+        <div class="inicio">
+          <h1>Seja Bem-Vindo(a)</h1>
+          <br /><br />
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="nome-usuario" class="validate" autofocus />
+              <label for="nome-usuario" id="label-nome-usuario">Seu nome:</label>
+            </div>
+          </div>
+          <button class="waves-effect waves-light btn-large" id="buttonIniciarJogo">
+            Iniciar Jogo</button><br /><br />
+          <span>Jogo desenvolvido pelos alunos do curso de
+            <strong>Licenciatura em Computação</strong><br /><strong>Grupo Adolescentes</strong></span>
+        </div>
+      </div>
+    </div>
+    <div style="display: none !important;" id="painel-jogo">
       <div class="row">
-        <div class="col s12 m12 l12">
-          <!-- INÍCIO -->
-          <div class="inicio">
-            <h1>Seja Bem-Vindo(a)</h1>
-            <br /><br />
-            <div class="row">
-              <div class="input-field col s12">
-                <input
-                  type="text"
-                  id="nome-usuario"
-                  class="validate"
-                  autofocus
-                />
-                <label for="nome-usuario" id="label-nome-usuario"
-                  >Seu nome:</label
-                >
-              </div>
-            </div>
-            <button
-              class="waves-effect waves-light btn-large"
-              id="buttonIniciarJogo"
-            >
-              Iniciar Jogo</button
-            ><br /><br />
-            <span
-              >Jogo desenvolvido pelos alunos do curso de
-              <strong>Licenciatura em Computação</strong><br /><strong
-                >Grupo Adolescentes</strong
-              ></span
-            >
+        <div class="col s10 m10 l10">
+          <span class="info" style="float:left;" id="get-nome-user-ativo"></span>
+          <div id="timer" class="info" hidden></div>
+        </div>
+        <div class="col s2 m2 l2">
+          <div style="float:right;color:white;" id="info-step" class="info">
+            1/5
           </div>
         </div>
       </div>
-      <div style="display: none !important;" id="painel-jogo">
-        <div class="row">
-          <div class="col s10 m10 l10">
-            <span
-              class="info"
-              style="float:left;"
-              id="get-nome-user-ativo"
-            ></span>
-            <div id="timer" class="info" hidden></div>
-          </div>
-          <div class="col s2 m2 l2">
-            <div style="float:right;color:white;" id="info-step" class="info">
-              1/5
-            </div>
-          </div>
-        </div>
-        <div id="jogo"></div>
-      </div>
-      <audio controls id="play-audio" style="display: none;">
-        <!-- <source src="horse.ogg" type="audio/ogg"> -->
-        <source src="assets/audio/gametheme.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+      <div id="jogo"></div>
     </div>
+    <audio controls id="play-audio" style="display: none;">
+      <!-- <source src="horse.ogg" type="audio/ogg"> -->
+      <source src="assets/audio/gametheme.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4 id="header-modal"></h4>
-        <div class="row">
-          <div class="col col s12 m12 l12">
-            <div id="get-estatisticas"></div>
-          </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 id="header-modal"></h4>
+      <div class="row">
+        <div class="col col s12 m12 l12">
+          <div id="get-estatisticas"></div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
       </div>
     </div>
-    <!-- Modal Mostrar Questão Certa ou errada -->
-    <div id="modal-questao-certa-errada" class="modal">
-      <div class="modal-content">
-        <h4 id="header-modal"></h4>
-        <div class="row">
-          <div class="col col s12 m12 l12">
-            <div id="get-info"></div>
-          </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+    </div>
+  </div>
+  <!-- Modal Mostrar Questão Certa ou errada -->
+  <div id="modal-questao-certa-errada" class="modal">
+    <div class="modal-content">
+      <h4 id="header-modal"></h4>
+      <div class="row">
+        <div class="col col s12 m12 l12">
+          <div id="get-info"></div>
         </div>
       </div>
-      <div class="modal-footer">
-        <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-      </div>
     </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+    </div>
+  </div>
 
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/template.js"></script>
-    <script src="./assets/js/materialize.min.js"></script>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/template.js"></script>
+  <script src="./assets/js/materialize.min.js"></script>
 
-    <script>
-      //localStoage:
-      const ls = window.localStorage;
+  <script>
+    //localStoage:
+    const ls = window.localStorage;
 
-      //Áudio play back
-      var audioPlayBack = document.getElementById("play-audio");
+    //Áudio play back
+    var audioPlayBack = document.getElementById("play-audio");
 
-      //timer
-      var timer = $("#timer");
+    //timer
+    var timer = $("#timer");
 
-      //Início
-      var inicio = $(".inicio");
+    //Início
+    var inicio = $(".inicio");
 
-      function showCountdown(countSeconds) {
-        var countStatus = new Date(1000 * countSeconds)
-          .toISOString()
-          .substr(11, 8);
-        document.getElementById("timer").innerHTML =
-          " tempo restante: " + countStatus;
+    function showCountdown(countSeconds) {
+      var countStatus = new Date(1000 * countSeconds)
+        .toISOString()
+        .substr(11, 8);
+      document.getElementById("timer").innerHTML =
+        " tempo restante: " + countStatus;
+    }
+    //Segundos do timer
+    var count = 30;
+
+    function countdown() {
+      // starts countdown
+      if (count <= 1) {
+        alert("Tempo escotado.");
+        return;
       }
-      //Segundos do timer
-      var count = 60;
+      count--;
+      setTimeout(countdown, 1000);
+      showCountdown(count);
+    }
 
-      function countdown() {
-        // starts countdown
-        if (count <= 1) {
-          alert("Tempo escotado.");
-          return;
-        }
-        count--;
-        setTimeout(countdown, 1000);
-        showCountdown(count);
-      }
+    //Se o jogo estiver sido iniciado.
+    if (ls.getItem("jogo_iniciado")) {
+      inicio.hide();
 
-      //Se o jogo estiver sido iniciado.
-      if (ls.getItem("jogo_iniciado")) {
-        inicio.hide();
+      $("#painel-jogo").show();
+
+      $("#info-step").html(`${parseInt(ls.getItem("questao_id")) + 1} /6`);
+
+      let userAtivo = JSON.parse(ls.getItem("user.ativo"));
+
+      $("#get-nome-user-ativo").html(
+        userAtivo.nome.toUpperCase() + ",&nbsp;"
+      );
+
+      //Play áudio:
+      audioPlayBack.play();
+
+      countdown();
+    }
+
+    //$("#modal1").modal('open');
+    $(document).ready(function () {
+      $(".modal-close").click(function () {
+        window.location.reload();
+      });
+
+      function iniciarJogo() {
 
         $("#painel-jogo").show();
 
-        $("#info-step").html(`${parseInt(ls.getItem("questao_id")) + 1} /6`);
+        let nomeJogador = $("#nome-usuario")
+          .val()
+          .trim();
 
-        let userAtivo = JSON.parse(ls.getItem("user.ativo"));
+        var main = $(".main");
 
-        $("#get-nome-user-ativo").html(
-          userAtivo.nome.toUpperCase() + ",&nbsp;"
-        );
+        if (nomeJogador !== "") {
+          inicio.fadeOut("ease");
 
-        //Play áudio:
-        audioPlayBack.play();
+          main.show().removeAttr("hidden");
 
-        countdown();
+          timer.show();
+
+          //Cria um variável no localStorage
+          ls.setItem("jogo_iniciado", true);
+
+          let users = [];
+
+          if (!ls.getItem("users")) {
+            users.push({ nome: nomeJogador, id: 1 });
+
+            ls.setItem("users", JSON.stringify(users));
+
+            ls.setItem(
+              "user.ativo",
+              JSON.stringify({ nome: nomeJogador, id: 1 })
+            );
+
+            $("#get-nome-user-ativo").html(
+              nomeJogador.toUpperCase() + ",&nbsp;"
+            );
+          } else {
+            users = JSON.parse(ls.getItem("users"));
+
+            let user = users[users.length - 1];
+
+            let id = parseInt(user.id);
+
+            id = ++id;
+
+            users.push({ nome: nomeJogador, id: id });
+
+            ls.setItem("users", JSON.stringify(users));
+
+            ls.setItem(
+              "user.ativo",
+              JSON.stringify({ nome: nomeJogador, id: id })
+            );
+
+            $("#get-nome-user-ativo").html(
+              nomeJogador.toUpperCase() + ",&nbsp;"
+            );
+          }
+          //Inicia o timer decremental:
+          countdown();
+        }
       }
 
-      //$("#modal1").modal('open');
-      $(document).ready(function() {
-        $(".modal-close").click(function() {
-          window.location.reload();
-        });
-        /**
-         * Ao apertar nesse butão, inicia-se o jogo:
-         * */
-        $("#buttonIniciarJogo").click(function() {
-          $("#painel-jogo").show();
+      /**
+       * Ao apertar nesse butão, inicia-se o jogo:
+       * */
+      $("#buttonIniciarJogo").click(function () {
+        iniciarJogo();
+      });
 
-          let nomeJogador = $("#nome-usuario")
-            .val()
-            .trim();
+      $('#nome-usuario').keyup((ev) => {
+        if (ev.keyCode === 13) {
+          iniciarJogo();
+        }
+      })
+
+      loadJSON(function (questoes) {
+        console.log(questoes);
+        var Questoes = questoes;
+
+        let quantidadeQuestoes = Questoes.length;
+
+        let questao__Id;
+
+        //Se não existir:
+
+        if (!ls.getItem("questao_id")) {
+          ls.setItem("questao_id", 0);
+
+          ls.setItem("quantidade", 0);
+
+          questao__Id = ls.getItem("questao_id");
+
+          questao__Id = 0;
+        } else {
+          questao__Id = ls.getItem("questao_id");
+        }
+
+        //console.log(component(Questoes, questao__Id));
+
+        $("#jogo").html(component(Questoes, questao__Id));
+
+        if (ls.getItem("questao_id")) {
+          // inicio.hide();
 
           var main = $(".main");
 
-          if (nomeJogador !== "") {
-            inicio.fadeOut("ease");
+          main.removeAttr("hidden").removeAttr("hidden");
 
-            main.show().removeAttr("hidden");
+          timer.show();
+        }
 
-            timer.show();
+        //Uma matriz para adicionar as questões corretas ou certas de cada participante:
+        let userResposta = [];
 
-            //Cria um variável no localStorage
-            ls.setItem("jogo_iniciado", true);
+        $(".alternativa").click(function () {
+          let _this = $(this);
 
-            let users = [];
+          //O Id da questão
+          let questaoId = $("#questao-id").val();
+          //A resposta correta da questao
+          let respostaCorreta = $("#resposta-correta").val();
+          //A resposta que o usuário escolheu
+          let resposta_usuario = $(this).attr("data-value");
 
-            if (!ls.getItem("users")) {
-              users.push({ nome: nomeJogador, id: 1 });
+          //Pega a conta do usuário que está jogando:
 
-              ls.setItem("users", JSON.stringify(users));
+          let accountUserActive = JSON.parse(ls.getItem("user.ativo"));
 
-              ls.setItem(
-                "user.ativo",
-                JSON.stringify({ nome: nomeJogador, id: 1 })
-              );
+          //Pega o ID do participante ativo:
+          let resposta = {
+            user_id: accountUserActive.id,
+            questao_id: questaoId,
+            resposta_user: resposta_usuario,
+            resposta_correta_sistema: respostaCorreta,
+          };
+          //Pega o ID da questão:
 
-              $("#get-nome-user-ativo").html(
-                nomeJogador.toUpperCase() + ",&nbsp;"
-              );
-            } else {
-              users = JSON.parse(ls.getItem("users"));
+          userResposta.push(resposta);
 
-              let user = users[users.length - 1];
-
-              let id = parseInt(user.id);
-
-              id = ++id;
-
-              users.push({ nome: nomeJogador, id: id });
-
-              ls.setItem("users", JSON.stringify(users));
-
-              ls.setItem(
-                "user.ativo",
-                JSON.stringify({ nome: nomeJogador, id: id })
-              );
-
-              $("#get-nome-user-ativo").html(
-                nomeJogador.toUpperCase() + ",&nbsp;"
-              );
-            }
-            //Inicia o timer decremental:
-            countdown();
-          }
-        });
-
-        loadJSON(function(questoes) {
-          console.log(questoes);
-          var Questoes = questoes;
-
-          let quantidadeQuestoes = Questoes.length;
-
-          let questao__Id;
-
-          //Se não existir:
-
-          if (!ls.getItem("questao_id")) {
-            ls.setItem("questao_id", 0);
-
-            ls.setItem("quantidade", 0);
-
-            questao__Id = ls.getItem("questao_id");
-
-            questao__Id = 0;
+          //Persiste a resposta no localStorage
+          if (!ls.getItem("users.respostas")) {
+            ls.setItem("users.respostas", JSON.stringify(userResposta));
           } else {
-            questao__Id = ls.getItem("questao_id");
+            let respostas = JSON.parse(ls.getItem("users.respostas"));
+
+            respostas.push(resposta);
+
+            ls.setItem("users.respostas", JSON.stringify(respostas));
           }
 
-          //console.log(component(Questoes, questao__Id));
-
-          $("#jogo").html(component(Questoes, questao__Id));
-
-          if (ls.getItem("questao_id")) {
-            // inicio.hide();
-
-            var main = $(".main");
-
-            main.removeAttr("hidden").removeAttr("hidden");
-
-            timer.show();
+          if (respostaCorreta === resposta_usuario) {
+            alert("Você acertou");
+            // $("#modal-questao-certa-errada").modal();
+            // $("#modal-questao-certa-errada").modal("open");
+            // $("#get-info").html("<h1 style='background:green;color:white;'>Uau! Resposta Certa!</h1>");
+          } else {
+            alert("Oh, não. Você errou!");
+            $("#get-info").html(
+              "<h1 style='background:red;color:white;'>Resposta Errada!</h1>"
+            );
           }
 
-          //Uma matriz para adicionar as questões corretas ou certas de cada participante:
-          let userResposta = [];
+          //Carregar a página:
+          //Remover o comentáro:
+          if (quantidadeQuestoes != questaoId) {
+            window.location.reload();
+          } else {
+            //Pega as respostas:
+            let respostas = JSON.parse(ls.getItem("users.respostas"));
 
-          $(".alternativa").click(function() {
-            let _this = $(this);
+            $("#modal1").modal();
+            $("#modal1").modal("open");
 
-            //O Id da questão
-            let questaoId = $("#questao-id").val();
-            //A resposta correta da questao
-            let respostaCorreta = $("#resposta-correta").val();
-            //A resposta que o usuário escolheu
-            let resposta_usuario = $(this).attr("data-value");
+            let user = JSON.parse(ls.getItem("user.ativo"));
 
-            //Pega a conta do usuário que está jogando:
+            $("#header-modal").html(
+              `Suas estatísticas, ${user.nome.toUpperCase()}.`
+            );
 
-            let accountUserActive = JSON.parse(ls.getItem("user.ativo"));
-
-            //Pega o ID do participante ativo:
-            let resposta = {
-              user_id: accountUserActive.id,
-              questao_id: questaoId,
-              resposta_user: resposta_usuario,
-              resposta_correta_sistema: respostaCorreta,
-            };
-            //Pega o ID da questão:
-
-            userResposta.push(resposta);
-
-            //Persiste a resposta no localStorage
-            if (!ls.getItem("users.respostas")) {
-              ls.setItem("users.respostas", JSON.stringify(userResposta));
-            } else {
-              let respostas = JSON.parse(ls.getItem("users.respostas"));
-
-              respostas.push(resposta);
-
-              ls.setItem("users.respostas", JSON.stringify(respostas));
-            }
-
-            if (respostaCorreta === resposta_usuario) {
-              alert("Você acertou");
-              // $("#modal-questao-certa-errada").modal();
-              // $("#modal-questao-certa-errada").modal("open");
-              // $("#get-info").html("<h1 style='background:green;color:white;'>Uau! Resposta Certa!</h1>");
-            } else {
-              alert("Oh, não. Você errou!");
-              $("#get-info").html(
-                "<h1 style='background:red;color:white;'>Resposta Errada!</h1>"
-              );
-            }
-
-            //Carregar a página:
-            //Remover o comentáro:
-            if (quantidadeQuestoes != questaoId) {
-              window.location.reload();
-            } else {
-              //Pega as respostas:
-              let respostas = JSON.parse(ls.getItem("users.respostas"));
-
-              $("#modal1").modal();
-              $("#modal1").modal("open");
-
-              let user = JSON.parse(ls.getItem("user.ativo"));
-
-              $("#header-modal").html(
-                `Suas estatísticas, ${user.nome.toUpperCase()}.`
-              );
-
-              let criarTabela = `<table class="table striped"> 
+            let criarTabela = `<table class="table striped"> 
               <thead>
                   <tr>
                     <th>Participante</th>
@@ -336,90 +331,91 @@
                     <th>Sua resposta</th>
                     </tr>
                 </thead><tbody>`;
-              //Faz um filtro para pegar somente as questões do participante ativo
-              respostas = respostas.filter(item => {
-                return item.user_id == user.id;
-              });
-              let somar = 0;
+            //Faz um filtro para pegar somente as questões do participante ativo
+            respostas = respostas.filter(item => {
+              return item.user_id == user.id;
+            });
+            let somar = 0;
 
-              for (let {
-                resposta_correta_sistema,
-                resposta_user,
-                questao_id,
-              } of respostas) {
-                if (resposta_correta_sistema == resposta_user) {
-                  somar++;
-                  criarTabela += `<tr class="green darken-4">
+            for (let {
+              resposta_correta_sistema,
+              resposta_user,
+              questao_id,
+            } of respostas) {
+              if (resposta_correta_sistema == resposta_user) {
+                somar++;
+                criarTabela += `<tr class="green darken-4">
                   <td>Ual! Você acertou!</td>
                   <td>${resposta_correta_sistema.toUpperCase()}</td>
                   <td>${resposta_user.toUpperCase()}</td></tr>`;
-                } else {
-                  criarTabela += `<tr class="deep-orange darken-4">
+              } else {
+                criarTabela += `<tr class="deep-orange darken-4">
                   <td>Ah, não! Você errou esta questão.!</td>
                   <td>${resposta_correta_sistema.toUpperCase()}</td>
                   <td>${resposta_user.toUpperCase()}</td></tr>`;
-                }
               }
-
-              criarTabela += `</tbody></table>`;
-
-              $("#get-estatisticas").html(criarTabela);
-
-              ls.setItem("quantidade", 0);
-              ls.setItem("questao_id", 0);
-              ls.removeItem("jogo_iniciado");
-              ls.removeItem("user.ativo");
-              return false;
             }
 
-            let id = ls.getItem("questao_id");
+            criarTabela += `</tbody></table>`;
 
-            let quantidade = ls.getItem("quantidade");
+            $("#get-estatisticas").html(criarTabela);
 
-            ++id;
+            ls.setItem("quantidade", 0);
+            ls.setItem("questao_id", 0);
+            ls.removeItem("jogo_iniciado");
+            ls.removeItem("user.ativo");
+            return false;
+          }
 
-            ++quantidade;
+          let id = ls.getItem("questao_id");
 
-            ls.setItem("questao_id", id);
+          let quantidade = ls.getItem("quantidade");
 
-            ls.setItem("quantidade", quantidade);
+          ++id;
 
-            questao__Id = ls.getItem("questao_id");
-          });
+          ++quantidade;
+
+          ls.setItem("questao_id", id);
+
+          ls.setItem("quantidade", quantidade);
+
+          questao__Id = ls.getItem("questao_id");
         });
       });
+    });
 
-      /**
-       * Load Json
-       * */
-      function loadJSON(callback) {
-        
-        //api rest, por exemplo:
-        let questoes = JSON.parse(ls.getItem("todas_questoes"));
+    /**
+     * Load Json
+     * */
+    function loadJSON(callback) {
 
-        const QUANT_ELEMENTOS = 6;
+      //api rest, por exemplo:
+      let questoes = JSON.parse(ls.getItem("todas_questoes"));
 
-        questoes = questoes
-          .sort(function() {
-            return 0.5 - Math.random();
-          }) // Shuffle array
-          .slice(0, QUANT_ELEMENTOS); // Get first 2 items
+      const QUANT_ELEMENTOS = 6;
 
-        var result = questoes.map(function(el, index) {
-          var o = Object.assign({}, el);
-          o.id = index + 1;
-          return o;
-        });
+      questoes = questoes
+        .sort(function () {
+          return 0.5 - Math.random();
+        }) // Shuffle array
+        .slice(0, QUANT_ELEMENTOS); // Get first 2 items
 
-        if (!ls.getItem("nova_questao")) {
-          ls.setItem("nova_questao", 1);
-          ls.setItem("questoes", JSON.stringify(result));
-          callback(result);
-        } else {
-          data = JSON.parse(ls.getItem("questoes"));
-          callback(data);
-        }
+      var result = questoes.map(function (el, index) {
+        var o = Object.assign({}, el);
+        o.id = index + 1;
+        return o;
+      });
+
+      if (!ls.getItem("nova_questao")) {
+        ls.setItem("nova_questao", 1);
+        ls.setItem("questoes", JSON.stringify(result));
+        callback(result);
+      } else {
+        data = JSON.parse(ls.getItem("questoes"));
+        callback(data);
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
