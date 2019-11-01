@@ -8,8 +8,8 @@ class QuestaoSchema extends Schema {
     this.create('questoes', (table) => {
       table.increments('questao_id')
       table.string('questao_enunciado', 254).notNullable()
-      table.integer('quiz_fk_id').unsigned().notNullable();
-      table.foreign('quiz_fk_id').references('quiz_id').inTable('quizzes');
+      table.integer('quiz_id').unsigned().notNullable();
+      table.foreign('quiz_id').references('quiz_id').inTable('quizzes');
       table.timestamps()
     })
   }

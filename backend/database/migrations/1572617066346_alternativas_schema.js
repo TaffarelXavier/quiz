@@ -6,12 +6,12 @@ const Schema = use('Schema')
 class AlternativasSchema extends Schema {
   up () {
     this.create('alternativas', (table) => {
-      table.increments('alternat_id')
-      table.string('alternat_letra', 2).notNullable()
-      table.string('alternat_descricao', 254);
+      table.increments('alternativa_id')
+      table.string('alternativa_letra', 2).notNullable()
+      table.string('alternativa_descricao', 254);
       table.boolean('alternat_correta').notNullable()
-      table.integer('questao_fk_id').unsigned().notNullable();
-      table.foreign('questao_fk_id').references('questao_id').inTable('questoes');
+      table.integer('questao_id').unsigned().notNullable();
+      table.foreign('questao_id').references('questao_id').inTable('questoes');
       table.timestamps()
     })
   }

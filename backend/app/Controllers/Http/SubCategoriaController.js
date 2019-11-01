@@ -5,12 +5,12 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with alternativas
+ * Resourceful controller for interacting with subcategorias
  */
-class AlternativaController {
+class SubCategoriaController {
   /**
-   * Show a list of all alternativas.
-   * GET alternativas
+   * Show a list of all subcategorias.
+   * GET subcategorias
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -18,12 +18,11 @@ class AlternativaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    
   }
 
   /**
-   * Render a form to be used for creating a new alternativa.
-   * GET alternativas/create
+   * Render a form to be used for creating a new subcategoria.
+   * GET subcategorias/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -34,8 +33,8 @@ class AlternativaController {
   }
 
   /**
-   * Create/save a new alternativa.
-   * POST alternativas
+   * Create/save a new subcategoria.
+   * POST subcategorias
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -45,8 +44,8 @@ class AlternativaController {
   }
 
   /**
-   * Display a single alternativa.
-   * GET alternativas/:id
+   * Display a single subcategoria.
+   * GET subcategorias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -57,8 +56,8 @@ class AlternativaController {
   }
 
   /**
-   * Render a form to update an existing alternativa.
-   * GET alternativas/:id/edit
+   * Render a form to update an existing subcategoria.
+   * GET subcategorias/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -69,8 +68,8 @@ class AlternativaController {
   }
 
   /**
-   * Update alternativa details.
-   * PUT or PATCH alternativas/:id
+   * Update subcategoria details.
+   * PUT or PATCH subcategorias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -80,8 +79,8 @@ class AlternativaController {
   }
 
   /**
-   * Delete a alternativa with id.
-   * DELETE alternativas/:id
+   * Delete a subcategoria with id.
+   * DELETE subcategorias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -91,4 +90,4 @@ class AlternativaController {
   }
 }
 
-module.exports = AlternativaController
+module.exports = SubCategoriaController

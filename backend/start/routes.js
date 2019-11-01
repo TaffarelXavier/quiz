@@ -18,9 +18,7 @@ const Route = use('Route')
 const Database = use('Database')
 
 Route.get('/', () => {
-  Database
-  .table('users')
-  .select('*')
-  .on('query', console.log)
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.resource('quiz', 'QuizController')

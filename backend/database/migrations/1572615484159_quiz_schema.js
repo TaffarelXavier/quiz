@@ -7,10 +7,10 @@ class QuizSchema extends Schema {
   up () {
     this.create('quizzes', (table) => {
       table.increments('quiz_id')
-      table.string('title', 254).notNullable()
-      table.string('description', 254)
-      table.integer('categoria_fk_id').unsigned().notNullable();
-      table.foreign('categoria_fk_id').references('categoria_id').inTable('categorias');
+      table.string('titulo', 254).notNullable()
+      table.string('descricao', 254)
+      table.integer('sub_categoria_id').unsigned().notNullable();
+      table.foreign('sub_categoria_id').references('sub_categoria_id').inTable('sub_categorias');
       table.timestamps()
     })
   }
