@@ -7,7 +7,7 @@ class CategoriaSchema extends Schema {
   up () {
     this.create('categorias', (table) => {
       table.increments('categoria_id')
-      table.string('titulo', 254).notNullable()
+      table.string('titulo', 254).notNullable().unique()
       table.timestamps()
     })
   }

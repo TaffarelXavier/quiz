@@ -20,21 +20,24 @@ class QuizController {
    * @param {View} ctx.view
    */
   async index({ request, response, view }) {
-    const quiz = await Quiz.find(1);
-    const questoes = await quiz.questoes().fetch();
-    response.send(questoes);
-  }
+    const { quiz_id } = request.get();
 
-  /**
-   * Render a form to be used for creating a new quiz.
-   * GET quizzes/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create({ request, response, view }) {}
+    if (quiz_id !== null) {
+      const quiz = await Quiz.find(quiz_id);
+
+      if (quiz !== null) {
+        const questao = await Quiz.query()
+          .with("questoes.alternativas")
+          .where("quiz_id", quiz_id)
+          .fetch();
+
+        return response.send(questao);
+      }
+      return response.send({});
+    } else {
+      response.send({ result: null });
+    }
+  }
 
   /**
    * Create/save a new quiz.
@@ -44,7 +47,21 @@ class QuizController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {}
+  async store({ request, response }) {
+    const { titulo, sub_categoria_id } = request.all();
+
+    const { id } = JSON.parse(sub_categoria_id)[0];
+
+    const quiz = new Quiz();
+
+    quiz.titulo = titulo;
+    //quiz.descricao = descricao;
+    quiz.sub_categoria_id = id;
+
+    await quiz.save();
+
+    response.send(quiz);
+  }
 
   /**
    * Display a single quiz.

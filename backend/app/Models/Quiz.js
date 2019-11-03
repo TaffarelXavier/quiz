@@ -12,6 +12,7 @@ class Quiz extends Model {
   questoes() {
     return this.hasMany("App/Models/Questao");
   }
+ 
 }
 
 module.exports = Quiz;

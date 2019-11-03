@@ -1,219 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Material Design for Bootstrap fonts and icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Material Design for Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
-      crossorigin="anonymous"
-    />
-    <title>Questões</title>
-    <link rel="stylesheet" href="assets/css/questoes.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h3>Adicionar Questão</h3>
-      <a href="../">Voltar</a>
-      <hr />
-      <div class="row">
-        <div class="col-md-6">
-          <form>
-            <div class="form-row">
-              <div class="col-md-12 mb-12">
-                <fieldset>
-                  <legend>
-                    <label for="validationDefault01">Enuciado:</label>
-                  </legend>
-                  <textarea
-                    class="form-control"
-                    id="enuciado_id"
-                    rows="3"
-                    autofocus
-                    name="enuciado"
-                  ></textarea>
-                </fieldset>
+  <!-- Material Design for Bootstrap fonts and icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+  <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous" />
+  <title>Questões</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="assets/css/questoes.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class='row'>
+      <div class='col-md-6'>
+        <fieldset>
+          <legend>Criar Novo Quiz</legend>
+          <form method="POST" id="form-criar-quiz">
+            <label for="">Nome do quiz:</label><br />
+            <input type="text" class="col-md-12 form-control" name="titulo" required autofocus="true"><br />
+            <!-- <label for="">Descrição:</label><br />
+            <input type="text" class="col-md-12" name="descricao" required><br /> -->
+            <!-- <label for="">Sub-categoria:</label><br />
+            <input type="hidden" name="sub_categoria_id" id="sub_categoria_id" required> -->
+            <div class="row">
+              <div class='col-md-12'>
+                <label for="">Escolha assuntos relevantes:</label><br>
+                <select class="js-example-basic-single col-md-12" name="state" required>
+                  <option value="">Selecione...</option>
+                </select>
               </div>
-            </div>
-            <fieldset>
-              <legend>
-                <label for="validationDefault01">Alternantiva A:</label>
-              </legend>
-              <textarea class="form-control" rows="2" name="alt_a"></textarea>
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="customRadio1"
-                  name="customRadio"
-                  class="custom-control-input"
-                  data-questao="a"
-                />
-                <label class="custom-control-label" for="customRadio1"
-                  >Esta é a questão correta</label
-                >
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend><label>Alternantiva B:</label></legend>
-              <textarea class="form-control" rows="2" name="alt_b"></textarea>
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="customRadio2"
-                  name="customRadio"
-                  class="custom-control-input"
-                  data-questao="b"
-                />
-                <label class="custom-control-label" for="customRadio2"
-                  >Esta é a questão correta</label
-                >
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend><label>Alternantiva C:</label></legend>
-              <textarea class="form-control" rows="2" name="alt_c"></textarea>
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="customRadio3"
-                  name="customRadio"
-                  class="custom-control-input"
-                  data-questao="c"
-                />
-                <label class="custom-control-label" for="customRadio3"
-                  >Esta é a questão correta</label
-                >
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend><label>Alternantiva D:</label></legend>
-              <textarea class="form-control" rows="2" name="alt_d"></textarea>
-              <div class="custom-control custom-radio">
-                <input
-                  type="radio"
-                  id="customRadio4"
-                  name="customRadio"
-                  class="custom-control-input"
-                  data-questao="d"
-                />
-                <label class="custom-control-label" for="customRadio4"
-                  >Esta é a questão correta</label
-                >
-              </div>
-            </fieldset>
-            <br />
-            <button
-              type="button"
-              id="btn-salvar-questao"
-              class="btn btn-raised  btn-lg btn-primary"
-            >
-              Salvar Nota
-            </button>
+            </div><br>
+            <button class="btn btn-raised btn-primary">Avançar</button>
           </form>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class='col-md-12' id="get-data-quiz">
+          </div>
         </div>
-        <div class="col-md-6"></div>
       </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(document).ready(function() {
+    <div class="row" hidden>
+      <div class="col-md-12">
+        <h3>Adicionar Questão</h3>
+        <a href="../">Voltar</a>
+        <hr />
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-row">
+            <div class="col-md-12 mb-12">
+              <fieldset>
+                <legend>
+                  <label for="validationDefault01">Enuciado:</label>
+                </legend>
+                <textarea class="form-control" id="enuciado_id" rows="3" autofocus name="enuciado"></textarea>
+              </fieldset>
+            </div>
+          </div>
+          <fieldset>
+            <legend>
+              <label for="validationDefault01">Alternantiva A:</label>
+            </legend>
+            <textarea class="form-control" rows="2" name="alt_a"></textarea>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" data-questao="a" />
+              <label class="custom-control-label" for="customRadio1">Esta é a questão correta</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><label>Alternantiva B:</label></legend>
+            <textarea class="form-control" rows="2" name="alt_b"></textarea>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" data-questao="b" />
+              <label class="custom-control-label" for="customRadio2">Esta é a questão correta</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><label>Alternantiva C:</label></legend>
+            <textarea class="form-control" rows="2" name="alt_c"></textarea>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" data-questao="c" />
+              <label class="custom-control-label" for="customRadio3">Esta é a questão correta</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><label>Alternantiva D:</label></legend>
+            <textarea class="form-control" rows="2" name="alt_d"></textarea>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" data-questao="d" />
+              <label class="custom-control-label" for="customRadio4">Esta é a questão correta</label>
+            </div>
+          </fieldset>
+          <br />
+          <button type="button" id="btn-salvar-questao" class="btn btn-raised btn-lg btn-primary">
+            Salvar Nota
+          </button>
+        </form>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+  <!-- <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+    integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+    integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script> -->
+  <script src="assets/js/controller.js"></script>
+  <script src="assets/js/questoes.js"></script>
+</body>
 
-        $("body").bootstrapMaterialDesign();
-
-        const ls = window.localStorage;
-
-        $("#btn-salvar-questao").click(() => {
-          var form = document.getElementsByTagName("form")[0];
-
-          let { enuciado, alt_a, alt_b, alt_c, alt_d } = form.elements;
-
-          let altA = alt_a.value;
-          let altB = alt_b.value;
-          let altC = alt_c.value;
-          let altD = alt_d.value;
-
-          let questaoCorreta = "";
-
-          var alternaticasCorretas = document.getElementsByName("customRadio");
-
-          //Pega a alternativa correta.
-
-          Object.values(alternaticasCorretas).map(el => {
-            if (el.checked) {
-              questaoCorreta = el.getAttribute("data-questao");
-            }
-          });
-
-          if (questaoCorreta === "") {
-            alert("Marque uma questão correta.");
-          } else {
-            var questao = {
-              enuciado: enuciado.value,
-              alterA: altA,
-              alterB: altB,
-              alterC: altC,
-              alterD: altD,
-              alternativaCorreta: questaoCorreta,
-            };
-
-            var questoes = [];
-
-            if (!ls.getItem("todas_questoes")) {
-              questoes.push(questao);
-
-              ls.setItem("todas_questoes", JSON.stringify(questoes));
-            } else {
-              var questoes = JSON.parse(ls.getItem("todas_questoes"));
-
-              var questa1 = JSON.stringify(questoes);
-
-              questoes.push(questao);
-
-              ls.setItem("todas_questoes", JSON.stringify(questoes));
-
-              var questa2 = ls.getItem("todas_questoes");
-
-              if (!(questa1 === questa2)) {
-                alert("Questão adicionada com sucesso!");
-              } else {
-                alert("Houve um erro!");
-              }
-            }
-          }
-        });
-        $("#enuciado_id")
-          .select()
-          .focus();
-      });
-    </script>
-  </body>
 </html>

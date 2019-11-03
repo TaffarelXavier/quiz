@@ -17,8 +17,8 @@
 const Route = use('Route')
 const Database = use('Database')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
 
-Route.resource('quiz', 'QuizController')
+Route.resource('quiz', 'QuizController');
+Route.resource('categoria', 'CategoriaController');
+Route.resource('sub_categoria', 'SubCategoriaController');
+Route.resource('questao', 'QuestaoController');
