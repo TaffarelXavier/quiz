@@ -22,7 +22,8 @@ class QuizController {
   async index({ request, response, view }) {
     const { quiz_id } = request.get();
 
-    if (quiz_id !== null) {
+    if (quiz_id !== null && quiz_id !== undefined) {
+  
       const quiz = await Quiz.find(quiz_id);
 
       if (quiz !== null) {
@@ -35,7 +36,8 @@ class QuizController {
       }
       return response.send({});
     } else {
-      response.send({ result: null });
+      const quizzes = await Quiz.all();
+      response.send(quizzes);
     }
   }
 

@@ -4,13 +4,13 @@
 const Model = use("Model");
 
 class SubCategoria extends Model {
-  //
-  static get table() {
-    return "sub_categorias";
-  }
-  static get primaryKey() {
-    return "sub_categoria_id";
-  }
+  
+  // static get table() {
+  //   return "sub_categorias";
+  // }
+  // static get primaryKey() {
+  //   return "sub_categoria_id";
+  // }
 }
 
 module.exports = SubCategoria;

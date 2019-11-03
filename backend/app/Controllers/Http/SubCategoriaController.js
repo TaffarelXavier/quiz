@@ -58,7 +58,7 @@ class SubCategoriaController {
   async store({ request, response }) {
     const { sub_titulo, categoria_id } = request.all();
 
-    console.log(sub_titulo, categoria_id);
+    console.log(request.all());
 
     const subCateg = new SubCategoria();
 

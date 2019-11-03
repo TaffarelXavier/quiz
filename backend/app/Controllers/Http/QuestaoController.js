@@ -31,12 +31,11 @@ class QuestaoController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-    const { enunciado, quiz_id, alternativas } = request.all();
+    const { enunciado, quiz_id, alternativas, modalidade } = request.all();
 
     const questoes = new Questao();
-
     questoes.questao_enunciado = enunciado;
-
+    questoes.questao_modalidade = modalidade;
     questoes.quiz_id = quiz_id;
 
     await questoes.save();
