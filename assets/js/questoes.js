@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   const formCriarQuestao = ({ quiz_id }) => {
     return `<form method="POST" id="form-criar-questao">
-        <h3><strong>Questão</strong></h3>
+        <h3><strong>Nova Questão</strong></h3>
         <label>Enuciado:</label>
         <textarea class="form-control" placeholder="Adicione o enunciado da questão"
         required name="enunciado" rows="6"></textarea>
@@ -69,7 +69,7 @@ $(document).ready(function() {
     alternativas,
     questao_correcao
   }) => {
-    let conteudo = `<details id="questao_${questao_id}">
+    let conteudo = `<details open id="questao_${questao_id}">
   <summary><strong>${
     questao_enunciado === undefined ? "Nome do Quiz" : questao_enunciado
   }</strong></summary><hr/>`;
@@ -159,6 +159,8 @@ $(document).ready(function() {
           conteudoQuestoes += questaoDetalhe(data);
         }
 
+        conteudoQuestoes+='<a href="">Responder Novamente</a>'
+
         $("#get-questoes").html(conteudoQuestoes);
 
         //Responder quando for verdadeiro ou falso:
@@ -174,9 +176,9 @@ $(document).ready(function() {
           let red = "#d84315",
             green = "#2e7d32";
           if (resposta == "1") {
-            alert("Você acertou!");
+            //alert("Você acertou!");
           } else {
-            alert("Você errou!");
+            //alert("Você errou!");
           }
 
           if (resposta == "1" && _this.attr("class").includes("certo")) {
@@ -214,14 +216,14 @@ $(document).ready(function() {
           let red = "#d84315",
             green = "#2e7d32";
           if (questaoCorreta === "1") {
-            alert("Você acertou!");
+            //alert("Você acertou!");
             questao.find(".errada").css({ background: red, color: "white" });
             _this.css({ background: green, color: "white" });
           } else {
             questao.find(".errada").css({ background: red, color: "white" });
             questao.find(".certa").css({ background: green, color: "white" });
             _this.css({ border: "2px dashed black" });
-            alert("Você errou!");
+            //alert("Você errou!");
           }
           $(`#correcao_${questaoId}`).removeAttr("hidden");
         });
