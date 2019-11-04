@@ -78,6 +78,8 @@ $(document).ready(function() {
       return 0.5 - Math.random();
     });
 
+    var letras = ["a", "b", "c", "d", "e"];
+
     let alt = alternativas.map(
       (
         {
@@ -90,21 +92,23 @@ $(document).ready(function() {
       ) => {
         if (questao_modalidade === "1") {
           //Multipla-escolha
+          var letra = letras[index];
+
           var _data = "";
-          if (index === 0) {
-            _data += `<div class="col-md-12"><p data-questao-correta="${alternativa_correta}">A) ${alternativa_resposta}</p></div>`;
-          } else if (index === 1) {
-            _data += `<div class="col-md-12"><p data-questao-correta="${alternativa_correta}">B) ${alternativa_resposta}</p></div>`;
-          } else if (index === 2) {
-            _data += `<div class="col-md-12"><p data-questao-correta="${alternativa_correta}">C) ${alternativa_resposta}</p></div>`;
-          } else if (index === 3) {
-            _data += `<div class="col-md-12"><p data-questao-correta="${alternativa_correta}">D) ${alternativa_resposta}</p></div>`;
-          } else if (index === 4) {
-            _data += `<div class="col-md-12"><p data-questao-correta="${alternativa_correta}">E) ${alternativa_resposta}</p></div>`;
+
+          if (alternativa_correta === 1) {
+            _data += `<div class="col-md-12"><p class="multipla-escolha certa" data-questao-id="${questao_id}"
+            data-questao-correta="${alternativa_correta}">
+           ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
+          } else {
+            _data += `<div class="col-md-12"><p class="multipla-escolha errada" data-questao-id="${questao_id}"
+            data-questao-correta="${alternativa_correta}">
+           ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
           }
+
           return _data;
         }
-
+        //Verdade-Falso
         let data = `<div class="col-md-6">`;
 
         if (alternativa_resposta == "1") {
@@ -147,9 +151,9 @@ $(document).ready(function() {
 
         let conteudoQuestoes = "<h3><strong>Suas Questões</strong></h3>";
 
-        questoes = questoes.sort((a, b)=>{
+        questoes = questoes.sort((a, b) => {
           return 0.5 - Math.random();
-        })
+        });
 
         for (let data of questoes) {
           conteudoQuestoes += questaoDetalhe(data);
@@ -194,29 +198,31 @@ $(document).ready(function() {
             questao.find(".errado").css({ background: red, color: "white" });
             questao.find(".certo").css({ background: green, color: "white" });
           }
+          $(`#correcao_${questaoId}`).removeAttr("hidden");
+        });
 
-          /*if (_this.attr("class").includes("certo")) {
-            if (resposta == "1") {
-              questao.find(".errado").css({ background: red, color: "white" });
-              questao.find(".certo").css({ background: green, color: "white" });
-            } else {
-              questao
-                .find(".errado")
-                .css({ background: green, color: "white" });
-              questao.find(".certo").css({ background: red, color: "white" });
-            }
+        //.multipla-escolha
+        $(".multipla-escolha").click(function() {
+          var _this = $(this);
+
+          var questaoCorreta = _this.attr("data-questao-correta");
+
+          var questaoId = _this.attr("data-questao-id");
+
+          var questao = $(`#questao_${questaoId}`);
+
+          let red = "#d84315",
+            green = "#2e7d32";
+          if (questaoCorreta === "1") {
+            alert("Você acertou!");
+            questao.find(".errada").css({ background: red, color: "white" });
+            _this.css({ background: green, color: "white" });
           } else {
-            if (resposta == "1") {
-              questao
-                .find(".errado")
-                .css({ background: green, color: "white" });
-
-              questao.find(".certo").css({ background: red, color: "white" });
-            } else {
-              questao.find(".errado").css({ background: red, color: "white" });
-              questao.find(".certo").css({ background: green, color: "white" });
-            }
-          }*/
+            questao.find(".errada").css({ background: red, color: "white" });
+            questao.find(".certa").css({ background: green, color: "white" });
+            _this.css({ border: "2px dashed black" });
+            alert("Você errou!");
+          }
           $(`#correcao_${questaoId}`).removeAttr("hidden");
         });
 
@@ -268,7 +274,10 @@ $(document).ready(function() {
       });
     } else {
       Quiz.all(function(result) {
-        console.log(result);
+        result = result.map(el => {
+          return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a><br/>`;
+        });
+        $("#get-quizzes").html(result.join(""));
       });
     }
   };
