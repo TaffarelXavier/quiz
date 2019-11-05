@@ -17,3 +17,10 @@ label {
     /* border:1px solid red !important; */
     width: 100%;
   }
+
+  pre{
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 1.3rem;
+    clear: both;
+  }

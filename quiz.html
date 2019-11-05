@@ -1,103 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
+      crossorigin="anonymous"
+    />
+    <title>Questões</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/questoes.css" />
+    <link rel="stylesheet" href="assets/css/flashcard.css" />
+    <style>
+      .verdadeiro-falso {
+        padding: 30px;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-size: 40px;
+        border-radius: 8px;
+        cursor: pointer;
+        opacity: 0.8;
+        /* background: #2196f3; */
+        border: 0;
+      }
+      .verdadeiro-falso:hover {
+        box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+      }
+      details {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
+        padding: 10px;
+        margin-bottom: 6px;
+      }
+      .multipla-escolha:hover {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
+        cursor: pointer;
+      }
+      .line-20 {
+        height: 20px;
+      }
 
-  <!-- Material Design for Bootstrap fonts and icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
-  <link rel="stylesheet"
-    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-    integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous" />
-  <title>Questões</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
-  <link rel="stylesheet" href="assets/css/questoes.css" />
-  <style>
-    .verdadeiro-falso {
-      padding: 30px;
-      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      font-size: 40px;
-      border-radius: 8px;
-      cursor: pointer;
-      opacity: 0.8;
-      /* background: #2196f3; */
-      border:0;
-    }
-    .verdadeiro-falso:hover{
-      box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.5);
-      opacity: 1;
-    }
-    details {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
-      padding: 10px;
-      margin-bottom: 6px;
-    }
-    .multipla-escolha:hover{
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
-      cursor: pointer;
-    }
-  </style>
-</head>
+      .line-30 {
+        height: 30px;
+      }
 
-<body>
-  <div class="container">
-    <div class='row'>
-      <div class='col-md-6'>
-        <div class="row">
-          <div class="col-md-12">
-            <fieldset>
-              <legend>Criar Novo Quiz</legend>
-              <form method="POST" id="form-criar-quiz">
-                <label for="">Nome do quiz:</label><br />
-                <input type="text" class="col-md-12 form-control" name="titulo" required autofocus="true"><br />
-                <!-- <label for="">Descrição:</label><br />
+      .line-50 {
+        height: 50px;
+      }
+
+      .br {
+        border-radius: 8px;
+      }
+
+      .wrapper {
+        width: 0px;
+        animation: fullView 0.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .comment {
+        background: #777;
+        margin-top: 15px;
+      }
+
+      @keyframes fullView {
+        100% {
+          width: 100%;
+        }
+      }
+
+      .animate {
+        animation: shimmer 2s infinite linear;
+        background: linear-gradient(
+          to right,
+          #eff1f3 4%,
+          #e2e2e2 25%,
+          #eff1f3 36%
+        );
+        background-size: 1000px 100%;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+      .flash-card{
+        width: 80%;
+        height: 250px;
+        border: 1px solid #ccc;
+        padding:10px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px;
+        margin:0px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <legend>Criar Novo Quiz</legend>
+                <form method="POST" id="form-criar-quiz">
+                  <label for="">Nome do quiz:</label><br />
+                  <input
+                    type="text"
+                    class="col-md-12 form-control"
+                    name="titulo"
+                    required
+                    autofocus="true"
+                  /><br />
+                  <!-- <label for="">Descrição:</label><br />
                     <input type="text" class="col-md-12" name="descricao" required><br /> -->
-                <!-- <label for="">Sub-categoria:</label><br />
+                  <!-- <label for="">Sub-categoria:</label><br />
                     <input type="hidden" name="sub_categoria_id" id="sub_categoria_id" required> -->
-                <div class="row">
-                  <div class='col-md-12'>
-                    <label for="">Escolha assuntos relevantes:</label><br>
-                    <select class="js-example-basic-single col-md-12" name="state" required>
-                      <option value="">Selecione...</option>
-                    </select>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="">Escolha assuntos relevantes:</label><br />
+                      <select
+                        class="js-example-basic-single col-md-12"
+                        name="state"
+                        required
+                      >
+                        <option value="">Selecione...</option>
+                      </select>
+                    </div>
                   </div>
-                </div><br>
-                <button class="btn btn-raised btn-primary">Avançar</button>
-                <a href="./quiz.html" class="btn btn-raised btn-primary">Voltar</a>
-              </form>
-            </fieldset>
+                  <br />
+                  <button class="btn btn-raised btn-primary">Avançar</button>
+                  <a href="./quiz.html" class="btn btn-raised btn-primary"
+                    >Voltar</a
+                  >
+                </form>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" id="get-questoes">
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+            </div>
+            <div class="col-md-12" id="get-quizzes">
+              <!-- <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div> -->
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12" id="get-questoes"></div>
-          <div class="col-md-12" id="get-quizzes"></div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class='col-md-12' id="get-data-quiz">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12" id="get-inserir-quiz">
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+              <div class="comment br animate line-20"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-  <!-- <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <!-- <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
     integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
     integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script> -->
-  <script src="assets/js/controller.js"></script>
-  <script src="assets/js/questoes.js"></script>
-</body>
-
+    <script src="assets/js/controller.js"></script>
+    <script src="assets/js/flashcard.js"></script>
+    <script src="assets/js/quiz.js"></script>
+  </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+   <link rel="stylesheet" href="assets/css/flashcard.css">
+  </head>
+  <body>
+    <div class="cols">
+      <div class="coluna">
+        <div class="container">
+          <div class="front" style="background: #1e8cc2">
+            <div class="inner">
+              <p>O que é github?</p>
+              <!-- <span>Lorem ipsum</span> -->
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+                cum repellat velit quae suscipit c.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        $(".front").click(function() {
+          $(this).css({
+            webkitTransform: "rotateY(-180deg)",
+            transform: "rotateY(-180deg)",
+            webkitTransformStyle: "preserve-3d;",
+            transformStyle: "preserve-3d;",
+          });
+          $(".back").css({
+            webkitTransform: "rotateY(0deg)",
+            transform: "rotateY(0deg)",
+            webkitTransformStyle: "preserve-3d;",
+            transformStyle: "preserve-3d;",
+          });
+        });
+        $(".back").click(function() {
+          $(this).css({
+            webkitTransform: "rotateY(180deg)",
+            transform: "rotateY(180deg)",
+            webkitTransformStyle: "preserve-3d;",
+            transformStyle: "preserve-3d;",
+          });
+          $(".front").css({
+            webkitTransform: "rotateY(0deg)",
+            transform: "rotateY(0deg)",
+            webkitTransformStyle: "preserve-3d;",
+            transformStyle: "preserve-3d;",
+          });
+        });
+        
+      });
+    </script>
+  </body>
+</html>
