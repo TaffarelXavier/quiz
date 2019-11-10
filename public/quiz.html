@@ -26,95 +26,7 @@
     />
     <link rel="stylesheet" href="assets/css/questoes.css" />
     <link rel="stylesheet" href="assets/css/flashcard.css" />
-    <style>
-      .verdadeiro-falso {
-        padding: 30px;
-        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-        text-align: center;
-        font-size: 40px;
-        border-radius: 8px;
-        cursor: pointer;
-        opacity: 0.8;
-        /* background: #2196f3; */
-        border: 0;
-      }
-      .verdadeiro-falso:hover {
-        box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.5);
-        opacity: 1;
-      }
-      details {
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
-        padding: 10px;
-        margin-bottom: 6px;
-      }
-      .multipla-escolha:hover {
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
-        cursor: pointer;
-      }
-      .line-20 {
-        height: 20px;
-      }
-
-      .line-30 {
-        height: 30px;
-      }
-
-      .line-50 {
-        height: 50px;
-      }
-
-      .br {
-        border-radius: 8px;
-      }
-
-      .wrapper {
-        width: 0px;
-        animation: fullView 0.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      .comment {
-        background: #777;
-        margin-top: 15px;
-      }
-
-      @keyframes fullView {
-        100% {
-          width: 100%;
-        }
-      }
-
-      .animate {
-        animation: shimmer 2s infinite linear;
-        background: linear-gradient(
-          to right,
-          #eff1f3 4%,
-          #e2e2e2 25%,
-          #eff1f3 36%
-        );
-        background-size: 1000px 100%;
-      }
-
-      @keyframes shimmer {
-        0% {
-          background-position: -1000px 0;
-        }
-
-        100% {
-          background-position: 1000px 0;
-        }
-      }
-      .flash-card{
-        width: 80%;
-        height: 250px;
-        border: 1px solid #ccc;
-        padding:10px;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        border-radius: 7px;
-        margin:0px auto;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/quiz.css" />
   </head>
 
   <body>
@@ -201,6 +113,6 @@
     crossorigin="anonymous"></script> -->
     <script src="assets/js/controller.js"></script>
     <script src="assets/js/flashcard.js"></script>
-    <script src="assets/js/quiz.js"></script>
+    <script src="assets/js/quiz/quiz.js"></script>
   </body>
 </html>

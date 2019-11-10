@@ -7,7 +7,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data,
+      data: data
     });
   });
 
@@ -32,9 +32,42 @@ $(document).ready(function() {
     return false;
   });
 
-  const novaQuestao = letra => {
-    return `<label><input type="radio" name="alter-correta" required/>Alternativa ${letra.toUpperCase()}:</label>
+  const novaQuestao = () => {
+    //
+    let alternativas = Object.values($(".alternativa")).filter(el => {
+      return el.name;
+    });
+
+    var alfabeto = [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u"
+    ];
+
+    let letra = alfabeto[alternativas.length];
+
+    var conteudo = `<label><input type="radio" name="alter-correta" required/>Alternativa ${letra.toUpperCase()}:</label>
     <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa ${letra}" name="${letra}" required=""></textarea>`;
+
+    $("#obter-mais-questoes").append(conteudo);
   };
 
   const formCriarQuestao = ({ quiz_id }) => {
@@ -46,15 +79,18 @@ $(document).ready(function() {
         <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
         <input type="hidden" name="quiz_id" value="${quiz_id}"/>
         <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
-        <label><input type="radio" name="alter-correta" required/>Alternativa B:</label>
-        <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required=""></textarea>
+        <!--<label><input type="radio" name="alter-correta" required/>Alternativa B:</label>
+        <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required=""></textarea>-->
         <div id="obter-mais-questoes"></div><br/>
         <label>Modalidade:</label><br/>
-        <select name="modalidade" class="form-control" required>
+        <select name="modalidade" id="modalidade_id" class="form-control" required>
           <option value="">Selecione...</option> 
-          <option value="1">Múltipa-escolha</option> 
+          <option value="1" selected="selected">Múltipa-escolha</option> 
           <option value="0">Verdadeiro-Falso</option> 
-        </select><br/><br/>
+        </select><br/>
+        <label>Correção da questão:</label>
+        <textarea class="form-control explicacao" rows="3" placeholder="Explicação da questão"></textarea>
+        <br>
         <button id="btn-add-questao" class="btn btn-raised btn-primary" type="button">Add Alternativa</button>
         <button type="submit" class="btn btn-raised btn-primary">Salvar Questão</button></form>`;
   };
@@ -65,7 +101,7 @@ $(document).ready(function() {
     questao_enunciado,
     questao_modalidade,
     alternativas,
-    questao_correcao,
+    questao_correcao
   }) => {
     let enunciado =
       questao_enunciado === undefined
@@ -89,7 +125,7 @@ $(document).ready(function() {
           alternativa_id,
           alternativa_letra,
           alternativa_resposta,
-          alternativa_correta,
+          alternativa_correta
         },
         index
       ) => {
@@ -236,34 +272,33 @@ $(document).ready(function() {
             let red = "#d84315",
               green = "#2e7d32";
             if (questaoCorreta === "1") {
-              //alert("Você acertou!");
+              alert("Você acertou!");
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
             } else {
               questao.find(".errada").css({ background: red, color: "white" });
               questao.find(".certa").css({ background: green, color: "white" });
               _this.css({ border: "2px dashed black" });
-              //alert("Você errou!");
+              alert("Você errou!");
             }
             $(`#correcao_${questaoId}`).removeAttr("hidden");
           });
 
           var conteudo = `<label>Nome do Quiz:</label>
-  <h3>${titulo}</h3><hr/>${formCriarQuestao({ quiz_id })}`;
+          <h3>${titulo}</h3><hr/>${formCriarQuestao({ quiz_id })}`;
 
           $("#get-inserir-quiz").html(conteudo); //Add conteúdo
 
+          $("#modalidade_id").change(function() {
+            var index = this.selectedIndex;
+            if (index == 2) {
+              novaQuestao();
+            }
+          });
+
           //Evento: add nova alternativa
           $("#btn-add-questao").click(() => {
-            let alternativas = Object.values($(".alternativa")).filter(el => {
-              return el.name;
-            });
-
-            var letras = ["a", "b", "c", "d", "e"];
-
-            let letra = letras[alternativas.length];
-
-            $("#obter-mais-questoes").append(novaQuestao(letra));
+            novaQuestao();
           });
 
           $("#form-criar-questao").submit(function() {
@@ -283,7 +318,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null,
+                questao_id: null
               };
             });
 

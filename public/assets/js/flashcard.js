@@ -24,7 +24,7 @@ const cartao = ({
     <div class="container-flashcard">
       <div class="front" id="card_front_${questao_id}" data-card-id="${questao_id}" style="background: #1e8cc2">
         <div class="inner">
-          <p><pre>${questao_enunciado}</pre></p>
+          <p><pre class="flash-enunciado">${questao_enunciado}</pre></p>
           <!-- <span>Lorem ipsum</span> -->
         </div>
       </div>

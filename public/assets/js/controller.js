@@ -1,4 +1,4 @@
-const URL_API = "http://127.0.0.1:3333";
+const URL_API = `http://${window.location.hostname}:3333`;
 // $("body").bootstrapMaterialDesign();
 
 /**
