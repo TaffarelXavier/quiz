@@ -203,7 +203,9 @@ $(document).ready(function() {
           }
         } else {
           conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - 
-          <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a></h3>`;
+          <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a>
+          <a href="">Atualizar</a>
+          </h3>`;
 
           questoes = questoes.sort((a, b) => {
             return 0.5 - Math.random();
