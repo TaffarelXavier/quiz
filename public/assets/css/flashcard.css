@@ -145,3 +145,15 @@
       margin: 0 0 2rem 0;
     }
   }
+
+  .flash-card{
+    width: 80%;
+    height: 250px;
+    border: 1px solid #ccc;
+    padding:10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    margin:0px auto;
+  }

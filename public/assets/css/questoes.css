@@ -1,26 +1,24 @@
 label {
-    font-size: 14px !important;
-    font-weight: 900;
-  }
-  textarea {
-    padding: 0px !important;
-    /* border:1px solid red !important; */
-    outline: 0 !important;
-  }
-  fieldset {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0px 0px 10px 5px rgba(204, 204, 204, 0.673) !important;
-  }
-  .custom-control-label{
-    /* border:1px solid red !important; */
-    width: 100%;
-  }
+  font-size: 14px !important;
+  font-weight: 900;
+}
+textarea {
+  padding: 0px !important;
+  outline: 0 !important;
+}
+fieldset {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 10px 5px rgba(204, 204, 204, 0.673) !important;
+}
+.custom-control-label {
+  width: 100%;
+}
 
-  pre{
-    font-family: "Montserrat";
-    font-weight: 400;
-    font-size: 1.3rem;
-    clear: both;
-  }
+pre {
+  font-family: "Quicksand";
+  font-weight: 400;
+  font-size: 1.3rem;
+  clear: both;
+}

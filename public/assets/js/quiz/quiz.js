@@ -1,6 +1,36 @@
 $(document).ready(function() {
   var eventSelect = $(".js-example-basic-single");
 
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  }
+
+  const ALFABETO = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u"
+  ];
+
   SubCategoria.all(result => {
     let data = result.map(({ sub_categoria_id, sub_titulo }) => {
       return { id: sub_categoria_id, text: sub_titulo };
@@ -32,37 +62,14 @@ $(document).ready(function() {
     return false;
   });
 
+  //Adicionar nova questão:
   const novaQuestao = () => {
     //
     let alternativas = Object.values($(".alternativa")).filter(el => {
       return el.name;
     });
 
-    var alfabeto = [
-      "a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u"
-    ];
-
-    let letra = alfabeto[alternativas.length];
+    let letra = ALFABETO[alternativas.length];
 
     var conteudo = `<label><input type="radio" name="alter-correta" required/>Alternativa ${letra.toUpperCase()}:</label>
     <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa ${letra}" name="${letra}" required=""></textarea>`;
@@ -72,7 +79,7 @@ $(document).ready(function() {
 
   const formCriarQuestao = ({ quiz_id }) => {
     return `<form method="POST" id="form-criar-questao">
-        <h3><strong>Nova Questão</strong></h3>
+        <h3><strong>Nova Questão</strong><button type="button" id="add-from-external-text">add</button></h3>
         <label>Enuciado:</label>
         <textarea class="form-control" placeholder="Adicione o enunciado da questão"
         required name="enunciado" rows="6"></textarea>
@@ -106,9 +113,7 @@ $(document).ready(function() {
     let enunciado =
       questao_enunciado === undefined
         ? "Nome do Quiz"
-        : "<pre style='color:black !important;font-weight:bold;'>" +
-          questao_enunciado +
-          "</pre>";
+        : "<pre class='questao-enunciado'>" + questao_enunciado + "</pre>";
 
     let conteudo = `<details open id="questao_${questao_id}">
   <summary style='padding:0 !important;margin:0px;'><strong>${enunciado}</strong></summary><hr/>`;
@@ -117,36 +122,32 @@ $(document).ready(function() {
       return 0.5 - Math.random();
     });
 
-    var letras = ["a", "b", "c", "d", "e"];
-
     let alt = alternativas.map(
-      (
-        {
-          alternativa_id,
-          alternativa_letra,
-          alternativa_resposta,
-          alternativa_correta
-        },
-        index
-      ) => {
+      ({ alternativa_resposta, alternativa_correta }, index) => {
         if (questao_modalidade === "1") {
           //Multipla-escolha
-          var letra = letras[index];
+          var letra = ALFABETO[index];
 
           var _data = "";
+          var red = getRandomIntInclusive(0, 255);
+          var green = getRandomIntInclusive(0, 255);
+          var blue = getRandomIntInclusive(0, 255);
+
+          var bgColor = `rgba(${red},${green},${blue},0.1)`;
 
           if (alternativa_correta === 1) {
-            _data += `<div class="col-md-12"><p class="multipla-escolha certa" data-questao-id="${questao_id}"
+            _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
            ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
           } else {
-            _data += `<div class="col-md-12"><p class="multipla-escolha errada" data-questao-id="${questao_id}"
+            _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
            ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
           }
 
           return _data;
         }
+
         //Verdade-Falso
         let data = `<div class="col-md-6">`;
 
@@ -171,7 +172,11 @@ $(document).ready(function() {
         <i>${questao_correcao}</i></p>`;
     }
 
-    conteudo += `</details>`;
+    if (questao_modalidade == "1") {
+      conteudo += `<p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
+    }
+
+    conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/>`;
 
     return conteudo;
   }; //FIM
@@ -197,7 +202,8 @@ $(document).ready(function() {
             $("#get-inserir-quiz").hide();
           }
         } else {
-          conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a></h3>`;
+          conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - 
+          <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a></h3>`;
 
           questoes = questoes.sort((a, b) => {
             return 0.5 - Math.random();
@@ -272,22 +278,108 @@ $(document).ready(function() {
             let red = "#d84315",
               green = "#2e7d32";
             if (questaoCorreta === "1") {
-              alert("Você acertou!");
+              $("#explicacao_" + questaoId)
+                .html("Parabéns! Você acertou!")
+                .removeAttr("hidden")
+                .css({
+                  color: "#23be87"
+                });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
             } else {
               questao.find(".errada").css({ background: red, color: "white" });
               questao.find(".certa").css({ background: green, color: "white" });
               _this.css({ border: "2px dashed black" });
-              alert("Você errou!");
+              $("#explicacao_" + questaoId)
+                .html("Voce errou!!!")
+                .removeAttr("hidden")
+                .css({
+                  color: "red"
+                });
             }
-            $(`#correcao_${questaoId}`).removeAttr("hidden");
+            $(`#correcao_${questaoId}`)
+              .html("Voce errou!!!")
+              .removeAttr("hidden");
           });
 
           var conteudo = `<label>Nome do Quiz:</label>
           <h3>${titulo}</h3><hr/>${formCriarQuestao({ quiz_id })}`;
 
+          //Adiciona o conteúdo de inserção de questões
           $("#get-inserir-quiz").html(conteudo); //Add conteúdo
+
+          function insertAtCursor(myField, myValue) {
+            //IE support
+            if (document.selection) {
+              myField.focus();
+              sel = document.selection.createRange();
+              sel.text = myValue;
+            }
+            //MOZILLA and others
+            else if (myField.selectionStart || myField.selectionStart == "0") {
+              var startPos = myField.selectionStart;
+              var endPos = myField.selectionEnd;
+              myField.value =
+                myField.value.substring(0, startPos) +
+                myValue +
+                myField.value.substring(endPos, myField.value.length);
+            } else {
+              myField.value += myValue;
+            }
+          }
+          const enunciadoEl = document.getElementsByName("enunciado");
+
+          function copiarQuestaoExterna(texto) {
+            try {
+       
+              var str = texto; //É o texto de qualquer lugar
+              setTimeout(function() {
+                console.log('adfad')
+                if (str.length > 0) {
+                  if (str.includes("taffa")) {
+                    let m = str.split("taffa");
+
+                    let enuciado = m[0];
+
+                    let alternativas = m[1];
+
+                    document.getElementsByName("enunciado")[0].value = enuciado;
+
+                    var questao = alternativas.split("\n");
+
+                    questao = questao.filter(el => {
+                      //console.log(el)
+                      return el.length > 0 && el.match(/^a|b|c|d|e|f|g|h|\)|\s+$/gm)
+                        ? el
+                        : false;
+                    });
+
+                    var quantLinhas = questao.length;
+
+                    for (var i = 0; i < quantLinhas - 1; i++) {
+                      novaQuestao();
+                    }
+
+                    var alternativaEl = document.getElementsByClassName(
+                      "alternativa"
+                    );
+                    for (var i = 0; i < quantLinhas; i++) {
+                      alternativaEl[i].value = questao[i];
+                    }
+                  }
+                }
+              }, 200);
+            } catch (error) {
+              alert(error);
+            }
+          }
+
+          enunciadoEl[0].onkeyup = function(ev) {};
+
+          $("#add-from-external-text").click(function() {
+            insertAtCursor(enunciadoEl[0], "taffa");
+            copiarQuestaoExterna(enunciadoEl[0].value);
+          });
 
           $("#modalidade_id").change(function() {
             var index = this.selectedIndex;
@@ -296,7 +388,7 @@ $(document).ready(function() {
             }
           });
 
-          //Evento: add nova alternativa
+          //Botão > Evento: add nova alternativa
           $("#btn-add-questao").click(() => {
             novaQuestao();
           });
@@ -337,7 +429,6 @@ $(document).ready(function() {
           return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> | 
           <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
         });
-        //$("#get-quizzes").html(result.join(""));
         $("#get-questoes").html(result.join(""));
         $("#get-inserir-quiz").html("");
       });

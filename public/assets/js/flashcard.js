@@ -37,7 +37,7 @@ const cartao = ({
       </div>
     </div>
   </div>
-  <img src="../assets/images/flashcard_shadow-7d95fac1c27baecdd207703e32d658d5b5fffd90f5f764b6ef44ca8cfcba8b43.png" />
+  <img src="assets/images/flashcard_shadow-7d95fac1c27baecdd207703e32d658d5b5fffd90f5f764b6ef44ca8cfcba8b43.png" />
 </div>
 </div>
 </div>`;
