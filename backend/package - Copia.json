@@ -5,7 +5,9 @@
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start2": "node server.js",
+    "test": "node ace test",
+    "start": "concurrently \"adonis serve --dev\" \"cd.. && cd /d public && serve\""
   },
   "keywords": [
     "adonisjs",

@@ -28,7 +28,7 @@ $(document).ready(function() {
     "r",
     "s",
     "t",
-    "u"
+    "u",
   ];
 
   SubCategoria.all(result => {
@@ -37,7 +37,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data
+      data: data,
     });
   });
 
@@ -103,20 +103,28 @@ $(document).ready(function() {
   };
 
   //INÍCIO
-  const questaoDetalhe = ({
-    questao_id,
-    questao_enunciado,
-    questao_modalidade,
-    alternativas,
-    questao_correcao
-  }) => {
+  const questaoDetalhe = (
+    {
+      questao_id,
+      questao_enunciado,
+      questao_modalidade,
+      alternativas,
+      questao_correcao,
+      incremento,
+    },
+    titulo
+  ) => {
     let enunciado =
       questao_enunciado === undefined
         ? "Nome do Quiz"
         : "<pre class='questao-enunciado'>" + questao_enunciado + "</pre>";
 
     let conteudo = `<details open id="questao_${questao_id}">
-  <summary style='padding:0 !important;margin:0px;'><strong>${enunciado}</strong></summary><hr/>`;
+  <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
+      <strong>${incremento} > ${titulo} </strong>
+  </summary>
+  <summary style='padding:0px !important;margin:0px;'>
+  <strong>${enunciado}</strong></summary><hr/>`;
 
     alternativas = alternativas.sort(function(a, b) {
       return 0.5 - Math.random();
@@ -138,11 +146,11 @@ $(document).ready(function() {
           if (alternativa_correta === 1) {
             _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
-           ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
+           <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
           } else {
             _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
-           ${letra.toUpperCase()}) ${alternativa_resposta}</p></div>`;
+            <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
           }
 
           return _data;
@@ -172,9 +180,9 @@ $(document).ready(function() {
         <i>${questao_correcao}</i></p>`;
     }
 
-    if (questao_modalidade == "1") {
-      conteudo += `<p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
-    }
+    //if (questao_modalidade == "1") {
+    conteudo += `<p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
+    //}
 
     conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/>`;
 
@@ -202,6 +210,7 @@ $(document).ready(function() {
             $("#get-inserir-quiz").hide();
           }
         } else {
+
           conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - 
           <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a>
           <a href="">Atualizar</a>
@@ -211,8 +220,26 @@ $(document).ready(function() {
             return 0.5 - Math.random();
           });
 
+          var incremento = 0;
+
+          PesquisarPorPalavraChave.pesquisar(function(text) {
+
+            var resultadoFiltro;
+
+            resultadoFiltro = questoes.filter(el => {
+              if (el.questao_enunciado.includes(text)) {
+                return el;
+              }
+            });
+            
+            console.log(resultadoFiltro);
+
+          });
+
           for (let data of questoes) {
-            conteudoQuestoes += questaoDetalhe(data);
+            incremento++;
+            data.incremento = incremento;
+            conteudoQuestoes += questaoDetalhe(data, titulo);
           }
 
           conteudoQuestoes += '<a href="">Responder Novamente</a>';
@@ -229,13 +256,23 @@ $(document).ready(function() {
 
             var questao = $(`#questao_${questaoId}`);
 
-            let red = "#d84315",
+            let red = "rgba(229,58,5,0.8)",
               green = "#2e7d32";
 
             if (resposta == "1") {
-              //alert("Você acertou!");
+              $("#explicacao_" + questaoId)
+                .html("Parabéns! Você acertou!")
+                .removeAttr("hidden")
+                .css({
+                  color: "#23be87",
+                });
             } else {
-              //alert("Você errou!");
+              $("#explicacao_" + questaoId)
+                .html("Você errou!!!")
+                .removeAttr("hidden")
+                .css({
+                  color: "red",
+                });
             }
 
             if (resposta == "1" && _this.attr("class").includes("certo")) {
@@ -269,6 +306,7 @@ $(document).ready(function() {
 
           //.multipla-escolha
           $(".multipla-escolha").click(function() {
+
             var _this = $(this);
 
             var questaoCorreta = _this.attr("data-questao-correta");
@@ -277,26 +315,26 @@ $(document).ready(function() {
 
             var questao = $(`#questao_${questaoId}`);
 
-            let red = "#d84315",
+            let red = "rgba(208,29,29,0.94)",
               green = "#2e7d32";
             if (questaoCorreta === "1") {
               $("#explicacao_" + questaoId)
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87"
+                  color: "#23be87",
                 });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
             } else {
               questao.find(".errada").css({ background: red, color: "white" });
               questao.find(".certa").css({ background: green, color: "white" });
-              _this.css({ border: "2px dashed black" });
+              _this.css({ background: red, border: "2px dashed black" });
               $("#explicacao_" + questaoId)
-                .html("Voce errou!!!")
+                .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red"
+                  color: "red",
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -333,10 +371,9 @@ $(document).ready(function() {
 
           function copiarQuestaoExterna(texto) {
             try {
-       
               var str = texto; //É o texto de qualquer lugar
               setTimeout(function() {
-                console.log('adfad')
+                console.log("adfad");
                 if (str.length > 0) {
                   if (str.includes("taffa")) {
                     let m = str.split("taffa");
@@ -351,7 +388,8 @@ $(document).ready(function() {
 
                     questao = questao.filter(el => {
                       //console.log(el)
-                      return el.length > 0 && el.match(/^a|b|c|d|e|f|g|h|\)|\s+$/gm)
+                      return el.length > 0 &&
+                        el.match(/^a|b|c|d|e|f|g|h|\)|\s+$/gm)
                         ? el
                         : false;
                     });
@@ -412,7 +450,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null
+                questao_id: null,
               };
             });
 
