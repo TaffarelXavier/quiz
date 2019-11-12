@@ -22,3 +22,7 @@ Route.resource('quiz', 'QuizController');
 Route.resource('categoria', 'CategoriaController');
 Route.resource('sub_categoria', 'SubCategoriaController');
 Route.resource('questao', 'QuestaoController');
+
+Route.get('/', ({ view }) => {
+    return view.render('questoes')
+  })
