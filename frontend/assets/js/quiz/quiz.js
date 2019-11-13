@@ -220,21 +220,16 @@ $(document).ready(function() {
             return 0.5 - Math.random();
           });
 
-          var incremento = 0;
-
-          PesquisarPorPalavraChave.pesquisar(function(text) {
-
+          /*PesquisarPorPalavraChave.pesquisar(function(text) {
             var resultadoFiltro;
-
             resultadoFiltro = questoes.filter(el => {
               if (el.questao_enunciado.includes(text)) {
                 return el;
               }
             });
-            
             console.log(resultadoFiltro);
-
-          });
+          });*/
+          var incremento = 0;
 
           for (let data of questoes) {
             incremento++;
