@@ -1,67 +1,4204 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" dir="ltr" lang="pt-BR"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" dir="ltr" lang="pt-BR"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" dir="ltr" lang="pt-BR"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html dir="ltr" lang="pt-BR">
+  <!--<![endif]-->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-   <link rel="stylesheet" href="assets/css/flashcard.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="description"
+      content="Encontre os melhores eventos na sua cidade! Shows, congressos, seminários, cursos, workshops, eventos esportivos e muito mais."
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sympla.com.br/css/sympla-event-cards.css?v=0.29"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.sympla.com.br/css/public/footer.css?v=2.2"
+    />
+    <style type="text/css">
+      /*<![CDATA[*/
+
+      @media (max-width: 767px) {
+        section#all-results-list .dropdown {
+          position: relative !important;
+          top: 0 !important;
+          right: 0 !important;
+          padding: 5px 0 20px;
+          text-align: right;
+        }
+      }
+      .filter-section {
+        padding-top: 100px;
+        padding-bottom: 16px;
+      }
+
+      .spinner-more {
+        display: none;
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      .order-by {
+        border-radius: 3px;
+        background-color: #fff;
+        color: #777;
+        padding: 5px;
+        margin-left: 3px;
+        font-size: 13px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .more-venues {
+        display: none;
+      }
+      /*]]>*/
+    </style>
+    <style type="text/css">
+      /*<![CDATA[*/
+
+      .thumb-col {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        background-repeat: no-repeat;
+        margin-right: 16px;
+      }
+
+      /*]]>*/
+    </style>
+    <script
+      type="text/javascript"
+      src="/assets/bae2309b/jquery.min.js"
+    ></script>
+    <title>O melhor lugar para você fazer questões - TX Questões</title>
+
+    <meta name="keywords" content="palavras chaves" />
+
+    <meta
+      property="og:description"
+      content="A plataforma online de questões, na qual, você pode fazer..."
+    />
+    <meta
+      property="og:image"
+      content="http://www.sympla.com.br/images/logo-sympla-for-facebook.png"
+    />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="sitelock-site-verification" content="5174" />
+
+    <link rel="icon" href="/images/public/favicon/favicon.ico?v=2.0" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/images/public/favicon/new/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/images/public/favicon/new/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/images/public/favicon/new/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/images/public/favicon/new/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/images/public/favicon/new/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/images/public/favicon/new/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/images/public/favicon/new/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/images/public/favicon/new/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/public/favicon/new/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/images/public/favicon/new/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/public/favicon/new/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/public/favicon/new/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/public/favicon/new/favicon-16x16.png"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="/images/public/favicon/new/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
+    <link
+      href="https://www.sympla.com.br/css/public/bootstrap.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/jquery-ui.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/font-awesome.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/icomoon.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/animate.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/linearicons/style.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/base.css?v=1.147"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/style.css?v=1.007"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/banner-collections-componets.css?v=1.002"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/banner-collections.css?v=1.047"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/buttons.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/swiper.min.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.sympla.com.br/css/public/jquery.dropdown.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
-  <body>
-    <div class="cols">
-      <div class="coluna">
-        <div class="container">
-          <div class="front" style="background: #1e8cc2">
-            <div class="inner">
-              <p>O que é github?</p>
-              <!-- <span>Lorem ipsum</span> -->
+  <body data-offset="62" data-spy="scroll" data-target=".navbar">
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MXLMPC"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="globalNotify"></div>
+    <div id="nav-home" class="navbar navbar-fixed-top navbar-sympla no-print">
+      <div class="">
+        <div class="main-logo-block">
+          <a href="/" class="main-logo w-inline-block">
+            <h1 class="logo">Tx Questões</h1>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 visible-lg tag-search">
+          <div class="input-group input-search" id="input-search-navbar">
+            <i class="fa icon-search-2"></i>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Digite o nome da cidade, evento ou selecione uma categoria"
+              id="tags"
+              autocomplete="nope"
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-8 col-md-9 col-lg-5 pull-right">
+          <button
+            type="button"
+            class="navbar-toggle collapsed visible-xs"
+            id="menu-icon-nav"
+            data-toggle="collapse"
+            data-target="#menu-navigation-collapsed"
+            aria-expanded="false"
+          >
+            <i class="fa icon-menu-2"></i>
+            <i class="fa icon-close-2" style="display:none;"></i>
+          </button>
+          <button
+            type="button"
+            class="navbar-toggle collapsed hidden-sm hidden-md hidden-lg"
+            data-toggle="collapse"
+            data-target="#search-bar-collapsed"
+          >
+            <i class="fa icon-search-2"></i>
+          </button>
+
+          <nav id="my-nav" class=" nav hidden-xs" role="navigation" style="">
+            <ul class="nav navbar-nav nav-publicar">
+              <li class="nav-li">
+                <a href="#">Organizadores de Eventos</a>
+              </li>
+              <li class="nav-li">
+                <a onclick="showDialogLogin(realoadNavbarWhite);">Login</a>
+              </li>
+              <li class="nav-li">
+                <a onclick="showDialogRegistration(realoadNavbarWhite);"
+                  >Criar conta</a
+                >
+              </li>
+              <li>
+                <a
+                  class="btn-event"
+                  href="javascript:showLoginAndRedirect('/criar-evento')"
+                  >+ RESPONDER QUESTÕES</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div
+        class="collapse navbar-collapse navbar-menu"
+        id="menu-navigation-collapsed"
+      >
+        <div class="header-social-block">
+          <ul>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="facebook sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="sympla-header-social-icon twitter w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="linkedin sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="instagram sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="about-nav-block">
+          <ul>
+            <li class="nav-li">
+              <a
+                href="https://www.sympla.com.br/sobre-sympla"
+                class="about nav-link"
+                >Sobre a Tx Concursos</a
+              >
+            </li>
+            <li class="nav-li">
+              <a
+                href="https://ajuda.sympla.com.br/hc/pt-br"
+                target="_blank"
+                class="about nav-link"
+                >Central de ajuda</a
+              >
+            </li>
+            <li class="nav-li">
+              <a
+                href="http://blog.sympla.com.br/"
+                target="_blank"
+                class="about nav-link"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </div>
+        <ul>
+          <li class="">
+            <a href="/como-funciona">Organizadores de Eventos</a>
+          </li>
+          <li class="">
+            <a onclick="showDialogLogin(realoadNavbarWhite)">Login</a>
+          </li>
+          <!-- <li class=""><a href="">Login</a></li> -->
+          <li class="">
+            <a onclick="showRegResp(realoadNavbarWhite)">Criar conta</a>
+          </li>
+          <li>
+            <a
+              class="btn btn-outline btn-fill-white"
+              href="javascript:showLoginAndRedirect('/criar-evento')"
+              >+Publicar evento</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="dropdown_auth"
+      class="s-dropdown s-dropdown-tip s-dropdown-anchor-right"
+      style="margin-top: 24px;"
+    >
+      <ul class="s-dropdown-menu text-left">
+        <li>
+          <a href="/pagina-do-organizador">P&aacute;gina do organizador</a>
+        </li>
+        <li><a href="/minha-conta">Minha conta</a></li>
+        <li><a href="javascript:logout();">Sair</a></li>
+      </ul>
+    </div>
+    <div class="globalShadow"></div>
+    <section class="filter-section">
+      <div class="container" style="padding: 0 15px;">
+        <div class="row">
+          <div class="col-xs-12 nopadding sympla-search-bar hidden-xs">
+            <div class="input-group" id="symplaSearchBarInput">
+              <input
+                type="text"
+                value=""
+                class="form-control"
+                aria-label="Pesquisar eventos"
+                placeholder="Pesquisar eventos"
+                name="input-full-search-home"
+                id="inputFullSearchHome"
+              />
+              <span class="fa icon-search-2" style="left:50%"></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Pesquisar por cidade"
+                aria-label="Pesquisar por cidade"
+                id="inputCitySearchHome"
+              />
+              <span class="fa icon-location" style="left:100%"></span>
+            </div>
+            <div class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span id="searchForData" style="float:left;">
+                  Todas as datas
+                </span>
+                <i class="fa icon-selection"></i>
+              </button>
+              <ul class="dropdown-menu" id="dropdownMenuDates">
+                <li><a data-period="">Todas as datas</a></li>
+                <li><a data-period="hoje">Hoje</a></li>
+                <li><a data-period="amanha">Amanhã</a></li>
+                <li><a data-period="esta-semana">Esta semana</a></li>
+                <li>
+                  <a data-period="este-fim-de-semana">Este fim de semana</a>
+                </li>
+                <li><a data-period="proxima-semana">Próxima semana</a></li>
+                <li><a data-period="este-mes">Este mês</a></li>
+              </ul>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="searchEventsByFilters"
+              >
+                <span class="visible-md visible-lg">Procurar</span>
+                <span class="hidden-md hidden-lg"
+                  ><i class="icon-search-2"></i
+                ></span>
+              </button>
             </div>
           </div>
-          <div class="back">
-            <div class="inner">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
-                cum repellat velit quae suscipit c.
+          <div class="sympla-search-bar visible-xs">
+            <div class="input-group">
+              <input
+                type="text"
+                id="search-bar-collapsed-input"
+                class="form-control "
+                aria-label="Pesquisar eventos"
+                placeholder="Pesquisar eventos"
+                data-toggle="collapse"
+                data-target="#search-bar-collapsed"
+              />
+              <span class="fa icon-search-2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="search-bar-collapsed">
+          <!-- <img class="fa-close pull-right" aria-hidden="true" data-toggle="collapse" data-target="#search-bar-collapsed" src="/images/public/close.png" alt="fechar"> -->
+          <button
+            type="button"
+            class="navbar-toggle collapsed visible-xs"
+            id="menu-icon-nav"
+            data-toggle="collapse"
+            data-target="#search-bar-collapsed"
+          >
+            <i class="fa icon-close-2"></i>
+          </button>
+          <!-- <i class="fa fa-close pull-right" aria-hidden="true" data-toggle="collapse" data-target="#search-bar-collapsed"></i> -->
+          <div class="input-group first1">
+            <input
+              type="text"
+              class="form-control"
+              value=""
+              placeholder="Pesquisar eventos"
+              id="inputFullSearchHomeResp"
+            />
+            <i class="fa icon-search-2"></i>
+          </div>
+          <div class="input-group" id="inputCitySearchHomeContainer">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquisar por cidade"
+              aria-label="Pesquisar por cidade"
+              id="inputCitySearchHomeResp"
+            />
+            <span class="fa icon-location"></span>
+          </div>
+          <div class="input-group with-dropdown">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span id="searchForDataResp"> Todas as datas </span
+              ><span class="fa icon-selection"></span>
+            </button>
+            <ul class="dropdown-menu" id="dropdownMenuDatesResp">
+              <li><a data-period="">Todas as datas</a></li>
+              <li><a data-period="hoje">Hoje</a></li>
+              <li><a data-period="amanha">Amanhã</a></li>
+              <li><a data-period="esta-semana">Esta semana</a></li>
+              <li>
+                <a data-period="este-fim-de-semana">Este fim de semana</a>
+              </li>
+              <li><a data-period="proxima-semana">Próxima semana</a></li>
+              <li><a data-period="este-mes">Este mês</a></li>
+            </ul>
+          </div>
+          <div class="input-group-button">
+            <button
+              type="button"
+              class="btn btn-danger btn-block"
+              id="searchEventsByFiltersResp"
+            >
+              Procurar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-section">
+      <div class="container" style="position:relative; padding: 0 15px;">
+        <div class="result-list header-block w-clearfix">
+          <div class="title-block">
+            <h3 class="list-result-title">
+              <span class="hyde-on-mobile"></span
+              ><strong class="counter-2">51</strong> locais encontrados
+            </h3>
+          </div>
+        </div>
+        <div class="list venue w-clearfix w-list-unstyled row">
+          <div class="col-md-4 search-result-li venue">
+            <a
+              href="https://www.sympla.com.br/teatrorenaissance"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Renaissance</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Alameda Santos, 2233 - Jardins, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue">
+            <a
+              href="https://www.sympla.com.br/teatroiguatemicampinas"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Iguatemi Campinas</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Shopping Center Iguatemi Campinas, 777, Campinas - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue">
+            <a
+              href="https://www.sympla.com.br/theatronetsp"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Theatro NET SP</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Olimpíadas, 360 - 5° Piso, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/teatrogazeta"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Gazeta</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Avenida Paulista, 900, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/teatroprocopioferreira"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Procópio Ferreira</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Augusta, 2823, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/auditorioibirapuera"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Auditório Ibirapuera Oscar Niemeyer</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Av. Pedro Álvares Cabral, Portão, 2, São Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/teatroaliancafrancesa"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Aliança Francesa</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua General Jardim, 182, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrosantander"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Santander</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Avenida Presidente Juscelino Kubitschek, 2041, São Paulo -
+                    SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrosergiocardoso"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Sérgio Cardoso</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Rui Barbosa, 153, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/farolsantandersp"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Farol Santander</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua João Brícola, 24, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/espacoculturalrenatorusso"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Espaço Cultural Renato Russo 508 Sul</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Crs 508 s/n, Brasília - DF</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/arenapp"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>Arena PP</span></div>
+                <div class="event-location venue-card">
+                  <span>Rua Uriel Gaspar, , 149, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrovivo"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro VIVO</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Avenida Doutor Chucri Zaidan, 2460 - Morumbi, São Paulo -
+                    SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/tuca/"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>TUCA / PUC-SP</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Monte Alegre, 1024 - Perdizes, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/theatronetrio"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Theatro NET Rio</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Siqueira Campos, 143, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/tombrasil/"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>Tom Brasil</span></div>
+                <div class="event-location venue-card">
+                  <span>Rua Bragança Paulista, 1281, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/viradalata"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Viradalata Espaço Capital</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Apinajés, 1387, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrofernandotorres"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Fernando Torres</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Padre Estevão Pernet, 588, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrodrbotica"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Dr. Botica</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Rua Domingos Agostim, 91 - Shopping Metrô Tatuapé, São
+                    Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/operanatelasp"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Museu da Casa Brasileira</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Avenida Brigadeiro Faria Lima, 2705, São Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/zorro"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>033ROOFTOP</span></div>
+                <div class="event-location venue-card">
+                  <span
+                    >Av. Juscelino Kubtscheck, 2041 - Teatro Santander, São
+                    Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/redercircus"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span
+                    >Estacionamento do Grand Plaza Shopping Santo André</span
+                  >
+                </div>
+                <div class="event-location venue-card">
+                  <span>Avenida Industrial, 600, Santo André - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/theatrobangu"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Theatro Bangu</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Fonseca, 240, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/paris6burlesque"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Paris 6 Burlesque Music Hall & Bistro</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Augusta, 2805, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/casanaturamusical/"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Casa Natura Musical</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Artur de Azevedo, 2134, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroprudential"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Prudential</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua do Russel, 804, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/imperator"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Imperator Centro Cultural João Nogueira</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Dias da Cruz - 170, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/mis"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>MIS - Museu da Imagem e do Som</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Avenida Europa, 158, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/parador12"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Parador 12 - P12</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Ser. José Cardoso de Oliveira, Florianópolis - SC</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroestadualdeararas"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Estadual de Araras - Maestro Paulo Russo</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Av. Dona Renata, 4901, Araras - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/inhotim"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>Inhotim</span></div>
+                <div class="event-location venue-card">
+                  <span>R. B, 20, Brumadinho - MG</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroraulcortez"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Raul Cortez</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Doutor Plínio Barreto, 285, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/teatrodasartes/"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro das Artes</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Av. Rebouças, 3970 - Loja 409, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="http://www.sympla.com.br/teatropetragold"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Petra Gold</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua Conde de Bernadotte, 26, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroxpinvestimentos"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro XP Investimentos</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Av. Bartolomeu Mitre, 1110 - B, Rio de Janeiro - RJ</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/bluenote"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Blue Note RJ</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Av. Vieira Souto, 110, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/misexperience"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>MIS – Experience</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Vladimir Herzog, 75, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/teatrofreicaneca"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Frei Caneca</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Rua Frei Caneca, 569 - 7º andar (Shopping Frei Caneca)
+                    Consolação, São Paulo/SP, São Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/theatroviasulfortaleza"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>THEATRO VIA SUL FORTALEZA</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Av. Washington Soares, 4335, Fortaleza - CE</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroriachuelorio"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Riachuelo RJ</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua do Passeio , 40, Rio de Janeiro - RJ</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/bourbonstreet"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Bourbon Street</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Rua dos Chanes, 127, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatrojardimsul"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Jardim Sul</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span> Av. Giovani Gronchi, 5819, São Paulo - SP</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/milk"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>MILK</span></div>
+                <div class="event-location venue-card">
+                  <span
+                    >SERV. JOSE DE CARDOSO DE OLIVEIRA, Florianópolis - SC</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/batman"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Memorial da América Latina</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Av. Auro Soares de Moura Andrade, 664, São Paulo - SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatronovo"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Novo</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Rua Domingos de Morais, 348 - Centro Comercial, São Paulo -
+                    SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/pepsionstage"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Pepsi on Stage</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span>Av. Severo Dullius , 1995, Porto Alegre - RS</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/opiniao"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card"><span>Opinião</span></div>
+                <div class="event-location venue-card">
+                  <span>Rua José do Patrocínio, 834, Porto Alegre - RS</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://www.sympla.com.br/teatroevaherz"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Eva Herz SP (SP)</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Av. Paulista, 2073 - Conjunto Nacional., São Paulo -
+                    SP</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 search-result-li venue more-venues">
+            <a
+              href="https://site.bileto.sympla.com.br/teatrofashionmall"
+              target="_blank"
+              class="sympla-card local w-inline-block w-clearfix"
+            >
+              <div class="map-thumb"></div>
+              <div class="event-info-block venue-card-list-var">
+                <div class="event-name event-card">
+                  <span>Teatro Fashion Mall</span>
+                </div>
+                <div class="event-location venue-card">
+                  <span
+                    >Estrada da Gávea, 899 - loja 213, Rio de Janeiro - RJ</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+          <a
+            id="more-venues"
+            class="btn btn-dark-transparent btn-outline btn-block"
+            >Carregar mais</a
+          >
+        </div>
+        <script type="text/javascript">
+          $("#more-venues").click(function() {
+            $("#more-venues").hide();
+            $(".more-venues").show();
+          });
+        </script>
+      </div>
+    </section>
+    <section id="all-results-list" class="bg-section">
+      <div class="">
+        <div class="container" style="position:relative; padding: 0 15px;">
+          <h3><strong>21753</strong> questões encontradas</h3>
+        </div>
+      </div>
+      <div class="container nopadding">
+        <div class="row">
+          <div id="events-grid">
+            <div class="content-section">
+              <div class="content-wrapper">
+                <ul class="search-result-list w-clearfix">
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/i-forum-startup-rio-a-protecao-de-dados-sob-a-otica-da-lgpd__706851"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dc0485668e2d-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">08:45</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >I Fórum Startup RIO: A Proteção de Dados sob a
+                            Ótica da LGPD</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Auditório da Escola de Contas e Gestão do TCE -RJ -
+                          Rio de Janeiro, RJ
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/workshop-elabore-bons-relatorios-em-muriae-mg__705194"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="705194"
+                      data-name="Workshop Elabore bons Relatrios em Muria-MG"
+                      data-position="2"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dbd7e9f63f6b-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Workshop Elabore bons Relatórios em Muriaé-MG</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Centro Cultural Grande Hotel Muriaé - Muriaé, MG
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/figmalovers---workshop---do-zero-ate-o-smart-animate--componentizacao__714753"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="714753"
+                      data-name="FigmaLovers - Workshop - Do ZERO at o Smart Animate  Componentizao"
+                      data-position="3"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dc98a803809b-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >FigmaLovers - Workshop - Do ZERO até o Smart
+                            Animate & Componentização</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Nexus - Hub de Inovação PqTec - São José dos Campos,
+                          SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/festival-ods__616693"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="616693"
+                      data-name="Festival ODS "
+                      data-position="4"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db0d167a8745-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>Festival ODS </span>
+                        </div>
+                        <div class="event-location event-card">
+                          Biblioteca Mário de Andrade - São Paulo, SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/workshop-sistema-de-compras-eletronicas-governo-de-sao-paulo--sistema-de-compras-das-nacoes-unidas__707465"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="707465"
+                      data-name="Workshop sistema de compras eletrnicas governo de So Paulo  sistema de compras das Naes Unidas"
+                      data-position="5"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dc2d924a1455-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Workshop sistema de compras eletrônicas governo de
+                            São Paulo & sistema de compras das Nações
+                            Unidas</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Onu Mulheres - São Paulo, SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/encontro-de-negocios---multissetorial__682975"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="682975"
+                      data-name="Encontro de Negcios - Multissetorial"
+                      data-position="6"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db8575dc855f-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>Encontro de Negócios - Multissetorial</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Tulip Inn Itaguaí - Itaguaí, RJ
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/curso-pratico-matematica-financeira-hp-12-c----ead-em-tempo-real__709668"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="709668"
+                      data-name="Curso Prtico Matemtica Financeira HP 12 C.  - EAD (Em tempo real). "
+                      data-position="7"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d9c9b61920c4-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Curso Prático Matemática Financeira HP 12 C. - EAD
+                            (Em tempo real).
+                          </span>
+                        </div>
+                        <div class="event-location event-card">
+                          Salvador Shopping Bussines,Edficio Torre América -
+                          Salvador, BA
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/diversidade-racial---workshop-de-formacao-programa-de-mentoring__693074"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="693074"
+                      data-name="Diversidade Racial - Workshop de Formao: Programa de Mentoring"
+                      data-position="8"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('/images/public/featured_default.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Diversidade Racial - Workshop de Formação: Programa
+                            de Mentoring</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          <div>EVENTO ONLINE</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/treinamento-sistema-inteligente-de-monitoramento-sim-next__695762"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="695762"
+                      data-name="Treinamento Sistema Inteligente de Monitoramento S.I.M. Next"
+                      data-position="9"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db202912f764-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Treinamento Sistema Inteligente de Monitoramento
+                            S.I.M. Next</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Horus Telecom - Goiânia, GO
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/indicadores-de-desempenho-na-pratica__675564"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="675564"
+                      data-name="Indicadores de Desempenho na Prtica"
+                      data-position="10"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d3f70d60c99f-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>Indicadores de Desempenho na Prática</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Espaço de Treinamentos - São Paulo, SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/curso-de-formacao-em-barras-de-access__693669"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="693669"
+                      data-name="CURSO DE FORMAO EM BARRAS DE ACCESS"
+                      data-position="11"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db046dfac195-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>CURSO DE FORMAÇÃO EM BARRAS DE ACCESS</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Espaço Vida Yoga, Arte e Terapias - São Leopoldo, RS
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/inferfonia-condominial-analogica----blumenau__696766"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="696766"
+                      data-name="Inferfonia Condominial Analgica  - Blumenau"
+                      data-position="12"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db33c1d395c8-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Inferfonia Condominial Analógica - Blumenau</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Digital Sat Blumenau - Blumenau, SC
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/desperte-seu-melhor-com-cores__689262"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="689262"
+                      data-name="DESPERTE SEU MELHOR COM CORES"
+                      data-position="13"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dcaedad5ce8a-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>DESPERTE SEU MELHOR COM CORES</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Rio Mendonza - Belém, PA
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/curso-iniciantes-em-redes-gpon-e-epon--penha__699894"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="699894"
+                      data-name="CURSO INICIANTES EM REDES GPON E EPON | PENHA"
+                      data-position="14"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d8e57cea5962-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >CURSO INICIANTES EM REDES GPON E EPON | PENHA</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          <div>EVENTO ONLINE</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/treinamento-controle-de-acesso-corporativo__703419"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="703419"
+                      data-name="Treinamento Controle de Acesso Corporativo "
+                      data-position="15"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5dbb2a9c77f24-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Treinamento Controle de Acesso Corporativo
+                          </span>
+                        </div>
+                        <div class="event-location event-card">
+                          SOL TELECOM UNIDADE CAMPO GRANDE/MS - Campo Grande, MS
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/workshop-regional-issbd-brasil-2019__679865"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="679865"
+                      data-name="Workshop Regional ISSBD Brasil 2019"
+                      data-position="16"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d9fa6da4abcc-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>Workshop Regional ISSBD Brasil 2019</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Universidade Federal de Santa Catarina Campus
+                          Florianópolis - Florianópolis, SC
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/onleadership---the-world-tour-em-belem---edicao-1__643541"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="643541"
+                      data-name="Onleadership - The World Tour em Belm - Edio 1"
+                      data-position="17"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d77edda01c6c-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Onleadership - The World Tour em Belém - Edição
+                            1</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Radisson Hotel Belém - Belém, PA
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/iii-seminario-internacional-trabalho-no-brasil-e-na-franca__602185"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="602185"
+                      data-name="III Seminrio Internacional Trabalho no Brasil e na Frana"
+                      data-position="18"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('/images/public/featured_default.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >III Seminário Internacional Trabalho no Brasil e na
+                            França</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Instituto de Economia da Unicamp - Campinas, SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/mais-luz---seminario-de-iluminacao--rj__638522"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="638522"
+                      data-name="Mais Luz - Seminrio de Iluminao  RJ"
+                      data-position="19"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d8a543e42473-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span>Mais Luz - Seminário de Iluminação / RJ</span>
+                        </div>
+                        <div class="event-location event-card">
+                          Auditório da Estácio de Sá - Campus Tom Jobim - Rio de
+                          Janeiro, RJ
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/6-maratona-de-negocios-das-mulheres-empreendedoras__651351"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="651351"
+                      data-name="6 Maratona de negcios das mulheres empreendedoras "
+                      data-position="20"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5d80fec40a851-xs.jpg');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >6 Maratona de negócios das mulheres empreendedoras
+                          </span>
+                        </div>
+                        <div class="event-location event-card">
+                          Adamastor Centro - Guarulhos, SP
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      href="https://www.sympla.com.br/produtividade-turbinada---acredite-voce-pode-ir-muito-alem__694364"
+                      target="_blank"
+                      class="sympla-card w-inline-block"
+                      data-bannerid="694364"
+                      data-name="Produtividade Turbinada - Acredite, voc pode ir muito alm!"
+                      data-position="21"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div
+                          class="event--image"
+                          style="background-image: url('https://images.sympla.com.br/5db0b21b465d9-xs.png');"
+                        >
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div class="event--date">
+                            <div class="event--date w-clearfix">
+                              <div class="event-card-day w-clearfix">
+                                <div class="event-date-day">13</div>
+                                <div class="event-card-date-month">Nov</div>
+                              </div>
+                              <div class="event-card-hour-spacer">,</div>
+                              <div class="event-card-info">09:00</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="event-name event-card">
+                          <span
+                            >Produtividade Turbinada - Acredite, você pode ir
+                            muito além!</span
+                          >
+                        </div>
+                        <div class="event-location event-card">
+                          Casa Garcia - Uberlândia, MG
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+              <div class="spinner-more">
+                <img src="/images/img-loading.gif" />
+              </div>
+              <button
+                id="more-events"
+                data-url="/eventos?ordem=data&pagina=2"
+                class="btn btn-dark-transparent btn-outline btn-block"
+                style="margin: 40px auto 30px"
+              >
+                Carregar mais
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-md-12 text-center padding-top-20 padding-bottom-20 hidden-xs"
+          >
+            <a
+              class="banner-org"
+              href="https://www.sympla.com.br/como-funciona?gx=101"
+            >
+              <img
+                src="https://d1gkntzr8mxq7s.cloudfront.net/5b294e88ba062.png"
+                alt="Organizar eventos"
+              />
+            </a>
+          </div>
+          <div
+            class="col-xs-12 text-center padding-top-20 padding-bottom-20 visible-xs"
+          >
+            <a
+              class="banner-org"
+              href="https://www.sympla.com.br/como-funciona?gx=101"
+            >
+              <img
+                src="https://d1gkntzr8mxq7s.cloudfront.net/5b296b1ba80df.png"
+                alt="Organizar eventos"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="border-top"></div>
+    <div
+      id="collections-section"
+      class="padding-top-20-md padding-bottom-10 bg-section"
+    >
+      <div
+        data-animation="slide"
+        data-easing="ease-out-expo"
+        data-hide-arrows="1"
+        data-duration="1000"
+        data-infinite="1"
+        class="collections-slider w-slider container"
+      >
+        <div class="content-wrapper section-title-container">
+          <h3 class="margin-top-0-xs">Encontre novas experiências</h3>
+        </div>
+        <div class="row">
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a
+              href="/eventos/festas-shows"
+              class="collection-link w-inline-block"
+            >
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-festa-show.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-festa-show.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Festa e Show</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a
+              href="/eventos/teatro-espetaculo"
+              class="collection-link w-inline-block"
+            >
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-teatro-espetaculo.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-teatro-espetaculo.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Teatro e Espetáculo</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a href="/eventos/negocios" class="collection-link w-inline-block">
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-negocios.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-negocios.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Negócios</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a href="/eventos/aprender" class="collection-link w-inline-block">
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-aprender.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-aprender.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Aprender</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a href="/eventos/esporte" class="collection-link w-inline-block">
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-esporte.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-esporte.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Esporte</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a
+              href="/eventos/comer-e-beber"
+              class="collection-link w-inline-block"
+            >
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-comer-beber.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-comer-beber.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Comer e Beber</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a href="/eventos/gratis" class="collection-link w-inline-block">
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-gratis.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-gratis.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Grátis</h4>
+            </a>
+          </div>
+          <div
+            class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5"
+          >
+            <a
+              href="/eventos/tecnologia"
+              class="collection-link w-inline-block"
+            >
+              <div class="collection-img-wrapper">
+                <div class="collection-img-block">
+                  <img
+                    src="/images/thumb-collection-tech.jpg?v=1.0"
+                    class="collection-img"
+                  />
+                </div>
+                <img
+                  src="/images/thumb-collection-tech.jpg?v=1.0"
+                  class="collection-glow-img"
+                />
+              </div>
+
+              <h4 class="collection-title">Tecnologia</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var append_content = function(response) {
+        $("#events-grid").append(
+          '<ul class="search-result-list w-clearfix">' +
+            response.content +
+            "</ul>"
+        );
+        $(".spinner-more").hide();
+        $("#more-events").show();
+        if (response.next) {
+          $("#more-events").data("url", response.next);
+        } else {
+          $("#more-events").hide();
+        }
+      };
+
+      var load_more = function() {
+        var url = $(this).data("url");
+        $("#more-events").hide();
+        $(".spinner-more").show();
+        $.getJSON(url, append_content);
+      };
+
+      $(document).ready(function() {
+        $("#more-events").on("click", load_more);
+
+        $(window.defaultCategories).each(function(index, el) {
+          $("#dropdownCategories:hidden").append(
+            "<li><a data-category=" + el.value + ">" + el.label + "</a></li>"
+          );
+        });
+
+        $(".collapse").on("shown.bs.collapse", function() {
+          $("body").addClass("noscroll");
+          $("#nav-home").css("opacity", 1);
+
+          if ($("#inputFullSearchHomeResp"))
+            $("#inputFullSearchHomeResp").focus();
+
+          var refCat = $("body").find("#search-bar-collapsed")[0].childNodes[5];
+          $("#inputCitySearchHomeResp")
+            .catcomplete({
+              //refCat.catcomplete({
+              delay: 0,
+              appendTo: "#inputCitySearchHomeRespContainer",
+              classes: {
+                "ui-autocomplete": "responsive"
+              },
+              source: function(request, response) {
+                if (request.term.length > 2) {
+                  $.ajax({
+                    url:
+                      "/search/suggestions?query=" +
+                      request.term +
+                      "&only=cities",
+                    success: function(data) {
+                      response(data);
+                    }
+                  });
+                }
+              },
+              response: function(event, ui) {
+                if (ui.content.length > 0) {
+                  dataToSearch.city = ui.content[0].label;
+                  $("#inputCitySearchHomeResp").data(
+                    "value",
+                    ui.content[0].label
+                  );
+                  cityToSearch = ui.content[0].value;
+                } else {
+                  dataToSearch.city = "";
+                  $("#inputCitySearchHomeResp").data("value", "");
+                  cityToSearch = "";
+                }
+              },
+              select: function(event, ui) {
+                dataToSearch.city = ui.item.value;
+                $("#inputCitySearchHomeResp").data("value", ui.item.label);
+              },
+              minLength: 0
+            })
+            .bind("focus", function() {
+              $(this).catcomplete("search");
+            });
+        });
+        $(".collapse").on("hidden.bs.collapse", function() {
+          $("body").removeClass("noscroll");
+          $("#nav-home").css("opacity", 0.9);
+          $("#inputCitySearchHomeResp").catcomplete("destroy");
+        });
+
+        $("#dropdownMenuDates li a").on("click", function() {
+          $("#searchForData").text($(this).text());
+          dataToSearch.period = $(this).data("period");
+          $("#searchForData").data("value", $(this).data("period"));
+        });
+        $("#dropdownMenuDatesResp li a").on("click", function() {
+          $("#searchForDataResp").text($(this).text());
+          dataToSearch.period = $(this).data("period");
+          $("#searchForDataResp").data("value", $(this).data("period"));
+        });
+        // $('#dropdownCategories li a').on('click', function(){
+        //     $('#searchForCategoryResp').text($(this).text());
+        //     dataToSearch.category = $(this).data('category');
+        // });
+
+        var scrollPage = $(window).scrollTop();
+        var searchBarOffset = $("#search-bar-collapsed-input").offset();
+        if ($(this).width() < 767 && scrollPage >= searchBarOffset.top) {
+          $("#search-icon-nav").show();
+        }
+        if ($(this).width() < 767 && scrollPage < searchBarOffset.top) {
+          $("#search-icon-nav").hide();
+        }
+        $(window).scroll(function() {
+          scrollPage = $(window).scrollTop();
+
+          if ($(this).width() < 767 && scrollPage >= searchBarOffset.top) {
+            $("#search-icon-nav").show();
+          }
+          if ($(this).width() < 767 && scrollPage < searchBarOffset.top) {
+            $("#search-icon-nav").hide();
+          }
+        });
+
+        var dataToSearch = {
+          full: "",
+          city: "",
+          period: "",
+          category: ""
+        };
+
+        // $("#inputFullSearchHome").on('keyup', function (e) {
+        //     if (e.keyCode == 13) {
+        //         window.location.assign(window.location.origin+'/eventos?s='+$(this).val());
+        //     }
+        // });
+        $("#inputFullSearchHome").on("keyup", function(e) {
+          if (e.keyCode == 13) {
+            dataToSearch.full = $(this).val();
+            if ($("#inputCitySearchHome").data("value"))
+              dataToSearch.city = $("#inputCitySearchHome").data("value");
+            else {
+              dataToSearch.city = "";
+            }
+            if ($("#searchForData").data("value"))
+              dataToSearch.period = $("#searchForData").data("value");
+            else {
+              dataToSearch.period = "";
+            }
+            var url = buildUrl(dataToSearch);
+            window.location.assign(url);
+          }
+        });
+
+        $("#inputCitySearchHome").on("keyup", function(e) {
+          if (e.keyCode == 13) {
+            if ($("#inputCitySearchHome").data("value"))
+              dataToSearch.city = $("#inputCitySearchHome").data("value");
+            else {
+              dataToSearch.city = "";
+            }
+            if ($("#inputFullSearchHome").data("value"))
+              dataToSearch.full = $("#inputFullSearchHome").data("value");
+            else {
+              dataToSearch.full = "";
+            }
+            if ($("#searchForData").data("value"))
+              dataToSearch.period = $("#searchForData").data("value");
+            else {
+              dataToSearch.period = "";
+            }
+            var url = buildUrl(dataToSearch);
+            window.location.assign(url);
+          }
+        });
+
+        var buildUrl = function(dataToSearch) {
+          var url = window.location.origin + "/eventos";
+
+          if (dataToSearch.city != "")
+            url = url.concat("/" + dataToSearch.city);
+
+          if (dataToSearch.category != "")
+            url = url.concat("/" + dataToSearch.category);
+
+          if (dataToSearch.period != "")
+            url = url.concat("/" + dataToSearch.period);
+
+          if (dataToSearch.full != "")
+            url = url.concat("?s=" + dataToSearch.full);
+
+          return url;
+        };
+        // $('#inputCitySearchHome').on('change',function(){
+        //     $(this).data('value',$(this).val());
+        // })
+        var cityToSearch = "";
+        $("#inputCitySearchHome").on("blur", function() {
+          if ($(this).val().length < 3) cityToSearch = "";
+          $(this).val(cityToSearch);
+        });
+        $("#searchEventsByFilters").on("click", function() {
+          dataToSearch.full = $("#inputFullSearchHome").val();
+          if ($("#inputCitySearchHome").data("value"))
+            dataToSearch.city = $("#inputCitySearchHome").data("value");
+          else {
+            dataToSearch.city = "";
+          }
+          if ($("#searchForData").data("value"))
+            dataToSearch.period = $("#searchForData").data("value");
+          else {
+            dataToSearch.period = "";
+          }
+
+          var url = buildUrl(dataToSearch);
+          window.open(url, "_self");
+        });
+        $("#searchEventsByFiltersResp").on("click", function() {
+          dataToSearch.full = $("#inputFullSearchHomeResp").val();
+          if ($("#inputCitySearchHomeResp").data("value"))
+            dataToSearch.city = $("#inputCitySearchHomeResp").data("value");
+          else {
+            dataToSearch.city = "";
+          }
+          if ($("#searchForDataResp").data("value"))
+            dataToSearch.period = $("#searchForDataResp").data("value");
+          else {
+            dataToSearch.period = "";
+          }
+          var url = buildUrl(dataToSearch);
+          window.open(url, "_self");
+        });
+
+        $("#inputCitySearchHome")
+          .catcomplete({
+            delay: 0,
+            appendTo: "#symplaSearchBarInput",
+            source: function(request, response) {
+              if (request.term.length > 2) {
+                $.ajax({
+                  url:
+                    "/search/suggestions?query=" +
+                    request.term +
+                    "&only=cities",
+                  success: function(data) {
+                    response(data);
+                  }
+                });
+              }
+            },
+            select: function(event, ui) {
+              dataToSearch.city = ui.item.label;
+              $("#inputCitySearchHome").data("value", ui.item.label);
+            },
+            response: function(event, ui) {
+              if (ui.content.length > 0) {
+                dataToSearch.city = ui.content[0].label;
+                $("#inputCitySearchHome").data("value", ui.content[0].label);
+                cityToSearch = ui.content[0].value;
+              } else {
+                dataToSearch.city = "";
+                $("#inputCitySearchHome").data("value", "");
+                cityToSearch = "";
+              }
+            },
+            minLength: 0
+          })
+          .bind("focus", function() {
+            $(this).catcomplete("search");
+          });
+
+        $("#inputCitySearchHomeResp")
+          .catcomplete({
+            delay: 0,
+            appendTo: "#inputCitySearchHomeRespContainer",
+            source: function(request, response) {
+              if (request.term.length > 2) {
+                $.ajax({
+                  url:
+                    "/search/suggestions?query=" +
+                    request.term +
+                    "&only=cities",
+                  success: function(data) {
+                    response(data);
+                  }
+                });
+              }
+            },
+            select: function(event, ui) {
+              dataToSearch.city = ui.item.value;
+              $("#inputCitySearchHomeResp").data("value", ui.item.label);
+            },
+            response: function(event, ui) {
+              if (ui.content.length > 0) {
+                dataToSearch.city = ui.content[0].label;
+                $("#inputCitySearchHomeResp").data(
+                  "value",
+                  ui.content[0].label
+                );
+                cityToSearch = ui.content[0].value;
+              } else {
+                dataToSearch.city = "";
+                $("#inputCitySearchHomeResp").data("value", "");
+                cityToSearch = "";
+              }
+            },
+            minLength: 0
+          })
+          .bind("focus", function() {
+            $(this).catcomplete("search");
+          });
+      });
+    </script>
+
+    <script
+      src="https://www.google.com/recaptcha/api.js?hl=pt-BR&render=explicit"
+      async
+      defer
+    ></script>
+
+    <div
+      class="modal fade dialog2"
+      id="dialogLogin"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogLogin()"
+                ></i>
+              </div>
+              <div id="login-create-form">
+                <div class="row row-centered">
+                  <div class="col-md-12 col-sm-12 col-centered">
+                    <div class="title margin-bottom-40">
+                      <h1>Login</h1>
+                    </div>
+                    <div class="free-form text-left" id="login-free-form">
+                      <form
+                        id="login-form"
+                        class="form-floating"
+                        onsubmit="login(0);return false;"
+                      >
+                        <div id="fb-btn">
+                          <a
+                            class="btn btn-fb btn-block"
+                            href="javascript:fb_login();"
+                          >
+                            <span>Entrar com o Facebook</span>
+                          </a>
+                        </div>
+                        <div class="modal-divider"></div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-mail"></span>
+                          </div>
+                          <input
+                            class="form-controlold"
+                            name="LoginForm[username]"
+                            id="LoginForm_username"
+                            placeholder="E-mail"
+                            type="text"
+                            maxlength="150"
+                            autocomplete="nope"
+                          />
+                          <span
+                            id="errorMsgLoginEmail"
+                            class="errorMsgInput errorMsgLoginEmail"
+                          ></span>
+                        </div>
+                        <div style="position:relative">
+                          <div class="loginform-group">
+                            <div class="iconLabel">
+                              <span class="icon-password"></span>
+                            </div>
+                            <input
+                              class="form-controlold"
+                              name="LoginForm[password]"
+                              id="LoginForm_password"
+                              placeholder="Senha"
+                              type="password"
+                              maxlength="150"
+                              autocomplete="nope"
+                            />
+                          </div>
+                          <span
+                            id="errorMsgLoginPsw"
+                            class="errorMsgInput errorMsgLoginPsw"
+                          ></span>
+                          <p
+                            id="errorMsgLoginPswRel"
+                            class="errorMsgInputRel errorMsgLoginPswRel"
+                          ></p>
+                        </div>
+                        <div class="margin-bottom-20 checkbox-line">
+                          <label class="nomargin"
+                            ><input
+                              name="LoginForm[rememberMe]"
+                              id="LoginForm_rememberMe"
+                              value="1"
+                              type="checkbox"
+                              class="nomargin"
+                            />
+                            Mantenha-me conectado</label
+                          >
+                        </div>
+                        <div class="row nomargin">
+                          <button
+                            class="btn btn-danger btn-block btn-submit"
+                            type="submit"
+                          >
+                            Login
+                          </button>
+                        </div>
+                        <div class="row">
+                          <h6 class="text-center">
+                            Esqueceu sua senha?
+                            <a data-toggle="modal" onclick="showRecoverPsw()"
+                              >Clique aqui.</a
+                            >
+                          </h6>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-login-footer">
+              <p class="nomargin text-center">
+                Não possui uma conta?
+                <a onclick="showDialogRegistration(_callback_function)"
+                  >Cadastre-se!</a
+                >
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function() {
 
-        $(".front").click(function() {
-          $(this).css({
-            webkitTransform: "rotateY(-180deg)",
-            transform: "rotateY(-180deg)",
-            webkitTransformStyle: "preserve-3d;",
-            transformStyle: "preserve-3d;",
-          });
-          $(".back").css({
-            webkitTransform: "rotateY(0deg)",
-            transform: "rotateY(0deg)",
-            webkitTransformStyle: "preserve-3d;",
-            transformStyle: "preserve-3d;",
-          });
-        });
-        $(".back").click(function() {
-          $(this).css({
-            webkitTransform: "rotateY(180deg)",
-            transform: "rotateY(180deg)",
-            webkitTransformStyle: "preserve-3d;",
-            transformStyle: "preserve-3d;",
-          });
-          $(".front").css({
-            webkitTransform: "rotateY(0deg)",
-            transform: "rotateY(0deg)",
-            webkitTransformStyle: "preserve-3d;",
-            transformStyle: "preserve-3d;",
-          });
-        });
-        
-      });
-    </script>
+    <div
+      class="modal fade dialog2"
+      id="dialogRecoverPsw"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogRecoverPsw()"
+                ></i>
+              </div>
+              <div class="row row-centered">
+                <div class="col-md-12 col-sm-12 col-centered">
+                  <div class="title margin-bottom-40">
+                    <h1>Recuperar senha</h1>
+                  </div>
+                  <div>
+                    <form
+                      id="form-forget-psw"
+                      onsubmit="event.preventDefault();submitRecoverPsw()"
+                    >
+                      <div class="loginform-group">
+                        <div class="iconLabel">
+                          <span class="icon-mail"></span>
+                        </div>
+                        <input
+                          placeholder="E-mail"
+                          name="ForgotPasswordForm_email"
+                          id="ForgotPasswordForm_email"
+                          type="text"
+                          maxlength="150"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <div
+                          id="recaptcha-forgot-pwd"
+                          class="g-recaptcha"
+                        ></div>
+                      </div>
+                      <span id="errorMsgForgetPsw" class="errorMsgInput"></span>
+                      <span
+                        id="errorMsgForgetPswRel"
+                        class="errorMsgInputRel"
+                      ></span>
+                      <div class="margin-top-20">
+                        <button
+                          type="submit"
+                          class="btn btn-danger btn-block btn-submit"
+                        >
+                          Enviar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade dialog2"
+      id="dialogCheckEmail"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogCheckEmail()"
+                ></i>
+              </div>
+              <div class="row row-centered">
+                <div class="col-md-12 col-sm-12 col-centered">
+                  <div class="title margin-bottom-40">
+                    <h1>Confira seu e-mail</h1>
+                  </div>
+                  <div>
+                    <div class="margin-bottom-40 text-center">
+                      <span
+                        >O endereço indicado receberá um e-mail com instruções
+                        de como criar uma nova senha.</span
+                      >
+                    </div>
+                    <div class="margin-top-20">
+                      <button
+                        class="btn btn-block btn-submit"
+                        style="background-color:#8293aa"
+                        onclick="closeDialogCheckEmail()"
+                      >
+                        Fechar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="login-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideLoginResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+
+      <div class="col-md-12 col-sm-12 margin-top-20 box-login-resp-body">
+        <div class="title margin-bottom-20">
+          <h3 class="nomargin text-center">Login</h3>
+        </div>
+        <div class="free-form text-left" id="login-free-form">
+          <form
+            id="login-form-resp"
+            class="form-floating"
+            onsubmit="login(1);return false;"
+          >
+            <div id="fb-btn" class="margin-bottom-40">
+              <a class="btn btn-fb btn-block" href="javascript:fb_login();"
+                ><span>Entrar com o Facebook</span></a
+              >
+            </div>
+            <div class="modal-divider"></div>
+            <div class="loginform-group">
+              <div class="iconLabel"><span class="icon-mail"></span></div>
+              <input
+                class="form-controlold"
+                name="LoginForm[username]"
+                id="LoginForm_username_resp"
+                placeholder="E-mail"
+                type="text"
+                maxlength="150"
+                autocomplete="nope"
+              />
+              <span
+                id="errorMsgLoginEmail"
+                class="errorMsgInput errorMsgLoginEmail"
+              ></span>
+            </div>
+            <div style="position:relative">
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-password"></span></div>
+                <input
+                  class="form-controlold"
+                  name="LoginForm[password]"
+                  id="LoginForm_password_resp"
+                  placeholder="Senha"
+                  type="password"
+                  maxlength="150"
+                  autocomplete="nope"
+                />
+              </div>
+              <span
+                id="errorMsgLoginPsw"
+                class="errorMsgInput errorMsgLoginPsw"
+              ></span>
+              <p
+                id="errorMsgLoginPswRel"
+                class="errorMsgInputRel errorMsgLoginPswRel"
+              ></p>
+            </div>
+            <div class="margin-bottom-20 checkbox-line">
+              <label class="nomargin"
+                ><input
+                  name="LoginForm[rememberMe]"
+                  id="LoginForm_rememberMe_resp"
+                  value="1"
+                  type="checkbox"
+                  class="nomargin"
+                />
+                Mantenha-me conectado</label
+              >
+            </div>
+            <div class="row nomargin">
+              <button class="btn btn-danger btn-block btn-submit" type="submit">
+                Login
+              </button>
+            </div>
+            <div class="row">
+              <h6 class="text-center">
+                Esqueceu sua senha?
+                <a onclick="showRecoverPswResp();">Clique aqui.</a>
+              </h6>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="box-login-resp-footer">
+        <p class="nomargin text-center">
+          Não possui uma conta?
+          <a onclick="showRegResp(_callback_function);hideLoginResp()"
+            >Cadastre-se!</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div id="recover-psw-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRecoverPswResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+
+      <div class="col-md-12 col-sm-12 margin-top-20">
+        <div class="title margin-bottom-40 margin-top-40">
+          <h3 class="nomargin text-center">Recuperar senha</h3>
+        </div>
+        <div>
+          <form
+            id="form-forget-psw-resp"
+            onsubmit="event.preventDefault();submitRecoverPsw(1)"
+          >
+            <div class="loginform-group">
+              <div class="iconLabel"><span class="icon-mail"></span></div>
+              <input
+                placeholder="E-mail"
+                name="ForgotPasswordForm_email"
+                id="ForgotPasswordForm_emailResp"
+                type="text"
+                maxlength="150"
+              />
+            </div>
+            <div class="form-group">
+              <div id="recaptcha-forgot-pwd-resp" class="g-recaptcha"></div>
+            </div>
+            <span id="errorMsgForgetPswResp" class="errorMsgInput"></span>
+            <span id="errorMsgForgetPswRespRel" class="errorMsgInputRel"></span>
+            <div class="margin-top-20">
+              <button type="submit" class="btn btn-danger btn-block btn-submit">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="dialogCheckEmailResp" class="loginMaskResp">
+      <div class="col-md-12 col-sm-12 margin-top-20">
+        <div class="title margin-bottom-40 margin-top-40">
+          <h3 class="nomargin text-center">Confira seu e-mail</h3>
+        </div>
+        <div>
+          <div class="margin-bottom-40 text-center">
+            <span
+              >O endereço indicado receberá um e-mail com instruções de como
+              criar uma nova senha.</span
+            >
+          </div>
+          <div class="margin-top-20">
+            <button
+              class="btn btn-block btn-submit"
+              style="background-color:#8293aa"
+              onclick="closeDialogCheckEmailResp()"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://www.google.com/recaptcha/api.js?hl=pt-BR&render=explicit"
+      async
+      defer
+    ></script>
+    <div
+      class="modal fade dialog2"
+      id="dialogRegistration"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogRegistration()"
+                ></i>
+              </div>
+              <div class="row row-centered nomargin">
+                <div class="col-md-12 col-sm-12 col-centered nopadding">
+                  <div class="title margin-bottom-40">
+                    <h1>Criar conta</h1>
+                  </div>
+                  <div id="registration-create-form">
+                    <form
+                      id="reg-form"
+                      class="form-floating reg-form-desktop"
+                      onsubmit="registration(0); return false;"
+                      data-gtm-name="formulario-cadastro"
+                    >
+                      <div id="registration-with-email">
+                        <div id="fb-btn">
+                          <a
+                            class="btn btn-fb btn-block"
+                            href="javascript:checkRegState();"
+                          >
+                            <span>Entrar com o Facebook</span>
+                          </a>
+                        </div>
+                        <div class="modal-divider"></div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-name"></span>
+                          </div>
+                          <input
+                            name="User_FIRST_NAME"
+                            id="User_FIRST_NAME"
+                            placeholder="Nome"
+                            data-tck-name="nome"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegFirstname"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-surname"></span>
+                          </div>
+                          <input
+                            name="User_LAST_NAME"
+                            id="User_LAST_NAME"
+                            placeholder="Sobrenome"
+                            data-tck-name="sobrenome"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegLastname"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-mail"></span>
+                          </div>
+                          <input
+                            name="User_EMAIL"
+                            id="User_EMAIL"
+                            placeholder="E-mail"
+                            data-tck-name="email"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegEmail"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-password"></span>
+                          </div>
+                          <input
+                            class="form-controlold"
+                            name="User_PWD"
+                            id="User_PWD"
+                            placeholder="Senha"
+                            data-tck-name="senha"
+                            type="password"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegPsw"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="padding-bottom-20">
+                          <div id="recaptcha-create" class="g-recaptcha"></div>
+                          <span
+                            id="errorMsgRegRecaptcha"
+                            class="errorMsgInputRel"
+                          ></span>
+                        </div>
+                        <div class="row nomargin">
+                          <button
+                            type="submit"
+                            class="btn btn-danger btn-block btn-submit"
+                          >
+                            Cadastrar
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="row nomargin">
+                        <h6 class="text-center">
+                          Ao me cadastrar, concordo com os
+                          <a
+                            href="https://termos-e-politicas.sympla.com.br/hc/pt-br/sections/360005978491-Termos-de-Uso"
+                            target="_blank"
+                            >Termos de uso</a
+                          >
+                          da Tx Concursos
+                        </h6>
+                      </div>
+                      <div id="ajaxResult"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-login-footer">
+              <p class="nomargin text-center">
+                Já possui uma conta?
+                <a onclick="showDialogLogin(_callback_function)">Faça login!</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade dialog2"
+      id="dialogCheckEmailReg"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogCheckEmailReg()"
+                ></i>
+              </div>
+              <div class="row row-centered">
+                <div class="col-md-12 col-sm-12 col-centered">
+                  <div class="title margin-bottom-40">
+                    <h1>Confira seu e-mail</h1>
+                  </div>
+                  <div>
+                    <div class="margin-bottom-40 text-center">
+                      <span
+                        >Acesse seu e-mail e clique no link de
+                        confirmação.</span
+                      >
+                    </div>
+                    <div class="margin-top-20">
+                      <button
+                        class="btn btn-block btn-submit"
+                        style="background-color:#8293aa"
+                        onclick="closeDialogCheckEmailReg()"
+                      >
+                        Fechar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="reg-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRegResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+
+      <div class="row row-centered nomargin">
+        <div class="col-md-12 col-sm-12 margin-top-20">
+          <div class="title margin-bottom-20">
+            <h3 class="nomargin text-center">Criar conta</h3>
+          </div>
+          <div id="registration-create-form">
+            <form
+              id="reg-form-mobile"
+              class="form-floating reg-form-mobile"
+              onsubmit="registration(1);return false;"
+              data-gtm-name="formulario-cadastro"
+            >
+              <div id="fb-btn" class="margin-bottom-40">
+                <a
+                  class="btn btn-fb btn-block"
+                  href="javascript:checkRegState();"
+                >
+                  <span>Entrar com o Facebook</span>
+                </a>
+              </div>
+              <div class="modal-divider"></div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-name"></span></div>
+                <input
+                  name="User_FIRST_NAME_resp"
+                  id="User_FIRST_NAME_resp"
+                  placeholder="Nome"
+                  data-tck-name="nome"
+                  type="text"
+                  maxlength="150"
+                />
+                <span
+                  id="errorMsgRegFirstnameResp"
+                  class="errorMsgInput"
+                ></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-surname"></span></div>
+                <input
+                  name="User_LAST_NAME_resp"
+                  id="User_LAST_NAME_resp"
+                  placeholder="Sobrenome"
+                  data-tck-name="sobrenome"
+                  type="text"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegLastnameResp" class="errorMsgInput"></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-mail"></span></div>
+                <input
+                  name="User_EMAIL_resp"
+                  id="User_EMAIL_resp"
+                  placeholder="E-mail"
+                  data-tck-name="email"
+                  type="text"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegEmailResp" class="errorMsgInput"></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-password"></span></div>
+                <input
+                  class="form-controlold"
+                  name="User_PWD_resp"
+                  id="User_PWD_resp"
+                  placeholder="Senha"
+                  data-tck-name="senha"
+                  type="password"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegPswResp" class="errorMsgInput"></span>
+              </div>
+              <div class="padding-bottom-20">
+                <div id="recaptcha-create-resp" class="g-recaptcha"></div>
+                <span
+                  id="errorMsgRegRecaptchaResp"
+                  class="errorMsgInputRel"
+                ></span>
+              </div>
+              <div class="row nomargin">
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-block btn-submit"
+                >
+                  Cadastrar
+                </button>
+              </div>
+              <div class="row">
+                <h6 class="text-center">
+                  Ao me cadastrar, concordo com os
+                  <a href="/termos-de-uso" target="_blank">Termos de uso</a> e
+                  <a href="/politica-de-privacidade" target="_blank"
+                    >Política de privacidade</a
+                  >
+                  da Tx Concursos
+                </h6>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="box-reg-resp-footer">
+        <p class="nomargin text-center">
+          Já possui uma conta?
+          <a onclick="showLoginResp(_callback_function);hideRegResp()"
+            >Faça login!</a
+          >
+        </p>
+      </div>
+    </div>
+    <div id="reg-confirm-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRegConfirmResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+      <div
+        class="row row-centered"
+        style="display:table;width:100%;height:100%;"
+      >
+        <div
+          class="col-md-12 col-sm-12 margin-top-40"
+          style="display:table-cell;vertical-align:middle;"
+        >
+          <div class="title margin-bottom-40">
+            <h3 class="nomargin text-center">Confira seu e-mail</h3>
+          </div>
+          <p>Acesse seu e-mail e clique no link de confirmação.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="fullwidth-section half-padding footer-sympla-generic">
+      <div class="footer-container">
+        <div id="footer-sitemap" class="footer-sitemap w-clearfix">
+          <div class="sympla-footer-col">
+            <img
+              src="https://www.sympla.com.br/images/brand-2018/logo-bottom-w@3x.png"
+              class="sympla-footer-logo"
+            />
+            <div class="signature sympla-footer-link">© Copyright 2019</div>
+            <ul class="w-list-unstyled">
+              <li>
+                <a
+                  href="https://termos-e-politicas.sympla.com.br"
+                  class="sympla-footer-link gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="termos-de-uso"
+                  >Termos e Políticas</a
+                >
+              </li>
+            </ul>
+            <div
+              class="signature sympla-footer-link kill-bottom-padding"
+              style="text-decoration: underline;"
+            >
+              Tx Concursos Internet Soluções S.A.
+            </div>
+          </div>
+
+          <div class="sympla-footer-col">
+            <h4 class="sympla-footer-title">TXConcursos.com</h4>
+            <ul style="margin-top:0px">
+              <li>
+                <a
+                  href="http://www.sympla.com.br/sobre-sympla"
+                  class="sympla-footer-link gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="sobre"
+                  >Sobre</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://www.sympla.com.br/"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="home"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://blog.sympla.com.br"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="blog"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.sympla.com.br/trabalhe-conosco"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="trabalhe-conosco"
+                  >Trabalhe conosco</a
+                >
+              </li>
+            </ul>
+            <ul id="footer-media" style="display: inline-block;">
+              <li class="first-child">Siga-nos</li>
+              <li class="pull-left">
+                <a
+                  href="http://www.facebook.com/sympla"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="facebook"
+                  ><div
+                    class="icon-icon-social-facebook"
+                    style="width: 28px; height: 28px;"
+                  ></div
+                ></a>
+              </li>
+              <li class="pull-left" style="">
+                <a
+                  href="https://www.instagram.com/sympla/"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="instagram"
+                  ><div
+                    class="icon-icon-social-instagram"
+                    style="width: 28px; height: 28px;"
+                  ></div
+                ></a>
+              </li>
+              <li class="pull-left">
+                <a
+                  href="https://www.linkedin.com/company/2413674/"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="linkedin"
+                  ><div
+                    class="icon-icon-social-linkedin"
+                    style="width: 28px; height: 28px;"
+                  ></div
+                ></a>
+              </li>
+              <li class="pull-left">
+                <a
+                  href="https://twitter.com/sympla/"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="twitter"
+                  ><div
+                    class="icon-icon-social-twitter"
+                    style="width: 28px; height: 28px;"
+                  ></div
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sympla-footer-col">
+            <h4 class="sympla-footer-title">APÊNDICE</h4>
+            <ul style="margin-top:0px">
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="sao-paulo-sp"
+                  href="http://www.sympla.com.br/eventos/sao-paulo-sp"
+                  >São Paulo</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="belo-horizonte-mg"
+                  href="http://www.sympla.com.br/eventos/belo-horizonte-mg"
+                  >Belo Horizonte</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="rio-de-janeiro-rj"
+                  href="http://www.sympla.com.br/eventos/rio-de-janeiro-rj"
+                  >Rio de Janeiro</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="recife-pe"
+                  href="http://www.sympla.com.br/eventos/recife-pe"
+                  >Recife</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="goiania-go"
+                  href="http://www.sympla.com.br/eventos/goiania-go"
+                  >Goiânia</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="porto-alegre-rs"
+                  href="http://www.sympla.com.br/eventos/porto-alegre-rs"
+                  >Porto Alegre</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="florianopolis-sc"
+                  href="http://www.sympla.com.br/eventos/florianopolis-sc"
+                  >Florianópolis</a
+                >
+              </li>
+              <li>
+                <a
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="salvador-ba"
+                  href="http://www.sympla.com.br/eventos/salvador-ba"
+                  >Salvador</a
+                >
+              </li>
+              <!-- <li></li> -->
+            </ul>
+          </div>
+
+          <div class="sympla-footer-col">
+            <h4 class="sympla-footer-title">PÁGINA ÚTEIS</h4>
+            <ul style="margin-top:0px">
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="http://www.sympla.com.br/como-funciona"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="como-funciona"
+                  >Como funciona</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="http://www.sympla.com.br/solucoes"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="solucoes"
+                  >Soluções</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="http://www.sympla.com.br/como-funciona#solucoes"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="servicos"
+                  >Serviços</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="http://www.sympla.com.br/como-funciona#preco"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="preco"
+                  >Preço</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="https://blog.sympla.com.br/categoria/cases-de-sucesso/"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="cases-de-sucesso"
+                  >Cases de sucesso</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="https://www.sympla.com.br/fale-com-um-consultor?ca=footer"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="consultor-de-vendas"
+                  >Consultor de vendas</a
+                >
+              </li>
+              <li>
+                <a
+                  id="footer-how-link"
+                  href="//developers.sympla.com.br/api-doc/index.html"
+                  target="_blank"
+                  class="gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="documentacao-api"
+                  >API</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="sympla-footer-col">
+            <h4 class="sympla-footer-title">Ajuda</h4>
+            <ul
+              class="sympla-footer-list w-list-unstyled"
+              style="margin-top:0px"
+            >
+              <li>
+                <a
+                  href="https://ajuda.sympla.com.br/hc/pt-br/"
+                  target="_blank"
+                  class="sympla-footer-link gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="central-de-ajuda"
+                  >Central de Ajuda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://ajuda.sympla.com.br/hc/pt-br/categories/200379455"
+                  target="_blank"
+                  class="sympla-footer-link gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="compradores-e-participantes"
+                  >Compradores e Participantes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://ajuda.sympla.com.br/hc/pt-br/categories/200379425"
+                  target="_blank"
+                  class="sympla-footer-link gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="organizadores-de-eventos"
+                  >Organizadores de Eventos</a
+                >
+              </li>
+            </ul>
+            <ul class="margin-top-20">
+              <li class="first-child">Compre pelo app</li>
+              <li class="margin-top-10">
+                <a
+                  target="_blank"
+                  style="margin-bottom: 0px; padding-bottom: 0px"
+                  href="https://itunes.apple.com/br/app/sympla-ingressos-para-os-melhores/id1136318924"
+                  class="ios sympla-footer-store-badge w-inline-block gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="app-sympla-ios"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.sympla.tickets&hl=pt_BR"
+                  target="_blank"
+                  class="android sympla-footer-store-badge w-inline-block gtm-link-event"
+                  data-gtm-event-category="sympla:geral"
+                  data-gtm-event-action="clique:rodape"
+                  data-gtm-event-label="app-sympla-android"
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-centered">
+            <div class="sympla-content-divider"></div>
+            <div class="sympla-footer-spv-signature">
+              <div class="sympla-footer-spv-text">
+                Feito com <span class="sympla-footer-spv-heart">❤</span> no
+              </div>
+              <img
+                src="https://www.sympla.com.br/images/public/logo-SPV.png"
+                class="sympla-footer-spv-logo"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ===================================== -->
+    <!-- ========== START JQUERY SCRIPTS ========== -->
+    <!-- ===================================== -->
   </body>
 </html>
