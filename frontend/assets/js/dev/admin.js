@@ -1,27 +1,25 @@
 $(document).ready(function() {
-    const ls = window.localStorage;
-  
-    var eventSelect = $(".js-example-basic-single");
- 
-  
-    //Mostra todas as categorias:
-    Categoria.all(result => {
-  
-      let data = result.map(({ categoria_id, titulo }) => {
-        return { id: categoria_id, text: titulo };
-      });
-  
-      eventSelect
-        .select2({
-          data: data
-        })
-        .on("change", function(e) {
-          var categoria_id = parseInt(e.target.value);
-          $("#get-categoria-id").val(categoria_id);
-  
-          SubCategoria.getByCategoriaId(categoria_id, function(res) {
-            let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
-              return `<div class="custom-control custom-radio"
+  const ls = window.localStorage;
+
+  var eventSelect = $(".js-example-basic-single");
+
+  //Mostra todas as categorias:
+  Categoria.all(result => {
+    let data = result.map(({ categoria_id, titulo }) => {
+      return { id: categoria_id, text: titulo };
+    });
+
+    eventSelect
+      .select2({
+        data: data
+      })
+      .on("change", function(e) {
+        var categoria_id = parseInt(e.target.value);
+        $("#get-categoria-id").val(categoria_id);
+
+        SubCategoria.getByCategoriaId(categoria_id, function(res) {
+          let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
+            return `<div class="custom-control custom-radio"
                          style="border:1px solid #ccc; float:left; 
                          justify-items:center;align-content: center;padding:0px;
                          display:grid;align-items:center;margin:4px;">
@@ -31,40 +29,6 @@ $(document).ready(function() {
               <label class="custom-control-label" style="width:100%;padding:20px;height: 100%;border:0px solid red;" 
               for="subcategoria_${sub_categoria_id}">${sub_titulo}</label>
               </div>`;
-            });
-            $("#get-sub-categorias").html(inputs.join("") + "<br/>");
-            $(".sub-categorias").change(function() {
-              var subCategoriaId = $(this).attr("data-subcategoria-id");
-              $("#sub_categoria_id").val(subCategoriaId);
-            });
-          });
-        });
-  
-      let inputs = result.map(({ categoria_id, titulo }) => {
-        return `<div class="custom-control">
-        <label class="custom-control-label" for="${categoria_id}">${titulo}</label>
-    </div>`;
-      });
-  
-      //Mostra as categorias:
-      $("#get-categorias").html(inputs.join("") + "<br/>");
-  
-      $(".categorias").change(function() {
-        var categoria_id = parseInt(this.id);
-  
-        $("#get-categoria-id").val(categoria_id);
-  
-        SubCategoria.getByCategoriaId(categoria_id, function(res) {
-          let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
-            return `<div class="custom-control custom-radio"
-                       style="border:1px solid #ccc; float:left; 
-                       justify-items:center;align-content: center;padding:20px;
-                       display:grid;align-items:center;margin:4px;">
-            <input type="radio" id="subcategoria_${sub_categoria_id}"
-            data-subcategoria-id="${sub_categoria_id}" name="subcategoria" 
-            class="sub-categorias custom-control-input" required />
-            <label class="custom-control-label" for="subcategoria_${sub_categoria_id}">${sub_titulo}</label>
-            </div>`;
           });
           $("#get-sub-categorias").html(inputs.join("") + "<br/>");
           $(".sub-categorias").change(function() {
@@ -73,29 +37,63 @@ $(document).ready(function() {
           });
         });
       });
+
+    let inputs = result.map(({ categoria_id, titulo }) => {
+      return `<div class="custom-control">
+        <label class="custom-control-label" for="${categoria_id}">${titulo}</label>
+    </div>`;
     });
-  
-    //Salvar categoria:
-    $("#criar-categoria").submit(ev => {
-      Categoria.store(this.forms[0].elements);
-      return false;
-    });
-  
-    $("#criar-sub-categoria").submit(ev => {
-      SubCategoria.store(this.forms[1].elements);
-      return false;
-    });
-  
-    $("#form-criar-quiz").submit(ev => {
-      var data = eventSelect.select2("data");
-      var form = document.querySelector("#form-criar-quiz");
-      Quiz.store({ form, data }, result => {
-        alert(JSON.stringify(result));
+
+    //Mostra as categorias:
+    $("#get-categorias").html(inputs.join("") + "<br/>");
+
+    $(".categorias").change(function() {
+      var categoria_id = parseInt(this.id);
+
+      $("#get-categoria-id").val(categoria_id);
+
+      SubCategoria.getByCategoriaId(categoria_id, function(res) {
+        let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
+          return `<div class="custom-control custom-radio"
+                       style="border:1px solid #ccc; float:left; 
+                       justify-items:center;align-content: center;padding:20px;
+                       display:grid;align-items:center;margin:4px;">
+            <input type="radio" id="subcategoria_${sub_categoria_id}"
+            data-subcategoria-id="${sub_categoria_id}" name="subcategoria" 
+            class="sub-categorias custom-control-input" required />
+            <label class="custom-control-label" for="subcategoria_${sub_categoria_id}">${sub_titulo}</label>
+            </div>`;
+        });
+        $("#get-sub-categorias").html(inputs.join("") + "<br/>");
+        $(".sub-categorias").change(function() {
+          var subCategoriaId = $(this).attr("data-subcategoria-id");
+          $("#sub_categoria_id").val(subCategoriaId);
+        });
       });
-      return false;
     });
-  
-    /*
+  });
+
+  //Salvar categoria:
+  $("#criar-categoria").submit(ev => {
+    Categoria.store(this.forms[0].elements);
+    return false;
+  });
+
+  $("#criar-sub-categoria").submit(ev => {
+    SubCategoria.store(this.forms[1].elements);
+    return false;
+  });
+
+  $("#form-criar-quiz").submit(ev => {
+    var data = eventSelect.select2("data");
+    var form = document.querySelector("#form-criar-quiz");
+    Quiz.store({ form, data }, result => {
+      alert(JSON.stringify(result));
+    });
+    return false;
+  });
+
+  /*
           $("#btn-salvar-questao").click(() => {
               var form = document.getElementsByTagName("form")[0];
       
@@ -157,5 +155,4 @@ $(document).ready(function() {
           $("#enuciado_id")
               .select()
               .focus();*/
-  });
-  
+});

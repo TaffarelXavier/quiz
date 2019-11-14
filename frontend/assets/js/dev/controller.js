@@ -1,5 +1,19 @@
-const IP = 'lccomputacaoturma2018-com-br.umbler.net';
-const URL_API = `http://${IP}`;
+const IP = [
+  {
+    protocol: "http",
+    address: "lccomputacaoturma2018-com-br.umbler.net",
+    port: ""
+  },
+  {
+    protocol: "http",
+    address: "127.0.0.1",
+    port: "3333"
+  }
+];
+
+const INDEX = 0;
+const URL_API = `${IP[INDEX].protocol}://${IP[INDEX].address}:${IP[INDEX].port}`;
+
 // $("body").bootstrapMaterialDesign();
 
 /**
@@ -125,28 +139,38 @@ var Quiz = {
   store: function({ form, data }, callback) {
     var formDt = new FormData();
 
-    formDt.append("titulo", form.titulo.value);
-    //formDt.append("descricao", descricao.value);
-    formDt.append("sub_categoria_id", JSON.stringify(data));
+    try {
+      if (data[0]) {
+        delete data[0].element;
 
-    fetch(URL_API + "/quiz", {
-      method: "POST",
-      body: formDt
-    })
-      .then(function(response) {
-        if (response.ok) {
-          response.json().then(function(result) {
-            callback(result);
+        formDt.append("titulo", form.titulo.value);
+        //formDt.append("descricao", descricao.value);
+
+        formDt.append("sub_categoria_id", JSON.stringify(data[0]));
+
+        fetch(URL_API + "/quiz", {
+          method: "POST",
+          body: formDt
+        })
+          .then(function(response) {
+            if (response.ok) {
+              response.json().then(function(result) {
+                callback(result);
+              });
+            } else {
+              console.error("Houve um erro: ","Network response was not ok.");
+            }
+          })
+          .catch(function(error) {
+            console.log(
+              "There has been a problem with your fetch operation: " +
+                error.message
+            );
           });
-        } else {
-          console.log("Network response was not ok.");
-        }
-      })
-      .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
-      });
+      }
+    } catch (error) {
+      console.error("Houve um Erro:", error);
+    }
   },
   /*Busca todas as categorias*/
   all: function(callback) {

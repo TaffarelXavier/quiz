@@ -139,3 +139,12 @@ details {
   font-weight: 900;
   line-height: 30px;
 }
+
+textarea{
+  border:1px solid #ccc !important;
+  font-size:1.4rem !important;
+}
+
+#form-criar-questao label{
+  font-size:1.6rem !important;
+}

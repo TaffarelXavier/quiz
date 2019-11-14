@@ -50,13 +50,17 @@ class QuizController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
+
     const { titulo, sub_categoria_id } = request.all();
 
-    const { id } = JSON.parse(sub_categoria_id)[0];
+    const { id } = JSON.parse(sub_categoria_id);
+
+    console.log(id)
 
     const quiz = new Quiz();
 
     quiz.titulo = titulo;
+
     //quiz.descricao = descricao;
     quiz.sub_categoria_id = id;
 

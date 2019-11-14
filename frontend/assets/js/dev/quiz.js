@@ -28,7 +28,7 @@ $(document).ready(function() {
     "r",
     "s",
     "t",
-    "u",
+    "u"
   ];
 
   SubCategoria.all(result => {
@@ -37,7 +37,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data,
+      data: data
     });
   });
 
@@ -77,18 +77,20 @@ $(document).ready(function() {
     $("#obter-mais-questoes").append(conteudo);
   };
 
+  /***
+   * Formulário do questões:
+   */
   const formCriarQuestao = ({ quiz_id }) => {
     return `<form method="POST" id="form-criar-questao">
-        <h3><strong>Nova Questão</strong><button type="button" id="add-from-external-text">add</button></h3>
         <label>Enuciado:</label>
         <textarea class="form-control" placeholder="Adicione o enunciado da questão"
         required name="enunciado" rows="6"></textarea>
+        <button type="button" id="add-from-external-text">Adicionar questão de texto</button><br>
         <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
         <input type="hidden" name="quiz_id" value="${quiz_id}"/>
         <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
-        <!--<label><input type="radio" name="alter-correta" required/>Alternativa B:</label>
-        <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required=""></textarea>-->
-        <div id="obter-mais-questoes"></div><br/>
+        <div id="obter-mais-questoes"></div>
+        <button id="btn-add-questao" class="btn btn-raised btn-primary" type="button">Adicionar outro campo de alternativa</button><br/>
         <label>Modalidade:</label><br/>
         <select name="modalidade" id="modalidade_id" class="form-control" required>
           <option value="">Selecione...</option> 
@@ -98,8 +100,7 @@ $(document).ready(function() {
         <label>Correção da questão:</label>
         <textarea class="form-control explicacao" rows="3" placeholder="Explicação da questão"></textarea>
         <br>
-        <button id="btn-add-questao" class="btn btn-raised btn-primary" type="button">Add Alternativa</button>
-        <button type="submit" class="btn btn-raised btn-primary">Salvar Questão</button></form>`;
+        <button type="submit" class="btn btn-raised btn-primary btn-lg ">Salvar Questão</button></form>`;
   };
 
   //INÍCIO
@@ -110,7 +111,7 @@ $(document).ready(function() {
       questao_modalidade,
       alternativas,
       questao_correcao,
-      incremento,
+      incremento
     },
     titulo
   ) => {
@@ -161,10 +162,10 @@ $(document).ready(function() {
 
         if (alternativa_resposta == "1") {
           data += `<button class="verdadeiro-falso certo col-md-12" data-questao-id="${questao_id}"
-          data-questao-correta="${alternativa_correta}">Verdade</button>`;
+          data-questao-correta="${alternativa_correta}">Certo</button>`;
         } else {
           data += `<button class="verdadeiro-falso errado col-md-12" data-questao-id="${questao_id}"
-          data-questao-correta="${alternativa_correta}">Falso</button>`;
+          data-questao-correta="${alternativa_correta}">Errado</button>`;
         }
 
         data += `</div>`;
@@ -204,13 +205,14 @@ $(document).ready(function() {
 
         let conteudoQuestoes = "";
 
+        $("#titulo-do-quiz").html(`Questões sobre: ${titulo}`);
+
         if (Boolean(_flashCard) && _flashCard == "true") {
           flashCard(result[0]);
           if (_flashCard) {
             $("#get-inserir-quiz").hide();
           }
         } else {
-
           conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - 
           <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a>
           <a href="">Atualizar</a>
@@ -259,14 +261,14 @@ $(document).ready(function() {
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87",
+                  color: "#23be87"
                 });
             } else {
               $("#explicacao_" + questaoId)
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red",
+                  color: "red"
                 });
             }
 
@@ -301,7 +303,6 @@ $(document).ready(function() {
 
           //.multipla-escolha
           $(".multipla-escolha").click(function() {
-
             var _this = $(this);
 
             var questaoCorreta = _this.attr("data-questao-correta");
@@ -317,7 +318,7 @@ $(document).ready(function() {
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87",
+                  color: "#23be87"
                 });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
@@ -329,7 +330,7 @@ $(document).ready(function() {
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red",
+                  color: "red"
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -337,8 +338,8 @@ $(document).ready(function() {
               .removeAttr("hidden");
           });
 
-          var conteudo = `<label>Nome do Quiz:</label>
-          <h3>${titulo}</h3><hr/>${formCriarQuestao({ quiz_id })}`;
+          var conteudo = `<!--<label>Nome do Quiz:</label>
+          <h3>${titulo}</h3><hr/>-->${formCriarQuestao({ quiz_id })}`;
 
           //Adiciona o conteúdo de inserção de questões
           $("#get-inserir-quiz").html(conteudo); //Add conteúdo
@@ -362,18 +363,25 @@ $(document).ready(function() {
               myField.value += myValue;
             }
           }
+
           const enunciadoEl = document.getElementsByName("enunciado");
 
           function copiarQuestaoExterna(texto) {
             try {
               var str = texto; //É o texto de qualquer lugar
               setTimeout(function() {
-                console.log("adfad");
                 if (str.length > 0) {
-                  if (str.includes("taffa")) {
-                    let m = str.split("taffa");
+                  if (str.includes("fff")) {
 
-                    let enuciado = m[0];
+                    let m = str.split("fff");
+
+                    m = m.filter(el => {
+                      return el;
+                    });
+                    
+                    const regex = /^\(?[a-zA-Z0-9]+\)/gim;
+
+                    let enuciado = m[0].replace(regex, "").trim();
 
                     let alternativas = m[1];
 
@@ -383,10 +391,7 @@ $(document).ready(function() {
 
                     questao = questao.filter(el => {
                       //console.log(el)
-                      return el.length > 0 &&
-                        el.match(/^a|b|c|d|e|f|g|h|\)|\s+$/gm)
-                        ? el
-                        : false;
+                      return el.match(regex) ? el : false;
                     });
 
                     var quantLinhas = questao.length;
@@ -398,8 +403,9 @@ $(document).ready(function() {
                     var alternativaEl = document.getElementsByClassName(
                       "alternativa"
                     );
+
                     for (var i = 0; i < quantLinhas; i++) {
-                      alternativaEl[i].value = questao[i];
+                      alternativaEl[i].value = questao[i].replace(regex, "").trim();
                     }
                   }
                 }
@@ -408,8 +414,6 @@ $(document).ready(function() {
               alert(error);
             }
           }
-
-          enunciadoEl[0].onkeyup = function(ev) {};
 
           $("#add-from-external-text").click(function() {
             insertAtCursor(enunciadoEl[0], "taffa");
@@ -445,12 +449,15 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null,
+                questao_id: null
               };
             });
 
             Questao.store(form.elements, alternativas, res => {
-              console.log(res);
+              if (res["questao_enunciado"] !== undefined) {
+                alert("Questão adicionada com sucesso!");
+                window.location.reload();
+              }
             });
 
             return false;

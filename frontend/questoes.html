@@ -1,89 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900|Material+Icons&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
-      crossorigin="anonymous"
-    />
-    <title>Questões</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/questoes.css" />
-    <link rel="stylesheet" href="assets/css/flashcard.css" />
-    <link rel="stylesheet" href="assets/css/quiz.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row">
-            <div class="col-md-7">
-              <fieldset>
-                <legend>Criar Novo Quiz</legend>
-                <form method="POST" id="form-criar-quiz">
-                  <label for="">Nome do quiz:</label><br />
-                  <input
-                    type="text"
-                    class="col-md-12 form-control"
-                    name="titulo"
-                    required
-                    autofocus="true"
-                  /><br />
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label for="">Escolha assuntos relevantes:</label><br />
-                      <select
-                        class="js-example-basic-single col-md-12"
-                        name="state"
-                        required
-                      >
-                        <option value="">Selecione...</option>
-                      </select>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Questões</title>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900|Material+Icons&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/bootstrap-material-design.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="assets/css/questoes.min.css" />
+  <link rel="stylesheet" href="assets/css/flashcard.min.css" />
+  <link rel="stylesheet" href="assets/css/quiz.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h1 id="titulo-do-quiz"> <span class="comment animate"
+                style="height: 30px;display: block;width: 400px;"></span></h1>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Adicionar Nova Questão
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nova Questão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-12" id="get-inserir-quiz">
+                            <div class="comment br animate line-20"></div>
+                            <div class="comment br animate line-20"></div>
+                            <div class="comment br animate line-20"></div>
+                            <div class="comment br animate line-20"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <br />
-                  <button class="btn btn-raised btn-primary">Avançar</button>
-                  <a href="./questoes.html" class="btn btn-raised btn-primary"
-                    >Voltar</a
-                  >
-                </form>
-              </fieldset>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-12" id="get-inserir-quiz">
-                  <div class="comment br animate line-20"></div>
-                  <div class="comment br animate line-20"></div>
-                  <div class="comment br animate line-20"></div>
-                  <div class="comment br animate line-20"></div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h1>Questões de...</h1>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-4 mb-3">
-                    <!-- <div class="input-group mb-3">
+        </div>
+        <hr />
+        <!-- <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                 <div class="input-group mb-3">
                       <input
                         type="text"
                         class="form-control"
@@ -102,38 +86,39 @@
                           S
                         </button>
                       </div>
-                    </div> -->
-                  </div>
-                  <div class="col">
-                    <!-- <input
+                    </div>
+              </div>
+              <div class="col">
+              <input
                       type="text"
                       class="form-control"
                       placeholder="Last name"
-                    /> -->
-                  </div>
-                </div>
+                    />
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12" id="get-questoes">
-              <div class="comment br animate line-20"></div>
-              <div class="comment br animate line-20"></div>
-              <div class="comment br animate line-20"></div>
-              <div class="comment br animate line-20"></div>
-            </div>
-            <div class="col-md-12" id="get-quizzes"></div>
+        </div> -->
+        <div class="row">
+          <div class="col-md-12" id="get-questoes">
+            <div class="comment br animate line-20"></div>
+            <div class="comment br animate line-20"></div>
+            <div class="comment br animate line-20"></div>
+            <div class="comment br animate line-20"></div>
           </div>
+          <div class="col-md-12" id="get-quizzes"></div>
         </div>
       </div>
     </div>
-    <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-material-design.min.js"></script>
-    <script src="assets/js/select2.min.js"></script>
-    <script src="assets/js/controller.min.js"></script>
-    <script src="assets/js/flashcard.min.js"></script>
-    <script src="assets/js/funcoes.min.js"></script>
-    <script src="assets/js/palavraChave.min.js"></script>
-    <script src="assets/js/quiz.min.js"></script>
-  </body>
+  </div>
+  <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap-material-design.min.js"></script>
+  <script src="assets/js/select2.min.js"></script>
+  <script src="assets/js/controller.min.js"></script>
+  <script src="assets/js/flashcard.min.js"></script>
+  <script src="assets/js/funcoes.min.js"></script>
+  <script src="assets/js/palavraChave.min.js"></script>
+  <script src="assets/js/quiz.min.js"></script>
+</body>
+
 </html>
