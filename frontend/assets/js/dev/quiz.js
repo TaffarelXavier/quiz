@@ -28,8 +28,105 @@ $(document).ready(function() {
     "r",
     "s",
     "t",
-    "u"
+    "u",
   ];
+
+  const MuitasQuestoes = {
+    addQuestoes: function() {
+      const texto = document.getElementById("textarea-muitas-questoes");
+      const btnMuitQuest = document.getElementById(
+        "btn-salvar-muitas-questoes"
+      );
+      btnMuitQuest.onclick = function() {
+        try {
+          var str = texto.value; //É o texto de qualquer lugar
+          if (str.length > 0) {
+            var spr = prompt("Separador", "item");
+
+            const reg = new RegExp(spr + ".+\\d+", "gi");
+
+            if (str.match(reg) !== null) {
+              let m = str.split(reg);
+
+              m = m.filter(el => {
+                return el;
+              });
+
+              var json = [];
+
+              m = m.filter(el => {
+                const regex = /^\(?[a-zA-Z0-9]+\)/gim;
+
+                //console.log();
+                var questao = el.split("ff");
+                //Pega o enunciando:
+                let enuciado = questao[0].replace(regex, "").trim();
+
+                let alternativas = questao[1];
+
+                var questao = alternativas.split("\n");
+
+                questao = questao.map((el, index) => {
+                  var repl = el.match(regex);
+
+                  var correta = el.match(/correta\:\w+/im);
+
+                  if (repl !== null) {
+                    /*return {
+                      repl: el.replace(repl, "").trim(),
+                      correta: 'a',
+                    };*/
+                    return el.replace(repl, "").trim();
+                  }
+                  return false;
+                });
+
+                questao = questao.filter(el => {
+                  return el != false ? el : false;
+                });
+
+                questao.map(el => {
+                  questao.enuciado = enuciado;
+                });
+
+                json.push(questao);
+              });
+
+              console.log();
+
+              var quantLinhas = json.length;
+
+              var content ='';
+              json.map(el=>{
+                if(el.enuciado){
+                  content+='<textarea></textarea>';
+                }
+                content += el;
+              })
+              $('#muita-questao').html(content);
+
+              /*
+              for (var i = 0; i < quantLinhas - 1; i++) {
+                novaQuestao();
+              }
+
+              var alternativaEl = document.getElementsByClassName(
+                "alternativa"
+              );
+
+              for (var i = 0; i < quantLinhas; i++) {
+                alternativaEl[i].value = json[i].trim();
+              }*/
+            }
+          }
+        } catch (error) {
+          alert(error);
+        }
+      };
+    },
+  };
+
+  MuitasQuestoes.addQuestoes();
 
   SubCategoria.all(result => {
     let data = result.map(({ sub_categoria_id, sub_titulo }) => {
@@ -37,7 +134,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data
+      data: data,
     });
   });
 
@@ -85,6 +182,7 @@ $(document).ready(function() {
         <label>Enuciado:</label>
         <textarea class="form-control" placeholder="Adicione o enunciado da questão"
         required name="enunciado" rows="6"></textarea>
+        <input id="separador" placeholder="Separador" value="separator"/>
         <button type="button" id="add-from-external-text">Adicionar questão de texto</button><br>
         <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
         <input type="hidden" name="quiz_id" value="${quiz_id}"/>
@@ -111,7 +209,7 @@ $(document).ready(function() {
       questao_modalidade,
       alternativas,
       questao_correcao,
-      incremento
+      incremento,
     },
     titulo
   ) => {
@@ -222,15 +320,6 @@ $(document).ready(function() {
             return 0.5 - Math.random();
           });
 
-          /*PesquisarPorPalavraChave.pesquisar(function(text) {
-            var resultadoFiltro;
-            resultadoFiltro = questoes.filter(el => {
-              if (el.questao_enunciado.includes(text)) {
-                return el;
-              }
-            });
-            console.log(resultadoFiltro);
-          });*/
           var incremento = 0;
 
           for (let data of questoes) {
@@ -261,14 +350,14 @@ $(document).ready(function() {
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87"
+                  color: "#23be87",
                 });
             } else {
               $("#explicacao_" + questaoId)
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red"
+                  color: "red",
                 });
             }
 
@@ -318,7 +407,7 @@ $(document).ready(function() {
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87"
+                  color: "#23be87",
                 });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
@@ -330,7 +419,7 @@ $(document).ready(function() {
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red"
+                  color: "red",
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -365,20 +454,22 @@ $(document).ready(function() {
           }
 
           const enunciadoEl = document.getElementsByName("enunciado");
+          var separador = document.getElementById("separador");
 
           function copiarQuestaoExterna(texto) {
             try {
               var str = texto; //É o texto de qualquer lugar
+
               setTimeout(function() {
                 if (str.length > 0) {
-                  if (str.includes("fff")) {
-
-                    let m = str.split("fff");
+                  var spr = separador.value;
+                  if (str.includes(spr)) {
+                    let m = str.split(spr);
 
                     m = m.filter(el => {
                       return el;
                     });
-                    
+
                     const regex = /^\(?[a-zA-Z0-9]+\)/gim;
 
                     let enuciado = m[0].replace(regex, "").trim();
@@ -405,7 +496,9 @@ $(document).ready(function() {
                     );
 
                     for (var i = 0; i < quantLinhas; i++) {
-                      alternativaEl[i].value = questao[i].replace(regex, "").trim();
+                      alternativaEl[i].value = questao[i]
+                        .replace(regex, "")
+                        .trim();
                     }
                   }
                 }
@@ -416,7 +509,7 @@ $(document).ready(function() {
           }
 
           $("#add-from-external-text").click(function() {
-            insertAtCursor(enunciadoEl[0], "taffa");
+            insertAtCursor(enunciadoEl[0], separador.value);
             copiarQuestaoExterna(enunciadoEl[0].value);
           });
 
@@ -449,7 +542,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null
+                questao_id: null,
               };
             });
 
