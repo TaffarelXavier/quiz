@@ -41,7 +41,8 @@ $(document).ready(function() {
         try {
           var str = texto.value; //É o texto de qualquer lugar
           if (str.length > 0) {
-            var spr = prompt("Separador", "item");
+
+            var spr = "item";
 
             const reg = new RegExp(spr + ".+\\d+", "gi");
 
@@ -89,34 +90,22 @@ $(document).ready(function() {
                   questao.enuciado = enuciado;
                 });
 
-                json.push(questao);
+                var content ='';
+
+
+                console.log(questao)
+                // questao.map(el=>{
+                //   console.log(el);
+                // })
+
+                questao.map(el=>{
+                  console.log(el)
+                  //content+=`<textarea style="width:100%;">${el.enuciado}</textarea>`;
+                })
+                
+                $('#muita-questao').append(content);
+
               });
-
-              console.log();
-
-              var quantLinhas = json.length;
-
-              var content ='';
-              json.map(el=>{
-                if(el.enuciado){
-                  content+='<textarea></textarea>';
-                }
-                content += el;
-              })
-              $('#muita-questao').html(content);
-
-              /*
-              for (var i = 0; i < quantLinhas - 1; i++) {
-                novaQuestao();
-              }
-
-              var alternativaEl = document.getElementsByClassName(
-                "alternativa"
-              );
-
-              for (var i = 0; i < quantLinhas; i++) {
-                alternativaEl[i].value = json[i].trim();
-              }*/
             }
           }
         } catch (error) {
