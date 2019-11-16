@@ -1,0 +1,369 @@
+/* ============================================================ */
+/* ================= FOOTER STYLES ============================ */
+/* ============================================================ */
+.footer-sympla-generic {
+  padding: 62px 0 20px !important;
+  background-color: #50525f;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer-sympla-generic .social-icons i {
+  display: inline-block;
+  font-size: 30px;
+  color: #BBB;
+  padding: 20px;
+  border-radius: 2px;
+  border: none !important;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.footer-sympla-generic .social-icons i:hover {
+  color: #FFF;
+  background-color: #00aeef;
+}
+
+.footer-sympla-generic a,
+.footer-sympla-generic a:link,
+.footer-sympla-generic a:visited {
+  display: inline-block;
+  -webkit-transition: color 300ms ease;
+  transition: color 300ms ease;
+  color: #bdcadb;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+
+.footer-sympla-generic a:active,
+.footer-sympla-generic a:hover {
+  color: #fff;
+  outline: 0;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: -20px;
+  max-width: 152px
+}
+
+.sympla-content-divider {
+  height: 1px;
+  margin-bottom: 24px;
+  border-top: 1px solid hsla(0, 0%, 100%, .15);
+}
+
+
+.modal {
+  display: none;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+  outline: 0;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.fullwidth-section.half-padding {
+  position: relative;
+}
+
+.sympla-footer-social-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  background-image: url(../images/example-bg.png);
+  background-position: 50% 50%;
+  background-size: 28px;
+  background-repeat: no-repeat;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 4vw;
+  padding-left: 4vw;
+}
+
+.sympla-footer-store-badge {
+  display: block;
+  width: 125px;
+  height: 36px;
+  margin-bottom: 8px;
+  background-image: url(../images/example-bg.png);
+  background-position: 50% 50%;
+  background-size: 125px;
+  background-repeat: no-repeat;
+}
+
+.sympla-footer-store-badge.ios {
+  background-image: url(../images/apple-oficial-pt-br.svg);
+}
+
+.sympla-footer-store-badge.android {
+  background-image: url(../images/google-oficial-pt-br.svg);
+}
+
+.sympla-footer-title {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  line-height: 26px;
+}
+
+.sympla-footer-spv-signature {
+  display: block;
+  width: 188px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.sympla-footer-spv-logo {
+  width: 70px;
+  display: inline-block
+}
+
+.sympla-footer-spv-text {
+  display: inline-block;
+  margin-right: 8px;
+  color: #f5f5f5;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.sympla-footer-spv-heart {
+  color: #ff4f4f;
+}
+
+.sympla-footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 4vw;
+  padding-left: 4vw;
+}
+
+.sympla-footer-logo {
+  width: 104px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.sympla-footer-link.signature {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #bdcadb;
+}
+
+.sympla-footer-link:hover {
+  color: #fff;
+}
+
+.sympla-footer-signature-link {
+  border-bottom: 1px solid #bdcadb;
+}
+
+.icon-icon-social-facebook {
+  background-image: url(../images/public/icon-social-facebook@3x.png);
+  background-size: 28px;
+}
+
+.icon-icon-social-twitter {
+  background-image: url(../images/public/icon-social-twitter@3x.png);
+  background-size: 28px;
+}
+
+.icon-icon-social-instagram {
+  background-image: url(../images/public/icon-social-instagram@3x.png);
+  background-size: 28px;
+}
+
+.icon-icon-social-linkedin {
+  background-image: url(../images/public/icon-social-linkedin@3x.png);
+  background-size: 28px;
+}
+
+.footer-sympla-generic .social-icons i:hover {
+  background-color: #00aeef;
+}
+
+.footer-sympla-generic a:active,
+.footer-sympla-generic a:hover {
+  color: #00aeef;
+}
+
+
+/* FOOTER */
+
+.footer-sitemap a {
+  color: #bdcadb !important;
+  font-size: 12px;
+  font-weight: 400
+}
+
+.footer-sitemap a:hover {
+  color: #fff !important;
+}
+
+.footer-sitemap ul {
+  list-style: none;
+  margin: 15px 0 15px 0;
+  line-height: 26px;
+  padding: 0;
+}
+
+.footer-sitemap ul li.long {
+  line-height: 16px;
+  margin-bottom: 7px;
+}
+
+.footer-sitemap li {
+  font-size: 12px;
+}
+
+.footer-sitemap li.first-child,
+.footer-sitemap li.first-child a {
+  color: #fff !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.footer-sitemap li img {
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.footer-sep {
+  margin: 0 55px 0 55px !important;
+  padding: 0 !important;
+  background: url('../images/line-vertical-footer.png') no-repeat 0 0;
+  width: 1px !important;
+  height: 159px;
+}
+
+.footer-sep-end {
+  margin: 0 33px 0 32px !important;
+}
+
+#footer-media {
+  margin-top: 20px;
+}
+
+#footer-media li {
+  margin-right: 10px
+}
+
+#footer-media li img {
+  transition: opacity 200ms linear;
+  -webkit-transition: opacity 200ms linear;
+  -moz-transition: opacity 200ms linear;
+  -o-transition: opacity 200ms linear;
+}
+
+#footer-media li img:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+#footer-sitemap-right {
+  float: right;
+  text-align: right;
+  margin: 0px 0 40px 15px;
+}
+
+#footer-copyright {
+  text-align: center;
+  margin: 20px auto 0 auto;
+  padding-bottom: 15px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+#footer-copyright a {
+  color: #666;
+}
+
+#footer-copyright a:hover {
+  color: #999;
+}
+
+#footer-copyright span {
+  float: right;
+  color: #353535;
+  margin: 0 !important;
+  padding: 0!important;
+}
+
+.w-clearfix:after {
+  clear: both;
+}
+
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+
+
+@media (max-width: 768px) {
+  .footer .social-icons i {
+    display: block;
+  }
+  .footer-logo {
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+  }
+}
+
+/* ============================================================ */
+/* ================= GRID FOOTER ============================ */
+/* ============================================================ */
+
+.sympla-footer-col {
+  width: 16.6%;
+  float: left;
+}
+
+@media (max-width: 991px) {
+  .sympla-footer-col {
+    width: 33.33333333%;
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 479px) {
+  .sympla-footer-col {
+    width: 50%;
+    min-height: 300px;
+    padding-right: 24px;
+  }
+}

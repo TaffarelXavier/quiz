@@ -28,9 +28,12 @@ $(document).ready(function() {
     "r",
     "s",
     "t",
-    "u",
+    "u"
   ];
 
+  /**
+   *
+   */
   const MuitasQuestoes = {
     addQuestoes: function() {
       const texto = document.getElementById("textarea-muitas-questoes");
@@ -41,7 +44,6 @@ $(document).ready(function() {
         try {
           var str = texto.value; //É o texto de qualquer lugar
           if (str.length > 0) {
-
             var spr = "item";
 
             const reg = new RegExp(spr + ".+\\d+", "gi");
@@ -90,21 +92,19 @@ $(document).ready(function() {
                   questao.enuciado = enuciado;
                 });
 
-                var content ='';
+                var content = "";
 
-
-                console.log(questao)
+                console.log(questao);
                 // questao.map(el=>{
                 //   console.log(el);
                 // })
 
-                questao.map(el=>{
-                  console.log(el)
+                questao.map(el => {
+                  console.log(el);
                   //content+=`<textarea style="width:100%;">${el.enuciado}</textarea>`;
-                })
-                
-                $('#muita-questao').append(content);
+                });
 
+                $("#muita-questao").append(content);
               });
             }
           }
@@ -112,76 +112,9 @@ $(document).ready(function() {
           alert(error);
         }
       };
-    },
+    }
   };
 
-  /*
-  ITEM 09
-Segundo Piaget, o pensamento infantil passa por quatro estágios, desde o nascimento até o início da adolescência, quando a capacidade plena de raciocínio é atingida. Segundo ele:ff
-A) A criança constrói conhecimento somente na interação com outras crianças.
-B) O aprendizado da criança não está relacionado com a interação da criança com o meio.
-C) O ensino só se efetiva mediante a avaliação.
-D) A criança constrói o conhecimento a partir de suas descobertas quando em contato com o mundo e com os objetos.
-E) O processo de ensino/aprendizagem deve ser um processo rigoroso, centrado no professor.
-correta:e
-ITEM 10
-O modelo piagetiano de desenvolvimento cognitivo aponta que o adolescente é capaz de formar esquemas conceituais abstratos dos 12 anos em diante. Trata-se do períodoff
-A) pré-operacional.
-B) das operações formais.
-C) das operações concretas.
-D) sensório-motor.
-E) epistemofílico.
-correta:c
-ITEM 11
-No modelo piagetiano de desenvolvimento cognitivo, a criança em idade escolar entre 7 a 12 anos apresenta um declínio do egocentrismo intelectual e um crescente incremento do pensamento lógico, encontrando-se no períodoff
-A) das operações formais.
-B) sensorio motor.
-C) pré-operacional.
-D) das operações concretas.
-E) das operações informais.
-correta:d
-ITEM 12
-A criança deste estágio é “egocêntrica, centrada em si mesma, e não consegue se colocar, abstratamente, no lugar do outro. Não aceita a ideia do acaso e tudo deve ter uma explicação.” O texto apresentado corresponde a características de qual fase do desenvolvimento da teoria de Piaget?ff
-A) Sensório motor.
-B) Operatório concreto.
-C) Operatório formal.
-D) Pré-operatório.
-E) Não corresponde a teoria de Piaget.
-correta:e
-ITEM 13
-De acordo com a concepção piagetiana, o pensamento da criança que se encontra no período pré-operacional caracteriza-se por serff
-A) real.
-B) fantasioso.
-C) simbólico.
-D) lógico.
-E) egocêntrico.
-correta:d
-ITEM 14
-O modelo piagetiano do desenvolvimento humano propõe períodos que são caracterizados pelo aparecimento de novas qualidades do pensamento, interferindo no desenvolvimento global. O período de operações concretas se dá dosff
-A) 9 aos 14 anos, com o desenvolvimento de um egocentrismo intelectual e social.
-B) 7 aos 11 ou 12 anos com o início da construção lógica, ou seja, a capacidade da criança estabelecer relações que permitam a coordenação de pontos de vista diferentes.
-C) 6 aos 10 anos, quando deixa de ter dificuldade para realizar as operações no plano das ideias sem necessitar de manipulação ou referências concretas.
-D) 10 aos 14 anos, quando é capaz de abstrair e generalizar, criando teorias sobre o mundo, principalmente sobre aspectos que gostaria de modificar.  e) 4 aos correta:c
-7 anos, com o aparecimento da linguagem, incrementando a comunicação e a interação com os demais.
-ITEM 15
- Jean Piaget afirma que o desenvolvimento de operações mentais marca o início do período operacional concreto. Dentre as operações que as crianças passam a dominar nesse período, destaca-se o(a)ff
-A) centração.
-B) permanência de objeto
-C) egocentrismo.
-D) animismo.
-E) reversibilidade.
-correta:a
-ITEM 16
-Analise o texto abaixo:
-Os estudos epistemológicos de________ demonstravam que tanto as ações externas, quanto os processos de pensamento implicam uma organização lógica. Ele buscava conjugar duas variáveis - o lógico e o biológico – numa única teoria e, com isso, apresentar uma solução ao problema do conhecimento humano.
-Assinale a alternativa que completa corretamente a lacuna do texto.ff
-A) Wallon
-B) Vigotski
-C) Paulo Freire
-D) Davidov
-E) Piaget
-correta:a
-  */
   MuitasQuestoes.addQuestoes();
 
   SubCategoria.all(result => {
@@ -190,7 +123,7 @@ correta:a
     });
 
     eventSelect.select2({
-      data: data,
+      data: data
     });
   });
 
@@ -265,7 +198,7 @@ correta:a
       questao_modalidade,
       alternativas,
       questao_correcao,
-      incremento,
+      incremento
     },
     titulo
   ) => {
@@ -331,7 +264,7 @@ correta:a
     conteudo += `<div class="row">${alt.join("")}</div></div>`;
 
     if (questao_correcao != null) {
-      conteudo += `<p id="correcao_${questao_id}" hidden><br/><strong>Correção:</strong>
+      conteudo += `<p id="correcao_${questao_id}" class="correcao-class" hidden><br/><strong>Correção:</strong>
         <i>${questao_correcao}</i></p>`;
     }
 
@@ -356,6 +289,11 @@ correta:a
       Quiz.getByQuizId(quiz_id, result => {
         //Destruturing
         let { quiz_id, titulo, questoes } = result[0];
+        if (questoes.length > 0) {
+          $("#quantidade-questoes-encontradas").html(
+            questoes.length + " questões encontradas."
+          ).css({background:'#f8f8f8'});
+        }
 
         let conteudoQuestoes = "";
 
@@ -367,10 +305,11 @@ correta:a
             $("#get-inserir-quiz").hide();
           }
         } else {
-          conteudoQuestoes = `<br/><h3><strong>Suas Questões</strong> - 
-          <a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=true'>FlashCards</a>
-          <a href="">Atualizar</a>
-          </h3>`;
+          conteudoQuestoes = ``;
+
+          $("#links-flashcards")
+            .css({ display: "inline-block" })
+            .attr("href", `?quiz_id=${quiz_id}&flashcard=true`);
 
           questoes = questoes.sort((a, b) => {
             return 0.5 - Math.random();
@@ -384,7 +323,7 @@ correta:a
             conteudoQuestoes += questaoDetalhe(data, titulo);
           }
 
-          conteudoQuestoes += '<a href="">Responder Novamente</a>';
+          conteudoQuestoes += "";
 
           $("#get-questoes").html(conteudoQuestoes);
 
@@ -406,14 +345,14 @@ correta:a
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87",
+                  color: "#23be87"
                 });
             } else {
               $("#explicacao_" + questaoId)
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red",
+                  color: "red"
                 });
             }
 
@@ -464,6 +403,7 @@ correta:a
                 .removeAttr("hidden")
                 .css({
                   color: "#23be87",
+                  display: "block"
                 });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
@@ -476,6 +416,7 @@ correta:a
                 .removeAttr("hidden")
                 .css({
                   color: "red",
+                  display: "block"
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -519,6 +460,7 @@ correta:a
               setTimeout(function() {
                 if (str.length > 0) {
                   var spr = separador.value;
+
                   if (str.includes(spr)) {
                     let m = str.split(spr);
 
@@ -528,7 +470,11 @@ correta:a
 
                     const regex = /^\(?[a-zA-Z0-9]+\)/gim;
 
-                    let enuciado = m[0].replace(regex, "").trim();
+                    let enuciado = m[0].trim();
+
+                    if (regex.test(m[0])) {
+                      enuciado = m[0].replace(regex, "").trim();
+                    }
 
                     let alternativas = m[1];
 
@@ -537,8 +483,7 @@ correta:a
                     var questao = alternativas.split("\n");
 
                     questao = questao.filter(el => {
-                      //console.log(el)
-                      return el.match(regex) ? el : false;
+                      return el.match(regex) ? el : el.trim();
                     });
 
                     var quantLinhas = questao.length;
@@ -558,7 +503,7 @@ correta:a
                     }
                   }
                 }
-              }, 200);
+              }, 100);
             } catch (error) {
               alert(error);
             }
@@ -598,7 +543,7 @@ correta:a
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null,
+                questao_id: null
               };
             });
 

@@ -18,7 +18,7 @@ const cartao = ({
   }
   
   return `<div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" style='padding:0px;'>
   <div class="cols">
   <div class="coluna">
     <div class="container-flashcard">
@@ -44,13 +44,14 @@ const cartao = ({
 };
 
 const flashCard = result => {
-  // console.log(result.questoes);
 
   let questoes = result.questoes;
 
   let quiz_id = result.quiz_id;
 
-  let conteudoQuestoes = `<a class="btn btn-raised btn-primary" href='?quiz_id=${quiz_id}&flashcard=false'>Somente Questões</a><br/>`;
+  let conteudoQuestoes = ``;
+
+  $('#links-flashcards').html('Somente Questões').css({display:"inline-block"}).attr("href",`?quiz_id=${quiz_id}`)
 
   questoes = questoes.sort((a, b) => {
     return 0.5 - Math.random();
@@ -73,10 +74,6 @@ const flashCard = result => {
   }
 
   $("#get-questoes").html(conteudoQuestoes);
-
-  $(".cartao").click(() => {
-    alert("a");
-  });
 
   $(".front").click(function() {
     console.log("A");

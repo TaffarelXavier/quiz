@@ -1,0 +1,419 @@
+.btn, a.btn, a.btn:visited, a.btn:link {
+font-family: 'Open Sans', 'Raleway', sans-serif;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+letter-spacing: 1.5px;
+text-shadow: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+border: none;
+color: #FFF;
+border-radius: 4px;
+padding: 12px 22px;
+outline: 0 !important;
+margin: 5px 10px 5px 0;
+-webkit-transition: background-color 0.25s;
+-moz-transition: background-color 0.25s;
+-o-transition: background-color 0.25s;
+transition: background-color 0.25s;
+text-decoration: none;
+}
+/* Button Small */
+.btn-sm, a.btn-sm, a.btn-sm:link {
+padding: 8px 18px;
+font-weight: 700;
+font-size: 11px;
+letter-spacing: 1px;
+}
+/* Button Large */
+.btn-lg, a.btn-lg, a.btn-lg:link {
+padding: 16px 26px;
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1.5px;
+}
+/* DEFAULT BUTTON COLOR */
+/*.btn-default,a.btn-default,a.btn-default:visited {
+  background-color: #BBB;
+}*/
+.btn-default:hover,
+a.btn-default:hover {
+/*  background-color: #F5F5F5;
+  color: #BBB;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+}
+
+.btn-primary,.btn-primary:focus,
+a.btn-primary, a.btn-primary:visited, a.btn-primary:active, a.btn-primary.active, a.btn-primary:focus {
+    background-color: #FF9B27;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: 1;
+    filter: Alpha(Opacity=100);/*IE7 fix*/
+}
+
+.btn-primary:hover,
+a.btn-primary:hover {
+    background-color: #FF9B27;
+}
+
+
+.btn-green,
+a.btn-green, a.btn-green:visited {
+  background-color: #36C7BB;
+}
+
+.btn-green:hover,
+.btn-green:focus,
+a.btn-green:hover,
+a.btn-green:focus {
+	opacity: 0.9;
+  	filter: Alpha(Opacity=90);
+}
+
+/* DARK BUTTON COLOR */
+.btn-dark,a.btn-dark,a.btn-dark:visited {
+  background-color: #50525f;
+}
+.btn-dark:hover,
+.btn-dark:focus,
+a.btn-dark:hover,
+a.btn-dark:focus {
+/*  color: #FFF;
+  background-color: #BBB !important;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+}
+.btn-white:hover,
+.btn-white:focus,
+a.btn-white:hover,
+a.btn-white:focus {
+/*background-color: #BBB !important;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+}
+
+.btn-white-transparent:hover,
+.btn-white-transparent:focus,
+a.btn-white-transparent:hover,
+a.btn-white-transparent:focus {
+
+/*background-color: #fff !important;
+color: #00aeef !important;*/
+/*    opacity: 0.9;
+    filter: Alpha(Opacity=90);IE7 fix*/
+
+    background-color: #00aeef !important;
+    color: #fff !important;
+    border-color: #00aeef !important;
+}
+
+.btn-red-transparent:hover,
+.btn-red-transparent:focus,
+a.btn-red-transparent:hover,
+a.btn-red-transparent:focus {
+/*background-color: #fff !important;
+color: #50525f !important;*/
+background-color: #fff !important;
+color: #FF9B27 !important;
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+}
+
+/* DARK-TRANSPARENT BUTTON COLOR */
+.btn-dark-transparent,a.btn-dark-transparent,a.btn-dark-transparent:visited {
+  background: none;
+    color: #50525f !important;
+}
+
+.btn-dark-transparent:hover,
+a.btn-dark-transparent:hover {
+/*background-color: #fff !important;*/
+/*color: #00aeef !important;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+
+    background-color: #00aeef !important;
+    color: #fff !important;
+    border-color: #00aeef !important;
+}
+.btn-dark-transparent:active,
+.btn-dark-transparent.active,
+a.btn-dark-transparent:active,
+a.btn-dark-transparent.active  {
+    background: none;
+    color: #50525f;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* GREY-TRANSPARENT BUTTON COLOR */
+.btn-grey-transparent,a.btn-grey-transparent,a.btn-grey-transparent:visited {
+    background: none;
+    color: #999999 !important;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+}
+
+.btn-grey-transparent .fa-cog {
+    color: #6e6e6e;
+}
+
+.btn-grey-transparent:hover,
+a.btn-grey-transparent:hover {
+/*background-color: #fff !important;*/
+/*color: #00aeef !important;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+
+    background-color: #00aeef !important;
+    color: #fff !important;
+    border-color: #00aeef !important;
+}
+
+.btn-grey-transparent:hover .fa-cog,
+.btn-grey-transparent:hover .fa-cog,
+.btn-grey-transparent:focus .fa-cog,
+a.btn-grey-transparent:hover .fa-cog,
+a.btn-grey-transparent:focus .fa-cog {
+    background-color: #00aeef !important;
+    color: #fff !important;
+    border-color: #00aeef !important;
+}
+
+.btn-grey-transparent:active,
+.btn-grey-transparent.active,
+a.btn-grey-transparent:active,
+a.btn-grey-transparent.active  {
+    background: none;
+    color: #50525f;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* ADD .btn-outline TO BUTTONS TO GIVE THEM AN OUTLINED APPEARANCE */
+a.btn-outline, .btn-outline, a.btn-outline:link {
+border: 1px solid;
+background-color: transparent;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: border;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    font-weight: normal;
+}
+/* DEFAULT BUTTON COLOR */
+a.btn-outline.btn-default, .btn-outline.btn-default {
+/*border-color: #BBB;
+color: #BBB;*/
+background-color: transparent;
+/*  opacity: 0.9;
+  filter: Alpha(Opacity=90);IE7 fix*/
+}
+a.btn-outline.btn-default:hover,
+.btn-outline.btn-default:hover {
+/*background-color: #BBB !important;*/
+  opacity: 0.9;
+  filter: Alpha(Opacity=90);/*IE7 fix*/
+color: #fff !important;
+}
+/* PRIMARY BUTTON COLOR */
+a.btn-outline.btn-primary, .btn-outline.btn-primary {
+border-color: #FF9B27;
+color: #FF9B27;
+background-color: transparent;
+}
+a.btn-outline.btn-primary:hover, a.btn-outline.btn-primary.active, a.btn-outline.btn-primary:active, a.btn-outline.btn-primary:focus,
+.btn-outline.btn-primary:hover, .btn-outline.btn-primary.active, .btn-outline.btn-primary:active, .btn-outline.btn-primary:focus {
+background-color: #FF9B27 !important;
+color: #fff !important;
+}
+/* DARK BUTTON COLOR */
+a.btn-outline.btn-dark, .btn-outline.btn-dark {
+border-color: #50525f;
+color: #50525f;
+background-color: transparent;
+}
+a.btn-outline.btn-dark:hover, a.btn-outline.btn-dark.active, a.btn-outline.btn-dark:active, a.btn-outline.btn-dark:focus,
+.btn-outline.btn-dark:hover, .btn-outline.btn-dark.active, .btn-outline.btn-dark:active, .btn-outline.btn-dark:focus {
+/*background-color: #50525f !important;
+color: #fff !important;*/
+    background-color: #FF9B27 !important;
+    color: #fff !important;
+}
+/* WHITE BUTTON COLOR */
+a.btn-outline.btn-white, .btn-outline.btn-white {
+border-color: #FFF;
+color: #FFF;
+background-color: transparent;
+}
+a.btn-outline.btn-white:hover, a.btn-outline.btn-white.active, a.btn-outline.btn-white:active, a.btn-outline.btn-white:focus,
+.btn-outline.btn-white:hover, .btn-outline.btn-white.active, .btn-outline.btn-white:active, .btn-outline.btn-white:focus {
+    /*background-color: #FFF !important;*/
+    /*color: #00aeef !important;*/
+/*    background-color: #FF9B27 !important;
+    color: #fff !important;*/
+    background-color: #fff ;
+    color: #00aeef;
+}
+/* Button Default Size */
+.btn.btn-outline, a.btn.btn-outline {
+    padding: 13px 30px;
+    font-family: 'Open Sans', 'Raleway', sans-serif;
+}
+/* Button Small */
+.btn-sm.btn-outline, a.btn-sm.btn-outline {
+padding: 6px 16px;
+}
+/* Button Large */
+.btn-lg.btn-outline, a.btn-lg.btn-outline {
+padding: 14px 24px;
+}
+
+/* Button Default Size */
+.btn.btn-extra-padding, a.btn.btn-extra-padding {
+    padding: 14px 30px;
+    font-family: 'Open Sans', 'Raleway', sans-serif;
+}
+/* Button Small */
+.btn-sm.btn-extra-padding, a.btn-sm.btn-extra-padding {
+padding: 6px 16px;
+}
+/* Button Large */
+.btn-lg.btn-extra-padding, a.btn-lg.btn-extra-padding {
+padding: 14px 24px;
+}
+
+
+
+.btn-fill-white
+{
+    background: #fff !important;
+}
+
+a.btn-fill-white, li.btn-fill-white, .btn-fill-white a
+{
+    color: #00aeef !important;
+}
+
+.btn-fill-white:hover
+{
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+    background: #fff !important;
+    opacity: 1;
+}
+
+.btn-fill-white a:hover
+{
+    background-color: #00aeef;
+    color: #fff !important;
+    opacity: 1;
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+}
+
+.navbar-transparent .btn-fill-white
+{
+    background: none !important;
+}
+
+.navbar-transparenta .btn-fill-white, .navbar-transparent li.btn-fill-white, .navbar-transparent .btn-fill-white a
+{
+    color: #fff !important;
+}
+
+.navbar-transparent .btn-fill-white:hover
+{
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+    color: #00aeef !important;
+    background: none !important;
+    opacity: 1;
+}
+
+.navbar-transparent .btn-fill-white a:hover
+{
+    background: none !important;
+    color: #00aeef !important;
+    border-color: #00aeef !important;
+    opacity: 1;
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+}
+
+
+.navbar-sympla-fixed .btn-fill-white
+{
+    background: #fff !important;
+}
+
+.navbar-sympla-fixed a.btn-fill-white, .navbar-sympla-fixed li.btn-fill-white, .navbar-sympla-fixed .btn-fill-white a
+{
+    color: #00aeef !important;
+}
+
+.navbar-sympla-fixed .btn-fill-white:hover
+{
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+    background: #fff !important;
+    opacity: 1;
+}
+
+.navbar-sympla-fixed .btn-fill-white a:hover
+{
+    background: #FF9B27 !important;
+    color: #fff !important;
+    opacity: 1;
+    /*background: none !important;*/
+    /*color: #fff !important;*/
+}
+
+
+.btn-disabled
+a.btn-disabled,
+.btn-disabled:hover,
+a.btn-disabled:hover,
+.btn-disabled:active,
+a.btn-disabled:active,
+.btn-disabled.active,
+a.btn-disabled.active,
+.btn-primary.btn-disabled,
+a.btn-primary.btn-disabled,
+.btn-primary.btn-disabled:hover,
+a.btn-primary.btn-disabled:hover,
+.btn-primary.btn-disabled:active,
+a.btn-primary.btn-disabled:active,
+.btn-primary.btn-disabled.active,
+a.btn-primary.btn-disabled.active
+{
+  background-color: #A3A3A3 !important;
+}
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .btn-primary:hover,
+    a.btn-primary:hover {
+        background-color: #00aeef !important;
+        color: #fff !important;
+        border-color: #00aeef !important;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

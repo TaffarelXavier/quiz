@@ -66,17 +66,14 @@
     /*]]>*/
   </style>
   <title>O melhor lugar para você fazer questões - TX Questões</title>
-
   <meta name="keywords" content="palavras chaves" />
-
   <meta property="og:description" content="A plataforma online de questões, na qual, você pode fazer..." />
-  <meta property="og:image" content="assets/images/logo-sympla-for-facebook.png" />
+  <meta property="og:image" content="http://www.sympla.com.br/images/logo-sympla-for-facebook.png" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="sitelock-site-verification" content="5174" />
-
-  <link rel="icon" href="favicon.ico?v=2.0" />
-
+  <link rel="icon" href="/images/public/favicon/favicon.ico?v=2.0" />
   <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/images/public/favicon/new/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
 
   <!-- <link rel="manifest" href="/manifest.json" /> -->
@@ -94,6 +91,12 @@
   <link href="assets/css/public/swiper.min.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
   <link href="assets/css/public/jquery.dropdown.css" media="screen, projection, print" rel="stylesheet"
     type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900|Material+Icons&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+  <link rel="stylesheet" href="assets/css/questoes.min.css" />
+  <link rel="stylesheet" href="assets/css/flashcard.css" />
+  <link rel="stylesheet" href="assets/css/quiz.css" />
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
@@ -107,6 +110,7 @@
       </div>
     </div>
     <div class="row">
+
       <div class="col-md-6 col-lg-6 visible-lg tag-search">
         <div class="input-group input-search" id="input-search-navbar">
           <i class="fa icon-search-2"></i>
@@ -163,10 +167,10 @@
             <a href="/sobre-sympla" class="about nav-link">Sobre a Tx Concursos</a>
           </li>
           <li class="nav-li">
-            <a href="https://ajuda.sympla.com.br/hc/pt-br" target="_blank" class="about nav-link">Central de ajuda</a>
+            <a href="#" target="_blank" class="about nav-link">Central de ajuda</a>
           </li>
           <li class="nav-li">
-            <a href="http://blog.sympla.com.br/" target="_blank" class="about nav-link">Blog</a>
+            <a href="#" target="_blank" class="about nav-link">Blog</a>
           </li>
         </ul>
       </div>
@@ -231,7 +235,7 @@
               <li><a data-period="proxima-semana">Próxima semana</a></li>
               <li><a data-period="este-mes">Este mês</a></li>
             </ul>
-            <button type="button" class="btn btn-danger" id="searchEventsByFilters">
+            <button type="button" class="btn btn-primary" id="searchEventsByFilters">
               <span class="visible-md visible-lg">Procurar</span>
               <span class="hidden-md hidden-lg"><i class="icon-search-2"></i></span>
             </button>
@@ -287,375 +291,142 @@
       </div>
     </div>
   </section>
-
-  <!-- <section class="bg-section">
-    <div class="container" style="position:relative; padding: 0 15px;">
-      <div class="result-list header-block w-clearfix">
-        <div class="title-block">
-          <h3 class="list-result-title">
-            <span class="hyde-on-mobile"></span><strong class="counter-2">51</strong> registros encontrados
-          </h3>
-        </div>
-      </div>
-      <div class="list venue w-clearfix w-list-unstyled row">
-        <div class="col-md-4 search-result-li venue">
-          <a href="/teatrorenaissance" target="_blank"
-            class="sympla-card local w-inline-block w-clearfix">
-            <div class="map-thumb"></div>
-            <div class="event-info-block venue-card-list-var">
-              <div class="event-name event-card">
-                <span>Lorem inpusem </span>
-              </div>
-              <div class="event-location venue-card">
-                <span>Alameda Santos, 2233 - Jardins, São Paulo - SP</span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 search-result-li venue">
-          <a href="/teatroiguatemicampinas" target="_blank"
-            class="sympla-card local w-inline-block w-clearfix">
-            <div class="map-thumb"></div>
-            <div class="event-info-block venue-card-list-var">
-              <div class="event-name event-card">
-                <span>Lorem inpusem</span>
-              </div>
-              <div class="event-location venue-card">
-                <span>Shopping Center Iguatemi Campinas, 777, Campinas - SP</span>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 search-result-li venue">
-          <a href="/theatronetsp" target="_blank"
-            class="sympla-card local w-inline-block w-clearfix">
-            <div class="map-thumb"></div>
-            <div class="event-info-block venue-card-list-var">
-              <div class="event-name event-card">
-                <span>Lorem inpusem</span>
-              </div>
-              <div class="event-location venue-card">
-                <span>Rua Olimpíadas, 360 - 5° Piso, São Paulo - SP</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4 col-md-offset-4">
-        <a id="more-venues" class="btn btn-dark-transparent btn-outline btn-block">Carregar mais</a>
-      </div>
-    </div>
-  </section> -->
-
   <section id="all-results-list" class="bg-section">
     <div class="">
       <div class="container" style="position:relative; padding: 0 15px;">
-        <h3><strong>TEste</strong> Quizes encontradas</h3>
+        <h3 id="quantidade-questoes-encontradas" style="display: inline-block;height:30px;background:rgb(58, 31, 60,0.2)!important;min-width: 300px;"></h3>
       </div>
     </div>
     <div class="container nopadding">
       <div class="row">
         <div id="events-grid">
           <div class="content-section">
-            <div class="content-wrapper">
-              <ul class="search-result-list w-clearfix">
+            <div class="">
+              <div class="row">
+                <!-- TITULO DO QUIZ -->
+                <div class="col-md-12">
+                  <h1 id="titulo-do-quiz"> <span class="comment animate"
+                      style="height: 25px;display: block;width: 300px;"></span></h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4" style="padding:0;">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- Button trigger modal -->
+                      <button type="button" hidden class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">
+                        Adicionar Nova Questão
+                      </button>
+                      <button type="button" hidden class="btn btn-primary" data-toggle="modal"
+                        data-target="#modalMuitasQuestoes">
+                        Adicionar Muitas Questões
+                      </button>
+                      <a class="btn btn-primary" id="links-flashcards" style="display:none;">
+                        Flashcards
+                      </a><br />
+                      <a href="" class="btn btn-primary">Atualizar</a>
+                      <a href="./" class="btn btn-primary">Voltar</a>
+                      <div id="muita-questao"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-12" id="get-questoes">
+                      <div class="comment br animate line-20"></div>
+                      <div class="comment br animate line-20"></div>
+                      <div class="comment br animate line-20"></div>
+                      <div class="comment br animate line-20"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-4 col-md-offset-4">
+                        <div class="spinner-more">
+                          <img src="assets/images/img-loading.gif" />
+                        </div>
+                        <button id="more-events" data-url="/eventos?ordem=data&pagina=2"
+                          class="btn btn-dark-transparent btn-outline btn-block" style="margin: 0px auto 0px">
+                          Carregar mais
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-md-12" id="get-quizzes"></div>
 
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" style="background:#E4E4E4">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div style="height: 20px;background:#E4E4E4;width:200px;border-radius:7px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card">
-                        <div style="height: 20px;background:#E4E4E4;border-radius:7px;"></div>
-                      </div>
-                      <div class="event-location event-card">
-                        <div style="height:20px;background:#E4E4E4;width: 100%;border-radius:7px;"></div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12 col-md-4 col-md-offset-4">
-            <div class="spinner-more">
-              <img src="assets/images/img-loading.gif" />
-            </div>
-            <button id="more-events" data-url="/eventos?ordem=data&pagina=2"
-              class="btn btn-dark-transparent btn-outline btn-block" style="margin: 40px auto 30px">
-              Carregar mais
-            </button>
           </div>
         </div>
       </div>
-      <!-- BANNER -->
-      <!-- <div class="row">
-        <div class="col-md-12 text-center padding-top-20 padding-bottom-20 hidden-xs">
-          <a class="banner-org" href="#">
-            <img src="assets/images/banner.svg" alt="Organizar eventos" />
-          </a>
-        </div>
-        <div class="col-xs-12 text-center padding-top-20 padding-bottom-20 visible-xs">
-          <a class="banner-org" href="/como-funciona?gx=101">
-            <img src="https://d1gkntzr8mxq7s.cloudfront.net/5b296b1ba80df.png" alt="Organizar eventos" />
-          </a>
-        </div>
-      </div> -->
     </div>
   </section>
 
   <div class="border-top"></div>
-
-  <!-- <div id="collections-section" class="padding-top-20-md padding-bottom-10 bg-section">
-    <div data-animation="slide" data-easing="ease-out-expo" data-hide-arrows="1" data-duration="1000" data-infinite="1"
-      class="collections-slider w-slider container">
-      <div class="content-wrapper section-title-container">
-        <h3 class="margin-top-0-xs">Encontre novas experiências</h3>
-      </div>
-      <div class="row">
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/festas-shows" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-festa-show.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-festa-show.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Festa e Show</h4>
-          </a>
+  <div class="modal fade" id="modalMuitasQuestoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalMuitasQuestoesLabel">Adicionar Muitas Questões</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/teatro-espetaculo" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-teatro-espetaculo.jpg?v=1.0" class="collection-img" />
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12" id="get-inserir-quiz">
+                  <textarea id="textarea-muitas-questoes" class="form-control" rows="20"></textarea>
+                  <!-- <div class="comment br animate line-20"></div>
+                                <div class="comment br animate line-20"></div>
+                                <div class="comment br animate line-20"></div>
+                                <div class="comment br animate line-20"></div> -->
+                  <button id="btn-salvar-muitas-questoes">Salvar</button>
+                </div>
               </div>
-              <img src="assets/images/thumb-collection-teatro-espetaculo.jpg?v=1.0" class="collection-glow-img" />
             </div>
-
-            <h4 class="collection-title">Teatro e Espetáculo</h4>
-          </a>
+          </div>
         </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/negocios" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-negocios.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-negocios.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Negócios</h4>
-          </a>
-        </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/aprender" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-aprender.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-aprender.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Aprender</h4>
-          </a>
-        </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/esporte" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-esporte.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-esporte.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Esporte</h4>
-          </a>
-        </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/comer-e-beber" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-comer-beber.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-comer-beber.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Comer e Beber</h4>
-          </a>
-        </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/gratis" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-gratis.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-gratis.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-
-            <h4 class="collection-title">Grátis</h4>
-          </a>
-        </div>
-        <div class="collection-slide col-xs-3 col-sm-1_5 col-md-1_5 col-lg-1_5">
-          <a href="/eventos/tecnologia" class="collection-link w-inline-block">
-            <div class="collection-img-wrapper">
-              <div class="collection-img-block">
-                <img src="assets/images/thumb-collection-tech.jpg?v=1.0" class="collection-img" />
-              </div>
-              <img src="assets/images/thumb-collection-tech.jpg?v=1.0" class="collection-glow-img" />
-            </div>
-            <h4 class="collection-title">Tecnologia</h4>
-          </a>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova Questão</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12" id="get-inserir-quiz">
+                  <div class="comment br animate line-20"></div>
+                  <div class="comment br animate line-20"></div>
+                  <div class="comment br animate line-20"></div>
+                  <div class="comment br animate line-20"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade dialog2" id="dialogLogin" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md">
@@ -913,6 +684,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade dialog2" id="dialogRegistration" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -965,7 +737,7 @@
                           <span class="icon-password"></span>
                         </div>
                         <input class="form-controlold" name="User_PWD" id="User_PWD" placeholder="Senha"
-                          data-tck-name="senha" type="text" maxlength="150" />
+                          data-tck-name="senha" type="" maxlength="150" />
                         <span id="errorMsgRegPsw" class="errorMsgInput"></span>
                       </div>
                       <div class="padding-bottom-20">
@@ -982,7 +754,7 @@
                     <div class="row nomargin">
                       <h6 class="text-center">
                         Ao me cadastrar, concordo com os
-                        <a target="_blank">Termos de uso</a>
+                        <a href="" target="_blank">Termos de uso</a>
                         da Tx Concursos
                       </h6>
                     </div>
@@ -1002,6 +774,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade dialog2" id="dialogCheckEmailReg" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -1075,7 +848,7 @@
             <div class="loginform-group">
               <div class="iconLabel"><span class="icon-password"></span></div>
               <input class="form-controlold" name="User_PWD_resp" id="User_PWD_resp" placeholder="Senha"
-                data-tck-name="senha" type="text" maxlength="150" />
+                data-tck-name="senha" type="" maxlength="150" />
               <span id="errorMsgRegPswResp" class="errorMsgInput"></span>
             </div>
             <div class="padding-bottom-20">
@@ -1120,76 +893,19 @@
       </div>
     </div>
   </div>
+  <div id="footer"></div>
 
   <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
-  <script src="assets/js/dev/controller.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap-material-design.min.js"></script>
+  <script src="assets/js/select2.min.js"></script>
+  <script src="assets/js/controller.min.js"></script>
+  <script src="assets/js/dev/flashcard.js"></script>
+  <script src="assets/js/funcoes.min.js"></script>
+  <script src="assets/js/palavraChave.min.js"></script>
+  <script src="assets/js/dev/quiz.js"></script>
   <script src="assets/js/dev/app.js"></script>
-  <script>
-    App.Footer();
-  </script>
-  <script>
-
-    var Quizzes = {
-      template: function ({ titulo, quiz_id }) {
-
-        titulo = titulo;
-
-        quiz_id = quiz_id;
-
-        var item = `
-<li class="search-result-li plat-sympla" ">
-  <a href="responder.html?quiz_id=${quiz_id}"
-   style="border-left:1px solid rgb(58, 31, 60,0.1)!important;
-   border-right:1px solid rgb(58, 31, 60,0.1)!important;
-   border-bottom:1px solid rgb(58, 31, 60,0.1)!important;
-                    target="_blank" class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-titulo="${titulo}" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image" 
-                        style="background:rgb(58, 31, 60,0.2)!important;">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="event--date">
-                          <div class="event--date w-clearfix">
-                            <div class="event-card-day w-clearfix">
-                              <div class="event-date-day">13</div>
-                              <div class="event-card-date-month">Nov</div>
-                            </div>
-                            <div class="event-card-hour-spacer">,</div>
-                            <div class="event-card-info">08:45</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="event-name event-card"><span>${titulo}</span></div>
-                      <div class="event-location event-card">Lorem</div>
-                    </div>
-                  </a>
-                </li>`;
-        return item;
-      },
-      run: function () {
-        try {
-          Quiz.all(function (result) {
-            var conteudo = '';
-            result.map(el => {
-              conteudo += Quizzes.template(el);
-            })
-            $('.search-result-list').html(conteudo);
-          })
-        } catch (error) {
-          console.error('Houve um erro:', error)
-        }
-        //return true;
-      }
-    }
-
-    Quizzes.run()
-  </script>
-
+  <script>App.Footer();</script>
 </body>
 
 </html>

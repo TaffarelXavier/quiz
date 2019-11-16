@@ -6,7 +6,7 @@ body {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
   text-align: center;
   font-size: 40px;
-  /* border-radius: 8px; */
+  border-radius: 8px;
   cursor: pointer;
   opacity: 0.8;
   /* background: #2196f3; */
@@ -24,7 +24,7 @@ details {
 
 .multipla-escolha {
   padding: 5px;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   margin-bottom: 10px;
   color: black;
   text-indent: 0px;
@@ -90,6 +90,7 @@ details {
   background: #3a1f3c !important;
   color: white !important;
   padding: 10px;
+  font-size: 2rem;
 }
 
 .explicacao {
@@ -97,9 +98,14 @@ details {
   font-style: italic;
   background: rgba(0, 0, 0, 0.154);
   font-weight: 900;
-  display: block;
+  display: none;
   text-align: center;
   padding: 5px;
+  margin: 0px auto !important;
+  width:200px;
+}
+.correcao-class{
+  font-size: 1.7rem;
 }
 .tx-icon {
   width: 23px;

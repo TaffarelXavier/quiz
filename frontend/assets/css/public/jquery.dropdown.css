@@ -1,0 +1,193 @@
+.s-dropdown {
+	position: absolute;
+	z-index: 9999999;
+	display: none;
+
+        /* Styles */
+        /*background: #fff;*/
+/*        background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+        background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);*/
+        /*border-radius: 4px;*/
+        border: 1px solid rgba(0,0,0,0.15);
+        box-shadow: 3px 3px 15px rgba(20,20,20,0.2);
+        cursor: pointer;
+        outline: none;
+
+        /* Font settings */
+        font-weight: bold;
+        color: #00aeef;
+}
+
+.s-dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: #fff transparent;    
+}
+
+.s-dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
+}
+
+.s-dropdown li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #00aeef;
+    background: #fff;
+    border-bottom: 1px solid #e6e8ea;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,1);
+/*    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;*/
+}
+
+.s-dropdown li i {
+    float: right;
+    color: inherit;
+}
+
+.s-dropdown li:first-of-type a {
+    /*border-radius: 4px 4px 0 0;*/
+}
+
+.s-dropdown li:last-of-type a {
+    border: none;
+    /*border-radius: 0 0 4px 4px;*/
+}
+
+/* Hover state */
+
+.s-dropdown li:hover a {
+    background: #f4f4f4;
+    /*color: #fff;*/
+    opacity: 1;
+    filter: Alpha(Opacity=100);/*IE7 fix*/
+}
+
+
+.s-dropdown .s-dropdown-menu,
+.s-dropdown .s-dropdown-panel {
+    /* Size and position */
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.s-dropdown .s-dropdown-panel {
+	padding: 10px;
+}
+
+.s-dropdown.s-dropdown-tip {
+	margin-top: 8px;
+        cursor: default;
+}
+
+.s-dropdown.s-dropdown-tip:before {
+  position: absolute;
+  top: -6px;
+  left: 9px;
+  content: '';
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #CCC;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
+
+.s-dropdown.s-dropdown-tip.s-dropdown-anchor-right:before {
+	left: auto;
+	right: 9px;
+}
+
+.s-dropdown.s-dropdown-tip:after {
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #FFF;
+  display: inline-block;
+}
+
+.s-dropdown.s-dropdown-tip.s-dropdown-anchor-right:after {
+	left: auto;
+	right: 10px;
+}
+
+
+.s-dropdown.s-dropdown-scroll .s-dropdown-menu,
+.s-dropdown.s-dropdown-scroll .s-dropdown-panel {
+	max-height: 358px;
+	overflow: auto;
+}
+
+.s-dropdown .s-dropdown-menu LI {
+    font-weight: normal;
+    list-style: none;
+}
+
+.s-dropdown .s-dropdown-menu LI > A,
+.s-dropdown .s-dropdown-menu LABEL {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #00aeef;
+        border-bottom: 1px solid #e6e8ea;
+        box-shadow: inset 0 0 0 rgba(255,255,255,1);
+/*        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;*/
+}
+
+.s-dropdown .s-dropdown-menu LI > A:hover,
+.s-dropdown .s-dropdown-menu LABEL:hover {
+	background: #f4f4f4;
+/*        color: #fff;*/
+}
+
+.s-dropdown .s-dropdown-menu .s-dropdown-divider {
+	font-size: 1px;
+	border-top: solid 1px #E5E5E5;
+	padding: 0;
+	margin: 5px 0;
+}
+
+/* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
+.s-dropdown.has-icons LI > A {
+	padding-left: 30px;
+	background-position: 8px center;
+	background-repeat: no-repeat;
+}
+
+.s-dropdown .undo A { background-image: url(icons/arrow-curve-180-left.png); }
+.s-dropdown .redo A { background-image: url(icons/arrow-curve.png); }
+.s-dropdown .cut A { background-image: url(icons/scissors.png); }
+.s-dropdown .copy A { background-image: url(icons/document-copy.png); }
+.s-dropdown .paste A { background-image: url(icons/clipboard.png); }
+.s-dropdown .delete A { background-image: url(icons/cross-script.png); }
+
+.s-dropdown-menu
+{
+    margin: 0;
+    padding: 0;
+}
