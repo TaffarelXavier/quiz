@@ -51,7 +51,7 @@ const flashCard = result => {
 
   let conteudoQuestoes = ``;
 
-  $('#links-flashcards').html('Somente Questões').css({display:"inline-block"}).attr("href",`?quiz_id=${quiz_id}`)
+  //$('#links-flashcards').html('Somente Questões').css({display:"inline-block"});
 
   questoes = questoes.sort((a, b) => {
     return 0.5 - Math.random();
@@ -76,8 +76,9 @@ const flashCard = result => {
   $("#get-questoes").html(conteudoQuestoes);
 
   $(".front").click(function() {
-    console.log("A");
+
     var _this = $(this);
+    
     var id = _this.attr("data-card-id");
 
     $(this).css({
@@ -111,3 +112,5 @@ const flashCard = result => {
     });
   });
 };
+
+// var flashCard = ()=>{};

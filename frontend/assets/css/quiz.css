@@ -24,11 +24,10 @@ details {
 
 .multipla-escolha {
   padding: 5px;
-  font-size: 1.7rem;
+  font-size: 1rem;
   margin-bottom: 10px;
   color: black;
   text-indent: 0px;
-  /* margin-left: 40px; */
 }
 .multipla-escolha:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.254);
@@ -90,7 +89,7 @@ details {
   background: #3a1f3c !important;
   color: white !important;
   padding: 10px;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .explicacao {

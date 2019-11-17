@@ -36,10 +36,10 @@
     backface-visibility: hidden;
     text-align: center;
     min-height: 280px;
-    height: auto;
+    display: block;
     border-radius: 10px;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .back {
@@ -112,10 +112,6 @@
     transform-style: preserve-3d;
   }
 
- /*pre {
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
-  }*/
 .flash-enunciado{
   margin-bottom: 2rem;
   position: relative;
@@ -124,7 +120,6 @@
   overflow: hidden;
   white-space: normal;
   line-height: 140%;
-  font-size:1.7rem;
 }
 
   @media screen and (max-width: 64rem) {
@@ -156,5 +151,8 @@
     align-items: center;
     border-radius: 7px;
     margin:0px auto;
-    font-size:1.7rem;
+  }
+
+  pre{
+    font-size:1rem;
   }

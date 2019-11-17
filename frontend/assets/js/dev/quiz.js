@@ -277,6 +277,26 @@ $(document).ready(function() {
     return conteudo;
   }; //FIM
 
+  const carregarSomenteQuestoes = (questoes, titulo) => {
+    var conteudoQuestoes = ``;
+
+    questoes = questoes.sort((a, b) => {
+      return 0.5 - Math.random();
+    });
+
+    var incremento = 0;
+
+    for (let data of questoes) {
+      incremento++;
+      data.incremento = incremento;
+      conteudoQuestoes += questaoDetalhe(data, titulo);
+    }
+
+    conteudoQuestoes += "";
+
+    $("#get-questoes").html(conteudoQuestoes);
+  };
+
   const carregarDados = () => {
     let params = new URL(window.location).searchParams;
 
@@ -289,13 +309,12 @@ $(document).ready(function() {
       Quiz.getByQuizId(quiz_id, result => {
         //Destruturing
         let { quiz_id, titulo, questoes } = result[0];
+        //
         if (questoes.length > 0) {
-          $("#quantidade-questoes-encontradas").html(
-            questoes.length + " questões encontradas."
-          ).css({background:'#f8f8f8'});
+          $("#quantidade-questoes-encontradas")
+            .html(questoes.length + " questões encontradas.")
+            .css({ background: "#f8f8f8" });
         }
-
-        let conteudoQuestoes = "";
 
         $("#titulo-do-quiz").html(`Questões sobre: ${titulo}`);
 
@@ -305,27 +324,27 @@ $(document).ready(function() {
             $("#get-inserir-quiz").hide();
           }
         } else {
-          conteudoQuestoes = ``;
+          var isSomenteFlashCard = true;
 
           $("#links-flashcards")
-            .css({ display: "inline-block" })
-            .attr("href", `?quiz_id=${quiz_id}&flashcard=true`);
+            .css({backgroundColor :'red !important'})
+            .removeClass("bg-esqueleto")
+            .click((ev) => {
+              if (isSomenteFlashCard) {
+                flashCard(result[0]);
+                isSomenteFlashCard = false;
+                $(ev.target).html("Somente Questões");
+              } else {
+                carregarSomenteQuestoes(questoes, titulo);
+                isSomenteFlashCard = true;
+                $(ev.target).html("Flashcards");
+              }
+              /*if (_flashCard) {
+                $("#get-inserir-quiz").hide();
+              }*/
+            });
 
-          questoes = questoes.sort((a, b) => {
-            return 0.5 - Math.random();
-          });
-
-          var incremento = 0;
-
-          for (let data of questoes) {
-            incremento++;
-            data.incremento = incremento;
-            conteudoQuestoes += questaoDetalhe(data, titulo);
-          }
-
-          conteudoQuestoes += "";
-
-          $("#get-questoes").html(conteudoQuestoes);
+          carregarSomenteQuestoes(questoes, titulo);
 
           //Responder quando for verdadeiro ou falso:
           $(".verdadeiro-falso").click(function() {

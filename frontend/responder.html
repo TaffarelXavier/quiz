@@ -129,7 +129,7 @@
           <i class="fa icon-search-2"></i>
         </button>
 
-        <nav id="my-nav" class=" nav hidden-xs" role="navigation" style="">
+        <nav id="my-nav" class=" nav hidden-xs" role="navigation">
           <ul class="nav navbar-nav nav-publicar">
             <li class="nav-li">
               <a onclick="showDialogLogin(realoadNavbarWhite);">Login</a>
@@ -294,7 +294,8 @@
   <section id="all-results-list" class="bg-section">
     <div class="">
       <div class="container" style="position:relative; padding: 0 15px;">
-        <h3 id="quantidade-questoes-encontradas" style="display: inline-block;height:30px;background:rgb(58, 31, 60,0.2)!important;min-width: 300px;"></h3>
+        <h3 id="quantidade-questoes-encontradas"
+          style="display: inline-block;height:30px;background:rgb(58, 31, 60,0.2)!important;min-width: 300px;"></h3>
       </div>
     </div>
     <div class="container nopadding">
@@ -434,7 +435,7 @@
         <div class="modal-detail">
           <div class="modal-body">
             <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogLogin()"></i>
+              <i class="fa icon-close-2"  onclick="closeDialogLogin()"></i>
             </div>
             <div id="login-create-form">
               <div class="row row-centered">
@@ -508,7 +509,7 @@
         <div class="modal-detail">
           <div class="modal-body">
             <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogRecoverPsw()"></i>
+              <i class="fa icon-close-2"  onclick="closeDialogRecoverPsw()"></i>
             </div>
             <div class="row row-centered">
               <div class="col-md-12 col-sm-12 col-centered">
@@ -550,7 +551,7 @@
         <div class="modal-detail">
           <div class="modal-body">
             <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogCheckEmail()"></i>
+              <i class="fa icon-close-2"  onclick="closeDialogCheckEmail()"></i>
             </div>
             <div class="row row-centered">
               <div class="col-md-12 col-sm-12 col-centered">
@@ -691,7 +692,7 @@
         <div class="modal-detail">
           <div class="modal-body">
             <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogRegistration()"></i>
+              <i class="fa icon-close-2"  onclick="closeDialogRegistration()"></i>
             </div>
             <div class="row row-centered nomargin">
               <div class="col-md-12 col-sm-12 col-centered nopadding">
@@ -774,14 +775,38 @@
       </div>
     </div>
   </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="modal fade dialog2" id="dialogCheckEmailReg" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-detail">
           <div class="modal-body">
             <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogCheckEmailReg()"></i>
+              <i class="fa icon-close-2"  onclick="closeDialogCheckEmailReg()"></i>
             </div>
             <div class="row row-centered">
               <div class="col-md-12 col-sm-12 col-centered">
@@ -896,6 +921,12 @@
   <div id="footer"></div>
 
   <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap-material-design.min.js"></script>
   <script src="assets/js/select2.min.js"></script>
