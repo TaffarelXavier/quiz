@@ -2,19 +2,26 @@ const IP = [
   {
     protocol: "http",
     address: "lccomputacaoturma2018-com-br.umbler.net",
-    port: ""
+    port: "",
   },
   {
     protocol: "http",
     address: "127.0.0.1",
-    port: "3333"
-  }
+    port: "3333",
+  },
 ];
 
 const INDEX = 1;
+
 const URL_API = `${IP[INDEX].protocol}://${IP[INDEX].address}:${IP[INDEX].port}`;
 
-// $("body").bootstrapMaterialDesign();
+var carregarCasoFalha = error => {
+  if (error.message === "Failed to fetch") {
+    setInterval(function() {
+      window.location.reload();
+    }, 5000);
+  }
+};
 
 /**
  * CATEGORIAS
@@ -28,7 +35,7 @@ var Categoria = {
 
     fetch(URL_API + "/categoria", {
       method: "POST",
-      body: form
+      body: form,
     })
       .then(function(response) {
         if (response.ok) {
@@ -40,7 +47,7 @@ var Categoria = {
         }
       })
       .catch(function(error) {
-        console.log(
+        console.warn(
           "There has been a problem with your fetch operation: " + error.message
         );
       });
@@ -48,7 +55,7 @@ var Categoria = {
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + "/categoria", {
-      method: "GET"
+      method: "GET",
     })
       .then(function(response) {
         if (response.ok) {
@@ -64,7 +71,7 @@ var Categoria = {
           "There has been a problem with your fetch operation: " + error.message
         );
       });
-  }
+  },
 };
 /**
  * SUB-CATEGORIAS
@@ -79,7 +86,7 @@ var SubCategoria = {
 
     fetch(URL_API + "/sub_categoria", {
       method: "POST",
-      body: form
+      body: form,
     })
       .then(function(response) {
         if (response.ok) {
@@ -99,7 +106,7 @@ var SubCategoria = {
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + "/sub_categoria", {
-      method: "GET"
+      method: "GET",
     })
       .then(function(response) {
         if (response.ok) {
@@ -115,9 +122,7 @@ var SubCategoria = {
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        carregarCasoFalha(error);
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
@@ -131,7 +136,7 @@ var SubCategoria = {
         });
       }
     });
-  }
+  },
 };
 
 var Quiz = {
@@ -150,7 +155,7 @@ var Quiz = {
 
         fetch(URL_API + "/quiz", {
           method: "POST",
-          body: formDt
+          body: formDt,
         })
           .then(function(response) {
             if (response.ok) {
@@ -158,14 +163,11 @@ var Quiz = {
                 callback(result);
               });
             } else {
-              console.error("Houve um erro: ","Network response was not ok.");
+              carregarCasoFalha(error);
             }
           })
           .catch(function(error) {
-            console.log(
-              "There has been a problem with your fetch operation: " +
-                error.message
-            );
+            carregarCasoFalha(error);
           });
       }
     } catch (error) {
@@ -175,7 +177,7 @@ var Quiz = {
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + "/quiz", {
-      method: "GET"
+      method: "GET",
     })
       .then(function(response) {
         if (response.ok) {
@@ -187,9 +189,7 @@ var Quiz = {
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        carregarCasoFalha(error);
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
@@ -215,7 +215,7 @@ var Quiz = {
         });
       }
     });
-  }
+  },
 };
 
 var Questao = {
@@ -230,7 +230,7 @@ var Questao = {
 
     fetch(URL_API + "/questao", {
       method: "POST",
-      body: formDt
+      body: formDt,
     })
       .then(function(response) {
         if (response.ok) {
@@ -243,16 +243,14 @@ var Questao = {
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        carregarCasoFalha(error);
       });
     return false;
   },
   /*Busca todas as categorias*/
   all: function() {
     fetch(URL_API + "/sub_categoria", {
-      method: "GET"
+      method: "GET",
     })
       .then(function(response) {
         if (response.ok) {
@@ -295,5 +293,5 @@ var Questao = {
         });
       }
     });
-  }
+  },
 };

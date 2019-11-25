@@ -487,7 +487,7 @@ $(document).ready(function() {
                       return el;
                     });
 
-                    const regex = /^\(?[a-zA-Z0-9]+\)/gim;
+                    const regex = /^\(?[a-zA-Z0-9]+(\)|\.)/gim;
 
                     let enuciado = m[0].trim();
 
