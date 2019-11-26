@@ -440,7 +440,7 @@ $(document).ready(function() {
 
             var details = document.getElementsByTagName("details");
 
-            console.log(this.childNodes);
+            console.log(document.getElementById("questao_" + questaoId).childNodes);
 
             //window.location.href = "#questao_" + (parseInt(questaoId) + 1);
 
