@@ -28,7 +28,7 @@ $(document).ready(function() {
     "r",
     "s",
     "t",
-    "u"
+    "u",
   ];
 
   /**
@@ -112,7 +112,7 @@ $(document).ready(function() {
           alert(error);
         }
       };
-    }
+    },
   };
 
   MuitasQuestoes.addQuestoes();
@@ -123,7 +123,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data
+      data: data,
     });
   });
 
@@ -158,36 +158,60 @@ $(document).ready(function() {
     let letra = ALFABETO[alternativas.length];
 
     var conteudo = `<label><input type="radio" name="alter-correta" required/>Alternativa ${letra.toUpperCase()}:</label>
-    <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa ${letra}" name="${letra}" required=""></textarea>`;
+    <textarea class="form-control alternativa col-md-12" rows="3" placeholder="Digite o texto da alternativa ${letra}" name="${letra}" required=""></textarea>`;
 
     $("#obter-mais-questoes").append(conteudo);
+  };
+
+  const templateQuandoVerdadeiroOuFalso = ({ quiz_id }) => {
+    var conteudo = `<label><input type="radio" name="alter-correta" required/>Opção de resposta 2</label>
+    <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required="">0</textarea>`;
+    document.getElementsByName("a")[0].value = '1';
+    document.getElementsByName("enunciado")[0].focus();
+    $("#obter-mais-questoes").html(conteudo);
   };
 
   /***
    * Formulário do questões:
    */
   const formCriarQuestao = ({ quiz_id }) => {
-    return `<form method="POST" id="form-criar-questao">
-        <label>Enuciado:</label>
-        <textarea class="form-control" placeholder="Adicione o enunciado da questão"
-        required name="enunciado" rows="6"></textarea>
-        <input id="separador" placeholder="Separador" value="separator"/>
-        <button type="button" id="add-from-external-text">Adicionar questão de texto</button><br>
-        <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
-        <input type="hidden" name="quiz_id" value="${quiz_id}"/>
-        <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
-        <div id="obter-mais-questoes"></div>
-        <button id="btn-add-questao" class="btn btn-raised btn-primary" type="button">Adicionar outro campo de alternativa</button><br/>
-        <label>Modalidade:</label><br/>
-        <select name="modalidade" id="modalidade_id" class="form-control" required>
-          <option value="">Selecione...</option> 
-          <option value="1" selected="selected">Múltipa-escolha</option> 
-          <option value="0">Verdadeiro-Falso</option> 
-        </select><br/>
-        <label>Correção da questão:</label>
-        <textarea class="form-control explicacao" rows="3" placeholder="Explicação da questão"></textarea>
-        <br>
-        <button type="submit" class="btn btn-raised btn-primary btn-lg ">Salvar Questão</button></form>`;
+    return `<div class="row">
+    <div class="col-md-12">
+    <form method="POST" id="form-criar-questao">
+        <div class="row">
+          <label>Enuciado:</label>
+          <textarea class="form-control" placeholder="Adicione o enunciado da questão"
+          required name="enunciado" rows="5"></textarea>
+        </div>
+        <div class="row">
+          <input id="separador" placeholder="Separador" value="separator" class="col-md-4"/>
+          <button type="button" class="btn btn-raised btn-primary col-md-4" id="add-from-external-text">Adicionar questão de texto</button>
+          <select name="modalidade" id="modalidade_id" class="form-control col-md-4"  required>
+            <option value="">Selecione...</option> 
+            <option value="1" selected="selected">Múltipa-escolha</option> 
+            <option value="0">Verdadeiro-Falso</option> 
+          </select><br/>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
+            <input type="hidden" name="quiz_id" value="${quiz_id}" class="col-md-12"/>
+            <textarea class="form-control alternativa col-md-12" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
+          </div>
+          <div class="col-md-12">
+            <div id="obter-mais-questoes"></div>
+            <button id="btn-add-questao" class="btn btn-raised btn-primary" type="button">Adicionar outro campo de alternativa</button><br/>
+          </div>
+          <div class="col-md-12">
+            <label>Correção da questão:</label>
+            <textarea class="form-control" rows="3" placeholder="Explicação da questão"></textarea>
+            <!--explicacao-->
+          </div>
+          <div class="col-md-12"><br>
+            <button type="submit" class="btn btn-raised btn-primary btn-lg ">Salvar Questão</button>
+          </div>
+        </div>
+        </form></div></div>`;
   };
 
   //INÍCIO
@@ -198,7 +222,7 @@ $(document).ready(function() {
       questao_modalidade,
       alternativas,
       questao_correcao,
-      incremento
+      incremento,
     },
     titulo
   ) => {
@@ -327,9 +351,9 @@ $(document).ready(function() {
           var isSomenteFlashCard = true;
 
           $("#links-flashcards")
-            .css({backgroundColor :'red !important'})
+            .css({ backgroundColor: "red !important" })
             .removeClass("bg-esqueleto")
-            .click((ev) => {
+            .click(ev => {
               if (isSomenteFlashCard) {
                 flashCard(result[0]);
                 isSomenteFlashCard = false;
@@ -364,14 +388,14 @@ $(document).ready(function() {
                 .html("Parabéns! Você acertou!")
                 .removeAttr("hidden")
                 .css({
-                  color: "#23be87"
+                  color: "#23be87",
                 });
             } else {
               $("#explicacao_" + questaoId)
                 .html("Você errou!!!")
                 .removeAttr("hidden")
                 .css({
-                  color: "red"
+                  color: "red",
                 });
             }
 
@@ -422,7 +446,7 @@ $(document).ready(function() {
                 .removeAttr("hidden")
                 .css({
                   color: "#23be87",
-                  display: "block"
+                  display: "block",
                 });
               questao.find(".errada").css({ background: red, color: "white" });
               _this.css({ background: green, color: "white" });
@@ -435,7 +459,7 @@ $(document).ready(function() {
                 .removeAttr("hidden")
                 .css({
                   color: "red",
-                  display: "block"
+                  display: "block",
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -536,7 +560,7 @@ $(document).ready(function() {
           $("#modalidade_id").change(function() {
             var index = this.selectedIndex;
             if (index == 2) {
-              novaQuestao();
+              templateQuandoVerdadeiroOuFalso({quiz_id});
             }
           });
 
@@ -562,7 +586,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null
+                questao_id: null,
               };
             });
 

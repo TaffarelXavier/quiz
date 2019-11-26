@@ -1,247 +1,474 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Descrição do site" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/sympla-event-cards.css?v=0.29"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css?v=2.2" />
+    <style type="text/css">
+      /*<![CDATA[*/
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="description" content="Descrição do site" />
-  <link rel="stylesheet" type="text/css" href="assets/css/sympla-event-cards.css?v=0.29" />
-  <link rel="stylesheet" type="text/css" href="assets/css/footer.css?v=2.2" />
-  <style type="text/css">
-    /*<![CDATA[*/
-
-    @media (max-width: 767px) {
-      section#all-results-list .dropdown {
-        position: relative !important;
-        top: 0 !important;
-        right: 0 !important;
-        padding: 5px 0 20px;
-        text-align: right;
-      }
-    }
-
-    .filter-section {
-      padding-top: 100px;
-      padding-bottom: 16px;
-    }
-
-    .spinner-more {
-      display: none;
-      text-align: center;
-      padding-top: 20px;
-    }
-
-    .order-by {
-      border-radius: 3px;
-      background-color: #fff;
-      color: #777;
-      padding: 5px;
-      margin-left: 3px;
-      font-size: 13px;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-
-    .more-venues {
-      display: none;
-    }
-
-    /*]]>*/
-  </style>
-  <style type="text/css">
-    /*<![CDATA[*/
-
-    .thumb-col {
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      width: 32px;
-      height: 32px;
-      border-radius: 100%;
-      background-repeat: no-repeat;
-      margin-right: 16px;
-    }
-
-    /*]]>*/
-  </style>
-  <style>
-    .skeleton-image,
-    .skeleton-date,
-    .skeleton-name,
-    .skeleton-location {
-      background: #E4E4E4;
-      background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%);
-      animation: shine-avatar 1s infinite;
-    }
-
-    @keyframes shine-avatar {
-      0% {
-        background-position: -32px;
+      @media (max-width: 767px) {
+        section#all-results-list .dropdown {
+          position: relative !important;
+          top: 0 !important;
+          right: 0 !important;
+          padding: 5px 0 20px;
+          text-align: right;
+        }
       }
 
-      60%,
-      100% {
-        background-position: 208px;
+      .filter-section {
+        padding-top: 100px;
+        padding-bottom: 16px;
       }
-    }
-  </style>
-  <title>O melhor lugar para você fazer questões - TX Questões</title>
 
-  <meta name="keywords" content="palavras chaves" />
+      .spinner-more {
+        display: none;
+        text-align: center;
+        padding-top: 20px;
+      }
 
-  <meta property="og:description" content="A plataforma online de questões, na qual, você pode fazer..." />
-  <meta property="og:image" content="assets/images/logo-sympla-for-facebook.png" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="sitelock-site-verification" content="5174" />
+      .order-by {
+        border-radius: 3px;
+        background-color: #fff;
+        color: #777;
+        padding: 5px;
+        margin-left: 3px;
+        font-size: 13px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
 
-  <link rel="icon" href="favicon.ico?v=2.0" />
+      .more-venues {
+        display: none;
+      }
 
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="theme-color" content="#ffffff" />
+      /*]]>*/
+    </style>
+    <style type="text/css">
+      /*<![CDATA[*/
 
-  <!-- <link rel="manifest" href="/manifest.json" /> -->
-  <link href="assets/css/bootstrap.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/jquery-ui.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/font-awesome.css" media="screen, projection, print" rel="canonical" type="text/css" />
-  <link href="assets/css/linearicons/style.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/base.css?v=1.147" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/public/style.css?v=1.007" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/public/banner-collections-componets.css?v=1.002" media="screen, projection, print"
-    rel="stylesheet" type="text/css" />
-  <link href="assets/css/public/banner-collections.css?v=1.047" media="screen, projection, print" rel="stylesheet"
-    type="text/css" />
-  <link href="assets/css/public/buttons.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/public/swiper.min.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
-  <link href="assets/css/public/jquery.dropdown.css" media="screen, projection, print" rel="stylesheet"
-    type="text/css" />
-</head>
+      .thumb-col {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        background-repeat: no-repeat;
+        margin-right: 16px;
+      }
 
-<body data-spy="scroll" data-target=".navbar">
+      /*]]>*/
+    </style>
+    <style>
+      .skeleton-image,
+      .skeleton-date,
+      .skeleton-name,
+      .skeleton-location {
+        background: #e4e4e4;
+        background-image: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0) 80%
+        );
+        animation: shine-avatar 1s infinite;
+      }
 
-  <div id="nav-home" class="navbar navbar-fixed-top navbar-sympla no-print">
-    <div class="">
-      <div class="main-logo-block">
-        <a href="/" class="main-logo w-inline-block">
-          <h1 class="logo">Tx Questões</h1>
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-lg-6 visible-lg tag-search">
-        <div class="input-group input-search" id="input-search-navbar">
-          <i class="fa icon-search-2"></i>
-          <input type="text" class="form-control" placeholder="Digite o lorem impusem" id="tags" autocomplete="nope" />
+      @keyframes shine-avatar {
+        0% {
+          background-position: -32px;
+        }
+
+        60%,
+        100% {
+          background-position: 208px;
+        }
+      }
+    </style>
+    <title>O melhor lugar para você fazer questões - TX Questões</title>
+
+    <meta name="keywords" content="palavras chaves" />
+
+    <meta
+      property="og:description"
+      content="A plataforma online de questões, na qual, você pode fazer..."
+    />
+    <meta
+      property="og:image"
+      content="assets/images/logo-sympla-for-facebook.png"
+    />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="sitelock-site-verification" content="5174" />
+
+    <link rel="icon" href="favicon.ico?v=2.0" />
+
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
+    <link
+      href="assets/css/bootstrap.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/jquery-ui.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/font-awesome.css"
+      media="screen, projection, print"
+      rel="canonical"
+      type="text/css"
+    />
+    <link
+      href="assets/css/linearicons/style.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/base.css?v=1.147"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/style.css?v=1.007"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/banner-collections-componets.css?v=1.002"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/banner-collections.css?v=1.047"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/buttons.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/swiper.min.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/public/jquery.dropdown.css"
+      media="screen, projection, print"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar">
+    <div id="nav-home" class="navbar navbar-fixed-top navbar-sympla no-print">
+      <div class="">
+        <div class="main-logo-block">
+          <a href="/" class="main-logo w-inline-block">
+            <h1 class="logo">Tx Questões</h1>
+          </a>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 visible-lg tag-search">
+          <div class="input-group input-search" id="input-search-navbar">
+            <i class="fa icon-search-2"></i>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Digite o lorem impusem"
+              id="tags"
+              autocomplete="nope"
+            />
+          </div>
+        </div>
 
-      <div class="col-sm-8 col-md-9 col-lg-5 pull-right">
-        <button type="button" class="navbar-toggle collapsed visible-xs" id="menu-icon-nav" data-toggle="collapse"
-          data-target="#menu-navigation-collapsed" aria-expanded="false">
-          <i class="fa icon-menu-2"></i>
-          <i class="fa icon-close-2" style="display:none;"></i>
-        </button>
-        <button type="button" class="navbar-toggle collapsed hidden-sm hidden-md hidden-lg" data-toggle="collapse"
-          data-target="#search-bar-collapsed">
-          <i class="fa icon-search-2"></i>
-        </button>
+        <div class="col-sm-8 col-md-9 col-lg-5 pull-right">
+          <button
+            type="button"
+            class="navbar-toggle collapsed visible-xs"
+            id="menu-icon-nav"
+            data-toggle="collapse"
+            data-target="#menu-navigation-collapsed"
+            aria-expanded="false"
+          >
+            <i class="fa icon-menu-2"></i>
+            <i class="fa icon-close-2" style="display:none;"></i>
+          </button>
+          <button
+            type="button"
+            class="navbar-toggle collapsed hidden-sm hidden-md hidden-lg"
+            data-toggle="collapse"
+            data-target="#search-bar-collapsed"
+          >
+            <i class="fa icon-search-2"></i>
+          </button>
 
-        <nav id="my-nav" class=" nav hidden-xs" role="navigation" style="">
-          <ul class="nav navbar-nav nav-publicar">
-            <li class="nav-li">
-              <a onclick="showDialogLogin(realoadNavbarWhite);">Login</a>
-            </li>
-            <li class="nav-li">
-              <a onclick="showDialogRegistration(realoadNavbarWhite);"><strong>Criar conta</strong></a>
-            </li>
-            <!-- <li>
+          <nav id="my-nav" class=" nav hidden-xs" role="navigation" style="">
+            <ul class="nav navbar-nav nav-publicar">
+              <li class="nav-li">
+                <a onclick="showDialogLogin(realoadNavbarWhite);">Login</a>
+              </li>
+              <li class="nav-li">
+                <a onclick="showDialogRegistration(realoadNavbarWhite);"
+                  ><strong>Criar conta</strong></a
+                >
+              </li>
+              <!-- <li>
               <a class="btn-event" href="javascript:showLoginAndRedirect('/criar-evento')">+ RESPONDER QUESTÕES</a>
             </li> -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div
+        class="collapse navbar-collapse navbar-menu"
+        id="menu-navigation-collapsed"
+      >
+        <div class="header-social-block">
+          <ul>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="facebook sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="sympla-header-social-icon twitter w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="linkedin sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
+            <li class="nav-li social">
+              <a
+                href="#"
+                target="_blank"
+                class="instagram sympla-header-social-icon w-inline-block"
+              ></a>
+            </li>
           </ul>
-        </nav>
+        </div>
+        <div class="about-nav-block">
+          <ul>
+            <li class="nav-li">
+              <a href="/sobre-sympla" class="about nav-link"
+                >Sobre a Tx Concursos</a
+              >
+            </li>
+            <li class="nav-li">
+              <a
+                href="https://ajuda.sympla.com.br/hc/pt-br"
+                target="_blank"
+                class="about nav-link"
+                >Central de ajuda</a
+              >
+            </li>
+            <li class="nav-li">
+              <a
+                href="http://blog.sympla.com.br/"
+                target="_blank"
+                class="about nav-link"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </div>
+        <ul>
+          <li class="">
+            <a href="/como-funciona">Organizadores de Eventos</a>
+          </li>
+          <li class="">
+            <a onclick="showDialogLogin(realoadNavbarWhite)">Login</a>
+          </li>
+          --
+          <li class=""><a href="">Login</a></li>
+          <li class="">
+            <a onclick="showRegResp(realoadNavbarWhite)">Criar conta</a>
+          </li>
+          <li>
+            <a
+              class="btn btn-outline btn-fill-white"
+              href="javascript:showLoginAndRedirect('/criar-evento')"
+              >+Publicar evento</a
+            >
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="collapse navbar-collapse navbar-menu" id="menu-navigation-collapsed">
-      <div class="header-social-block">
-        <ul>
-          <li class="nav-li social">
-            <a href="#" target="_blank" class="facebook sympla-header-social-icon w-inline-block"></a>
-          </li>
-          <li class="nav-li social">
-            <a href="#" target="_blank" class="sympla-header-social-icon twitter w-inline-block"></a>
-          </li>
-          <li class="nav-li social">
-            <a href="#" target="_blank" class="linkedin sympla-header-social-icon w-inline-block"></a>
-          </li>
-          <li class="nav-li social">
-            <a href="#" target="_blank" class="instagram sympla-header-social-icon w-inline-block"></a>
-          </li>
-        </ul>
-      </div>
-      <div class="about-nav-block">
-        <ul>
-          <li class="nav-li">
-            <a href="/sobre-sympla" class="about nav-link">Sobre a Tx Concursos</a>
-          </li>
-          <li class="nav-li">
-            <a href="https://ajuda.sympla.com.br/hc/pt-br" target="_blank" class="about nav-link">Central de ajuda</a>
-          </li>
-          <li class="nav-li">
-            <a href="http://blog.sympla.com.br/" target="_blank" class="about nav-link">Blog</a>
-          </li>
-        </ul>
-      </div>
-      <ul>
-        <li class="">
-          <a href="/como-funciona">Organizadores de Eventos</a>
-        </li>
-        <li class="">
-          <a onclick="showDialogLogin(realoadNavbarWhite)">Login</a>
-        </li>
-        -- <li class=""><a href="">Login</a></li>
-        <li class="">
-          <a onclick="showRegResp(realoadNavbarWhite)">Criar conta</a>
-        </li>
+
+    <div
+      id="dropdown_auth"
+      class="s-dropdown s-dropdown-tip s-dropdown-anchor-right"
+      style="margin-top: 24px;"
+    >
+      <ul class="s-dropdown-menu text-left">
         <li>
-          <a class="btn btn-outline btn-fill-white" href="javascript:showLoginAndRedirect('/criar-evento')">+Publicar
-            evento</a>
+          <a href="/pagina-do-organizador">P&aacute;gina do organizador</a>
         </li>
+        <li><a href="/minha-conta">Minha conta</a></li>
+        <li><a href="javascript:logout();">Sair</a></li>
       </ul>
     </div>
-  </div>
 
-  <div id="dropdown_auth" class="s-dropdown s-dropdown-tip s-dropdown-anchor-right" style="margin-top: 24px;">
-    <ul class="s-dropdown-menu text-left">
-      <li>
-        <a href="/pagina-do-organizador">P&aacute;gina do organizador</a>
-      </li>
-      <li><a href="/minha-conta">Minha conta</a></li>
-      <li><a href="javascript:logout();">Sair</a></li>
-    </ul>
-  </div>
-
-  <div class="globalShadow"></div>
-  <section class="filter-section">
-    <div class="container" style="padding: 0 15px;">
-      <div class="row">
-        <div class="col-xs-12 nopadding sympla-search-bar hidden-xs">
-          <div class="input-group" id="symplaSearchBarInput">
-            <input type="text" value="" class="form-control" aria-label="Pesquisar por lorem impusem"
-              placeholder="Pesquisar por lorem impusem" name="input-full-search-home" id="inputFullSearchHome" />
-            <span class="fa icon-search-2" style="left:50%"></span>
-            <input type="text" class="form-control" placeholder="Pesquisar por lorem impusem"
-              aria-label="Pesquisar por cidade" id="inputCitySearchHome" />
-            <span class="fa icon-location" style="left:100%"></span>
+    <div class="globalShadow"></div>
+    <section class="filter-section">
+      <div class="container" style="padding: 0 15px;">
+        <div class="row">
+          <div class="col-xs-12 nopadding sympla-search-bar hidden-xs">
+            <div class="input-group" id="symplaSearchBarInput">
+              <input
+                type="text"
+                value=""
+                class="form-control"
+                aria-label="Pesquisar por lorem impusem"
+                placeholder="Pesquisar por lorem impusem"
+                name="input-full-search-home"
+                id="inputFullSearchHome"
+              />
+              <span class="fa icon-search-2" style="left:50%"></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Pesquisar por lorem impusem"
+                aria-label="Pesquisar por cidade"
+                id="inputCitySearchHome"
+              />
+              <span class="fa icon-location" style="left:100%"></span>
+            </div>
+            <div class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span id="searchForData" style="float:left;">
+                  Todas as datas
+                </span>
+                <i class="fa icon-selection"></i>
+              </button>
+              <ul class="dropdown-menu" id="dropdownMenuDates">
+                <li><a data-period="">Todas as datas</a></li>
+                <li><a data-period="hoje">Hoje</a></li>
+                <li><a data-period="amanha">Amanhã</a></li>
+                <li><a data-period="esta-semana">Esta semana</a></li>
+                <li>
+                  <a data-period="este-fim-de-semana">Este fim de semana</a>
+                </li>
+                <li><a data-period="proxima-semana">Próxima semana</a></li>
+                <li><a data-period="este-mes">Este mês</a></li>
+              </ul>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="searchEventsByFilters"
+              >
+                <span class="visible-md visible-lg">Procurar</span>
+                <span class="hidden-md hidden-lg"
+                  ><i class="icon-search-2"></i
+                ></span>
+              </button>
+            </div>
           </div>
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <span id="searchForData" style="float:left;">
-                Todas as datas
-              </span>
-              <i class="fa icon-selection"></i>
+          <div class="sympla-search-bar visible-xs">
+            <div class="input-group">
+              <input
+                type="text"
+                id="search-bar-collapsed-input"
+                class="form-control "
+                aria-label="Pesquisar eventos"
+                placeholder="Pesquisar eventos"
+                data-toggle="collapse"
+                data-target="#search-bar-collapsed"
+              />
+              <span class="fa icon-search-2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="search-bar-collapsed">
+          <button
+            type="button"
+            class="navbar-toggle collapsed visible-xs"
+            id="menu-icon-nav"
+            data-toggle="collapse"
+            data-target="#search-bar-collapsed"
+          >
+            <i class="fa icon-close-2"></i>
+          </button>
+          <i
+            class="fa fa-close pull-right"
+            aria-hidden="true"
+            data-toggle="collapse"
+            data-target="#search-bar-collapsed"
+          ></i>
+          <div class="input-group first1">
+            <input
+              type="text"
+              class="form-control"
+              value=""
+              placeholder="Pesquisar eventos"
+              id="inputFullSearchHomeResp"
+            />
+            <i class="fa icon-search-2"></i>
+          </div>
+          <div class="input-group" id="inputCitySearchHomeContainer">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquisar por cidade"
+              aria-label="Pesquisar por cidade"
+              id="inputCitySearchHomeResp"
+            />
+            <span class="fa icon-location"></span>
+          </div>
+          <div class="input-group with-dropdown">
+            <button
+              type="button"
+              class="btn btn-default dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span id="searchForDataResp"> Todas as datas </span
+              ><span class="fa icon-selection"></span>
             </button>
-            <ul class="dropdown-menu" id="dropdownMenuDates">
+            <ul class="dropdown-menu" id="dropdownMenuDatesResp">
               <li><a data-period="">Todas as datas</a></li>
               <li><a data-period="hoje">Hoje</a></li>
               <li><a data-period="amanha">Amanhã</a></li>
@@ -252,64 +479,21 @@
               <li><a data-period="proxima-semana">Próxima semana</a></li>
               <li><a data-period="este-mes">Este mês</a></li>
             </ul>
-            <button type="button" class="btn btn-danger" id="searchEventsByFilters">
-              <span class="visible-md visible-lg">Procurar</span>
-              <span class="hidden-md hidden-lg"><i class="icon-search-2"></i></span>
+          </div>
+          <div class="input-group-button">
+            <button
+              type="button"
+              class="btn btn-danger btn-block"
+              id="searchEventsByFiltersResp"
+            >
+              Procurar
             </button>
           </div>
         </div>
-        <div class="sympla-search-bar visible-xs">
-          <div class="input-group">
-            <input type="text" id="search-bar-collapsed-input" class="form-control " aria-label="Pesquisar eventos"
-              placeholder="Pesquisar eventos" data-toggle="collapse" data-target="#search-bar-collapsed" />
-            <span class="fa icon-search-2"></span>
-          </div>
-        </div>
       </div>
-      <div class="collapse" id="search-bar-collapsed">
-        <button type="button" class="navbar-toggle collapsed visible-xs" id="menu-icon-nav" data-toggle="collapse"
-          data-target="#search-bar-collapsed">
-          <i class="fa icon-close-2"></i>
-        </button>
-        <i class="fa fa-close pull-right" aria-hidden="true" data-toggle="collapse"
-          data-target="#search-bar-collapsed"></i>
-        <div class="input-group first1">
-          <input type="text" class="form-control" value="" placeholder="Pesquisar eventos"
-            id="inputFullSearchHomeResp" />
-          <i class="fa icon-search-2"></i>
-        </div>
-        <div class="input-group" id="inputCitySearchHomeContainer">
-          <input type="text" class="form-control" placeholder="Pesquisar por cidade" aria-label="Pesquisar por cidade"
-            id="inputCitySearchHomeResp" />
-          <span class="fa icon-location"></span>
-        </div>
-        <div class="input-group with-dropdown">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <span id="searchForDataResp"> Todas as datas </span><span class="fa icon-selection"></span>
-          </button>
-          <ul class="dropdown-menu" id="dropdownMenuDatesResp">
-            <li><a data-period="">Todas as datas</a></li>
-            <li><a data-period="hoje">Hoje</a></li>
-            <li><a data-period="amanha">Amanhã</a></li>
-            <li><a data-period="esta-semana">Esta semana</a></li>
-            <li>
-              <a data-period="este-fim-de-semana">Este fim de semana</a>
-            </li>
-            <li><a data-period="proxima-semana">Próxima semana</a></li>
-            <li><a data-period="este-mes">Este mês</a></li>
-          </ul>
-        </div>
-        <div class="input-group-button">
-          <button type="button" class="btn btn-danger btn-block" id="searchEventsByFiltersResp">
-            Procurar
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- <section class="bg-section">
+    <!-- <section class="bg-section">
     <div class="container" style="position:relative; padding: 0 15px;">
       <div class="result-list header-block w-clearfix">
         <div class="title-block">
@@ -368,163 +552,263 @@
     </div>
   </section> -->
 
-  <section id="all-results-list" class="bg-section">
-    <div class="">
-      <div class="container" style="position:relative; padding: 0 15px;">
-        <h3><strong>TEste</strong> Quizes encontradas</h3>
-      </div>
-    </div>
-    <div class="container nopadding">
-      <div class="row">
-        <div id="events-grid">
-          <div class="content-section">
-            <div class="content-wrapper">
-              <ul class="search-result-list w-clearfix">
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="search-result-li plat-sympla">
-                  <a class="sympla-card w-inline-block" data-bannerid="706851"
-                    data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD" data-position="1"
-                    data-creative="search.date">
-                    <div class="event-card-list-var">
-                      <div class="event--image skeleton-image">
-                        <img src="assets/images/bg-card.png" alt="" class="event-image-proportion" />
-                      </div>
-                    </div>
-                    <div class="event-info-block event-card-list-var w-clearfix">
-                      <div class="event-card-data-block">
-                        <div class="skeleton-date"  style="height: 20px;width:200px;border-radius:7px;">
-                        </div>
-                      </div>
-                      <div class="skeleton-name event-card-data-block" style="height: 20px;border-radius:7px;">
-                      </div>
-                      <div class="skeleton-location" style="height:20px;width: 100%;border-radius:7px;">
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <section id="all-results-list" class="bg-section">
+      <div class="">
+        <div class="container" style="position:relative; padding: 0 15px;">
+          <h3 id="info-search"><strong>TEste</strong> Quizes encontradas</h3>
         </div>
-
+      </div>
+      <div class="container nopadding">
         <div class="row">
-          <div class="col-xs-12 col-md-4 col-md-offset-4">
-            <div class="spinner-more">
-              <img src="assets/images/img-loading.gif" />
+          <div id="events-grid">
+            <div class="content-section">
+              <div class="content-wrapper">
+                <ul class="search-result-list w-clearfix">
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="search-result-li plat-sympla">
+                    <a
+                      class="sympla-card w-inline-block"
+                      data-bannerid="706851"
+                      data-name="I Frum Startup RIO: A Proteo de Dados sob a tica da LGPD"
+                      data-position="1"
+                      data-creative="search.date"
+                    >
+                      <div class="event-card-list-var">
+                        <div class="event--image skeleton-image">
+                          <img
+                            src="assets/images/bg-card.png"
+                            alt=""
+                            class="event-image-proportion"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="event-info-block event-card-list-var w-clearfix"
+                      >
+                        <div class="event-card-data-block">
+                          <div
+                            class="skeleton-date"
+                            style="height: 20px;width:200px;border-radius:7px;"
+                          ></div>
+                        </div>
+                        <div
+                          class="skeleton-name event-card-data-block"
+                          style="height: 20px;border-radius:7px;"
+                        ></div>
+                        <div
+                          class="skeleton-location"
+                          style="height:20px;width: 100%;border-radius:7px;"
+                        ></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <button id="more-events" data-url="/eventos?ordem=data&pagina=2"
-              class="btn btn-dark-transparent btn-outline btn-block" style="margin: 40px auto 30px">
-              Carregar mais
-            </button>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+              <div class="spinner-more">
+                <img src="assets/images/img-loading.gif" />
+              </div>
+              <button
+                id="more-events"
+                data-url="/eventos?ordem=data&pagina=2"
+                class="btn btn-dark-transparent btn-outline btn-block"
+                style="margin: 40px auto 30px"
+              >
+                Carregar mais
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- BANNER -->
-      <!-- <div class="row">
+        <!-- BANNER -->
+        <!-- <div class="row">
         <div class="col-md-12 text-center padding-top-20 padding-bottom-20 hidden-xs">
           <a class="banner-org" href="#">
             <img src="assets/images/banner.svg" alt="Organizar eventos" />
@@ -536,12 +820,12 @@
           </a>
         </div>
       </div> -->
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <div class="border-top"></div>
+    <div class="border-top"></div>
 
-  <!-- <div id="collections-section" class="padding-top-20-md padding-bottom-10 bg-section">
+    <!-- <div id="collections-section" class="padding-top-20-md padding-bottom-10 bg-section">
     <div data-animation="slide" data-easing="ease-out-expo" data-hide-arrows="1" data-duration="1000" data-infinite="1"
       class="collections-slider w-slider container">
       <div class="content-wrapper section-title-container">
@@ -647,62 +931,190 @@
     </div>
   </div> -->
 
-  <div class="modal fade dialog2" id="dialogLogin" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-detail">
-          <div class="modal-body">
-            <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogLogin()"></i>
+    <div
+      class="modal fade dialog2"
+      id="dialogLogin"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogLogin()"
+                ></i>
+              </div>
+              <div id="login-create-form">
+                <div class="row row-centered">
+                  <div class="col-md-12 col-sm-12 col-centered">
+                    <div class="title margin-bottom-40">
+                      <h1>Login</h1>
+                    </div>
+                    <div class="free-form text-left" id="login-free-form">
+                      <form
+                        id="login-form"
+                        class="form-floating"
+                        onsubmit="login(0);return false;"
+                      >
+                        <div id="fb-btn">
+                          <a
+                            class="btn btn-fb btn-block"
+                            href="javascript:fb_login();"
+                          >
+                            <span>Entrar com o Facebook</span>
+                          </a>
+                        </div>
+                        <div class="modal-divider"></div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-mail"></span>
+                          </div>
+                          <input
+                            class="form-controlold"
+                            name="LoginForm[username]"
+                            id="LoginForm_username"
+                            placeholder="E-mail"
+                            type="text"
+                            maxlength="150"
+                            autocomplete="nope"
+                          />
+                          <span
+                            id="errorMsgLoginEmail"
+                            class="errorMsgInput errorMsgLoginEmail"
+                          ></span>
+                        </div>
+                        <div style="position:relative">
+                          <div class="loginform-group">
+                            <div class="iconLabel">
+                              <span class="icon-password"></span>
+                            </div>
+                            <input
+                              class="form-controlold"
+                              name="LoginForm[password]"
+                              id="LoginForm_password"
+                              placeholder="Senha"
+                              type="password"
+                              maxlength="150"
+                              autocomplete="nope"
+                            />
+                          </div>
+                          <span
+                            id="errorMsgLoginPsw"
+                            class="errorMsgInput errorMsgLoginPsw"
+                          ></span>
+                          <p
+                            id="errorMsgLoginPswRel"
+                            class="errorMsgInputRel errorMsgLoginPswRel"
+                          ></p>
+                        </div>
+                        <div class="margin-bottom-20 checkbox-line">
+                          <label class="nomargin"
+                            ><input
+                              name="LoginForm[rememberMe]"
+                              id="LoginForm_rememberMe"
+                              value="1"
+                              type="checkbox"
+                              class="nomargin"
+                            />
+                            Mantenha-me conectado</label
+                          >
+                        </div>
+                        <div class="row nomargin">
+                          <button
+                            class="btn btn-danger btn-block btn-submit"
+                            type="submit"
+                          >
+                            Login
+                          </button>
+                        </div>
+                        <div class="row">
+                          <h6 class="text-center">
+                            Esqueceu sua senha?
+                            <a data-toggle="modal" onclick="showRecoverPsw()"
+                              >Clique aqui.</a
+                            >
+                          </h6>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div id="login-create-form">
+            <div class="modal-login-footer">
+              <p class="nomargin text-center">
+                Não possui uma conta?
+                <a onclick="showDialogRegistration(_callback_function)"
+                  >Cadastre-se!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade dialog2"
+      id="dialogRecoverPsw"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogRecoverPsw()"
+                ></i>
+              </div>
               <div class="row row-centered">
                 <div class="col-md-12 col-sm-12 col-centered">
                   <div class="title margin-bottom-40">
-                    <h1>Login</h1>
+                    <h1>Recuperar senha</h1>
                   </div>
-                  <div class="free-form text-left" id="login-free-form">
-                    <form id="login-form" class="form-floating" onsubmit="login(0);return false;">
-                      <div id="fb-btn">
-                        <a class="btn btn-fb btn-block" href="javascript:fb_login();">
-                          <span>Entrar com o Facebook</span>
-                        </a>
-                      </div>
-                      <div class="modal-divider"></div>
+                  <div>
+                    <form
+                      id="form-forget-psw"
+                      onsubmit="event.preventDefault();submitRecoverPsw()"
+                    >
                       <div class="loginform-group">
                         <div class="iconLabel">
                           <span class="icon-mail"></span>
                         </div>
-                        <input class="form-controlold" name="LoginForm[username]" id="LoginForm_username"
-                          placeholder="E-mail" type="text" maxlength="150" autocomplete="nope" />
-                        <span id="errorMsgLoginEmail" class="errorMsgInput errorMsgLoginEmail"></span>
+                        <input
+                          placeholder="E-mail"
+                          name="ForgotPasswordForm_email"
+                          id="ForgotPasswordForm_email"
+                          type="text"
+                          maxlength="150"
+                        />
                       </div>
-                      <div style="position:relative">
-                        <div class="loginform-group">
-                          <div class="iconLabel">
-                            <span class="icon-password"></span>
-                          </div>
-                          <input class="form-controlold" name="LoginForm[password]" id="LoginForm_password"
-                            placeholder="Senha" type="password" maxlength="150" autocomplete="nope" />
-                        </div>
-                        <span id="errorMsgLoginPsw" class="errorMsgInput errorMsgLoginPsw"></span>
-                        <p id="errorMsgLoginPswRel" class="errorMsgInputRel errorMsgLoginPswRel"></p>
+                      <div class="form-group">
+                        <div
+                          id="recaptcha-forgot-pwd"
+                          class="g-recaptcha"
+                        ></div>
                       </div>
-                      <div class="margin-bottom-20 checkbox-line">
-                        <label class="nomargin"><input name="LoginForm[rememberMe]" id="LoginForm_rememberMe" value="1"
-                            type="checkbox" class="nomargin" />
-                          Mantenha-me conectado</label>
-                      </div>
-                      <div class="row nomargin">
-                        <button class="btn btn-danger btn-block btn-submit" type="submit">
-                          Login
+                      <span id="errorMsgForgetPsw" class="errorMsgInput"></span>
+                      <span
+                        id="errorMsgForgetPswRel"
+                        class="errorMsgInputRel"
+                      ></span>
+                      <div class="margin-top-20">
+                        <button
+                          type="submit"
+                          class="btn btn-danger btn-block btn-submit"
+                        >
+                          Enviar
                         </button>
-                      </div>
-                      <div class="row">
-                        <h6 class="text-center">
-                          Esqueceu sua senha?
-                          <a data-toggle="modal" onclick="showRecoverPsw()">Clique aqui.</a>
-                        </h6>
                       </div>
                     </form>
                   </div>
@@ -710,82 +1122,48 @@
               </div>
             </div>
           </div>
-          <div class="modal-login-footer">
-            <p class="nomargin text-center">
-              Não possui uma conta?
-              <a onclick="showDialogRegistration(_callback_function)">Cadastre-se!</a>
-            </p>
-          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="modal fade dialog2" id="dialogRecoverPsw" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-detail">
-          <div class="modal-body">
-            <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogRecoverPsw()"></i>
-            </div>
-            <div class="row row-centered">
-              <div class="col-md-12 col-sm-12 col-centered">
-                <div class="title margin-bottom-40">
-                  <h1>Recuperar senha</h1>
-                </div>
-                <div>
-                  <form id="form-forget-psw" onsubmit="event.preventDefault();submitRecoverPsw()">
-                    <div class="loginform-group">
-                      <div class="iconLabel">
-                        <span class="icon-mail"></span>
-                      </div>
-                      <input placeholder="E-mail" name="ForgotPasswordForm_email" id="ForgotPasswordForm_email"
-                        type="text" maxlength="150" />
+    <div
+      class="modal fade dialog2"
+      id="dialogCheckEmail"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogCheckEmail()"
+                ></i>
+              </div>
+              <div class="row row-centered">
+                <div class="col-md-12 col-sm-12 col-centered">
+                  <div class="title margin-bottom-40">
+                    <h1>Confira seu e-mail</h1>
+                  </div>
+                  <div>
+                    <div class="margin-bottom-40 text-center">
+                      <span
+                        >O endereço indicado receberá um e-mail com instruções
+                        de como criar uma nova senha.</span
+                      >
                     </div>
-                    <div class="form-group">
-                      <div id="recaptcha-forgot-pwd" class="g-recaptcha"></div>
-                    </div>
-                    <span id="errorMsgForgetPsw" class="errorMsgInput"></span>
-                    <span id="errorMsgForgetPswRel" class="errorMsgInputRel"></span>
                     <div class="margin-top-20">
-                      <button type="submit" class="btn btn-danger btn-block btn-submit">
-                        Enviar
+                      <button
+                        class="btn btn-block btn-submit"
+                        style="background-color:#8293aa"
+                        onclick="closeDialogCheckEmail()"
+                      >
+                        Fechar
                       </button>
                     </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade dialog2" id="dialogCheckEmail" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-detail">
-          <div class="modal-body">
-            <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogCheckEmail()"></i>
-            </div>
-            <div class="row row-centered">
-              <div class="col-md-12 col-sm-12 col-centered">
-                <div class="title margin-bottom-40">
-                  <h1>Confira seu e-mail</h1>
-                </div>
-                <div>
-                  <div class="margin-bottom-40 text-center">
-                    <span>O endereço indicado receberá um e-mail com instruções
-                      de como criar uma nova senha.</span>
-                  </div>
-                  <div class="margin-top-20">
-                    <button class="btn btn-block btn-submit" style="background-color:#8293aa"
-                      onclick="closeDialogCheckEmail()">
-                      Fechar
-                    </button>
                   </div>
                 </div>
               </div>
@@ -794,339 +1172,511 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div id="login-resp-collapsed" class="loginMaskResp">
-    <div class="close" onclick="hideLoginResp()">
-      <i class="fa icon-close-2"></i>
-    </div>
+    <div id="login-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideLoginResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
 
-    <div class="col-md-12 col-sm-12 margin-top-20 box-login-resp-body">
-      <div class="title margin-bottom-20">
-        <h3 class="nomargin text-center">Login</h3>
-      </div>
-      <div class="free-form text-left" id="login-free-form">
-        <form id="login-form-resp" class="form-floating" onsubmit="login(1);return false;">
-          <div id="fb-btn" class="margin-bottom-40">
-            <a class="btn btn-fb btn-block" href="javascript:fb_login();"><span>Entrar com o Facebook</span></a>
-          </div>
-          <div class="modal-divider"></div>
-          <div class="loginform-group">
-            <div class="iconLabel"><span class="icon-mail"></span></div>
-            <input class="form-controlold" name="LoginForm[username]" id="LoginForm_username_resp" placeholder="E-mail"
-              type="text" maxlength="150" autocomplete="nope" />
-            <span id="errorMsgLoginEmail" class="errorMsgInput errorMsgLoginEmail"></span>
-          </div>
-          <div style="position:relative">
-            <div class="loginform-group">
-              <div class="iconLabel"><span class="icon-password"></span></div>
-              <input class="form-controlold" name="LoginForm[password]" id="LoginForm_password_resp" placeholder="Senha"
-                type="password" maxlength="150" autocomplete="nope" />
-            </div>
-            <span id="errorMsgLoginPsw" class="errorMsgInput errorMsgLoginPsw"></span>
-            <p id="errorMsgLoginPswRel" class="errorMsgInputRel errorMsgLoginPswRel"></p>
-          </div>
-          <div class="margin-bottom-20 checkbox-line">
-            <label class="nomargin"><input name="LoginForm[rememberMe]" id="LoginForm_rememberMe_resp" value="1"
-                type="checkbox" class="nomargin" />
-              Mantenha-me conectado</label>
-          </div>
-          <div class="row nomargin">
-            <button class="btn btn-danger btn-block btn-submit" type="submit">
-              Login
-            </button>
-          </div>
-          <div class="row">
-            <h6 class="text-center">
-              Esqueceu sua senha?
-              <a onclick="showRecoverPswResp();">Clique aqui.</a>
-            </h6>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="box-login-resp-footer">
-      <p class="nomargin text-center">
-        Não possui uma conta?
-        <a onclick="showRegResp(_callback_function);hideLoginResp()">Cadastre-se!</a>
-      </p>
-    </div>
-  </div>
-
-  <div id="recover-psw-collapsed" class="loginMaskResp">
-    <div class="close" onclick="hideRecoverPswResp()">
-      <i class="fa icon-close-2"></i>
-    </div>
-
-    <div class="col-md-12 col-sm-12 margin-top-20">
-      <div class="title margin-bottom-40 margin-top-40">
-        <h3 class="nomargin text-center">Recuperar senha</h3>
-      </div>
-      <div>
-        <form id="form-forget-psw-resp" onsubmit="event.preventDefault();submitRecoverPsw(1)">
-          <div class="loginform-group">
-            <div class="iconLabel"><span class="icon-mail"></span></div>
-            <input placeholder="E-mail" name="ForgotPasswordForm_email" id="ForgotPasswordForm_emailResp" type="text"
-              maxlength="150" />
-          </div>
-          <div class="form-group">
-            <div id="recaptcha-forgot-pwd-resp" class="g-recaptcha"></div>
-          </div>
-          <span id="errorMsgForgetPswResp" class="errorMsgInput"></span>
-          <span id="errorMsgForgetPswRespRel" class="errorMsgInputRel"></span>
-          <div class="margin-top-20">
-            <button type="submit" class="btn btn-danger btn-block btn-submit">
-              Enviar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div id="dialogCheckEmailResp" class="loginMaskResp">
-    <div class="col-md-12 col-sm-12 margin-top-20">
-      <div class="title margin-bottom-40 margin-top-40">
-        <h3 class="nomargin text-center">Confira seu e-mail</h3>
-      </div>
-      <div>
-        <div class="margin-bottom-40 text-center">
-          <span>O endereço indicado receberá um e-mail com instruções de como
-            criar uma nova senha.</span>
-        </div>
-        <div class="margin-top-20">
-          <button class="btn btn-block btn-submit" style="background-color:#8293aa"
-            onclick="closeDialogCheckEmailResp()">
-            Fechar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade dialog2" id="dialogRegistration" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-detail">
-          <div class="modal-body">
-            <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogRegistration()"></i>
-            </div>
-            <div class="row row-centered nomargin">
-              <div class="col-md-12 col-sm-12 col-centered nopadding">
-                <div class="title margin-bottom-40">
-                  <h1>Criar conta</h1>
-                </div>
-                <div id="registration-create-form">
-                  <form id="reg-form" class="form-floating reg-form-desktop" onsubmit="registration(0); return false;"
-                    data-gtm-name="formulario-cadastro">
-                    <div id="registration-with-email">
-                      <div id="fb-btn">
-                        <a class="btn btn-fb btn-block" href="javascript:checkRegState();">
-                          <span>Entrar com o Facebook</span>
-                        </a>
-                      </div>
-                      <div class="modal-divider"></div>
-                      <div class="loginform-group">
-                        <div class="iconLabel">
-                          <span class="icon-name"></span>
-                        </div>
-                        <input name="User_FIRST_NAME" id="User_FIRST_NAME" placeholder="Nome" data-tck-name="nome"
-                          type="text" maxlength="150" />
-                        <span id="errorMsgRegFirstname" class="errorMsgInput"></span>
-                      </div>
-                      <div class="loginform-group">
-                        <div class="iconLabel">
-                          <span class="icon-surname"></span>
-                        </div>
-                        <input name="User_LAST_NAME" id="User_LAST_NAME" placeholder="Sobrenome"
-                          data-tck-name="sobrenome" type="text" maxlength="150" />
-                        <span id="errorMsgRegLastname" class="errorMsgInput"></span>
-                      </div>
-                      <div class="loginform-group">
-                        <div class="iconLabel">
-                          <span class="icon-mail"></span>
-                        </div>
-                        <input name="User_EMAIL" id="User_EMAIL" placeholder="E-mail" data-tck-name="email" type="text"
-                          maxlength="150" />
-                        <span id="errorMsgRegEmail" class="errorMsgInput"></span>
-                      </div>
-                      <div class="loginform-group">
-                        <div class="iconLabel">
-                          <span class="icon-password"></span>
-                        </div>
-                        <input class="form-controlold" name="User_PWD" id="User_PWD" placeholder="Senha"
-                          data-tck-name="senha" type="text" maxlength="150" />
-                        <span id="errorMsgRegPsw" class="errorMsgInput"></span>
-                      </div>
-                      <div class="padding-bottom-20">
-                        <div id="recaptcha-create" class="g-recaptcha"></div>
-                        <span id="errorMsgRegRecaptcha" class="errorMsgInputRel"></span>
-                      </div>
-                      <div class="row nomargin">
-                        <button type="submit" class="btn btn-danger btn-block btn-submit">
-                          Cadastrar
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="row nomargin">
-                      <h6 class="text-center">
-                        Ao me cadastrar, concordo com os
-                        <a target="_blank">Termos de uso</a>
-                        da Tx Concursos
-                      </h6>
-                    </div>
-                    <div id="ajaxResult"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-login-footer">
-            <p class="nomargin text-center">
-              Já possui uma conta?
-              <a onclick="showDialogLogin(_callback_function)">Faça login!</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade dialog2" id="dialogCheckEmailReg" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-detail">
-          <div class="modal-body">
-            <div class="close">
-              <i class="fa icon-close-2" style="" onclick="closeDialogCheckEmailReg()"></i>
-            </div>
-            <div class="row row-centered">
-              <div class="col-md-12 col-sm-12 col-centered">
-                <div class="title margin-bottom-40">
-                  <h1>Confira seu e-mail</h1>
-                </div>
-                <div>
-                  <div class="margin-bottom-40 text-center">
-                    <span>Acesse seu e-mail e clique no link de
-                      confirmação.</span>
-                  </div>
-                  <div class="margin-top-20">
-                    <button class="btn btn-block btn-submit" style="background-color:#8293aa"
-                      onclick="closeDialogCheckEmailReg()">
-                      Fechar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="reg-resp-collapsed" class="loginMaskResp">
-    <div class="close" onclick="hideRegResp()">
-      <i class="fa icon-close-2"></i>
-    </div>
-
-    <div class="row row-centered nomargin">
-      <div class="col-md-12 col-sm-12 margin-top-20">
+      <div class="col-md-12 col-sm-12 margin-top-20 box-login-resp-body">
         <div class="title margin-bottom-20">
-          <h3 class="nomargin text-center">Criar conta</h3>
+          <h3 class="nomargin text-center">Login</h3>
         </div>
-        <div id="registration-create-form">
-          <form id="reg-form-mobile" class="form-floating reg-form-mobile" onsubmit="registration(1);return false;"
-            data-gtm-name="formulario-cadastro">
+        <div class="free-form text-left" id="login-free-form">
+          <form
+            id="login-form-resp"
+            class="form-floating"
+            onsubmit="login(1);return false;"
+          >
             <div id="fb-btn" class="margin-bottom-40">
-              <a class="btn btn-fb btn-block" href="javascript:checkRegState();">
-                <span>Entrar com o Facebook</span>
-              </a>
+              <a class="btn btn-fb btn-block" href="javascript:fb_login();"
+                ><span>Entrar com o Facebook</span></a
+              >
             </div>
             <div class="modal-divider"></div>
             <div class="loginform-group">
-              <div class="iconLabel"><span class="icon-name"></span></div>
-              <input name="User_FIRST_NAME_resp" id="User_FIRST_NAME_resp" placeholder="Nome" data-tck-name="nome"
-                type="text" maxlength="150" />
-              <span id="errorMsgRegFirstnameResp" class="errorMsgInput"></span>
-            </div>
-            <div class="loginform-group">
-              <div class="iconLabel"><span class="icon-surname"></span></div>
-              <input name="User_LAST_NAME_resp" id="User_LAST_NAME_resp" placeholder="Sobrenome"
-                data-tck-name="sobrenome" type="text" maxlength="150" />
-              <span id="errorMsgRegLastnameResp" class="errorMsgInput"></span>
-            </div>
-            <div class="loginform-group">
               <div class="iconLabel"><span class="icon-mail"></span></div>
-              <input name="User_EMAIL_resp" id="User_EMAIL_resp" placeholder="E-mail" data-tck-name="email" type="text"
-                maxlength="150" />
-              <span id="errorMsgRegEmailResp" class="errorMsgInput"></span>
+              <input
+                class="form-controlold"
+                name="LoginForm[username]"
+                id="LoginForm_username_resp"
+                placeholder="E-mail"
+                type="text"
+                maxlength="150"
+                autocomplete="nope"
+              />
+              <span
+                id="errorMsgLoginEmail"
+                class="errorMsgInput errorMsgLoginEmail"
+              ></span>
             </div>
-            <div class="loginform-group">
-              <div class="iconLabel"><span class="icon-password"></span></div>
-              <input class="form-controlold" name="User_PWD_resp" id="User_PWD_resp" placeholder="Senha"
-                data-tck-name="senha" type="text" maxlength="150" />
-              <span id="errorMsgRegPswResp" class="errorMsgInput"></span>
+            <div style="position:relative">
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-password"></span></div>
+                <input
+                  class="form-controlold"
+                  name="LoginForm[password]"
+                  id="LoginForm_password_resp"
+                  placeholder="Senha"
+                  type="password"
+                  maxlength="150"
+                  autocomplete="nope"
+                />
+              </div>
+              <span
+                id="errorMsgLoginPsw"
+                class="errorMsgInput errorMsgLoginPsw"
+              ></span>
+              <p
+                id="errorMsgLoginPswRel"
+                class="errorMsgInputRel errorMsgLoginPswRel"
+              ></p>
             </div>
-            <div class="padding-bottom-20">
-              <div id="recaptcha-create-resp" class="g-recaptcha"></div>
-              <span id="errorMsgRegRecaptchaResp" class="errorMsgInputRel"></span>
+            <div class="margin-bottom-20 checkbox-line">
+              <label class="nomargin"
+                ><input
+                  name="LoginForm[rememberMe]"
+                  id="LoginForm_rememberMe_resp"
+                  value="1"
+                  type="checkbox"
+                  class="nomargin"
+                />
+                Mantenha-me conectado</label
+              >
             </div>
             <div class="row nomargin">
-              <button type="submit" class="btn btn-danger btn-block btn-submit">
-                Cadastrar
+              <button class="btn btn-danger btn-block btn-submit" type="submit">
+                Login
               </button>
             </div>
             <div class="row">
               <h6 class="text-center">
-                Ao me cadastrar, concordo com os
-                <a href="/termos-de-uso" target="_blank">Termos de uso</a> e
-                <a href="/politica-de-privacidade" target="_blank">Política de privacidade</a>
-                da Tx Concursos
+                Esqueceu sua senha?
+                <a onclick="showRecoverPswResp();">Clique aqui.</a>
               </h6>
             </div>
           </form>
         </div>
       </div>
-    </div>
-    <div class="box-reg-resp-footer">
-      <p class="nomargin text-center">
-        Já possui uma conta?
-        <a onclick="showLoginResp(_callback_function);hideRegResp()">Faça login!</a>
-      </p>
-    </div>
-  </div>
-
-  <div id="reg-confirm-resp-collapsed" class="loginMaskResp">
-    <div class="close" onclick="hideRegConfirmResp()">
-      <i class="fa icon-close-2"></i>
-    </div>
-    <div class="row row-centered" style="display:table;width:100%;height:100%;">
-      <div class="col-md-12 col-sm-12 margin-top-40" style="display:table-cell;vertical-align:middle;">
-        <div class="title margin-bottom-40">
-          <h3 class="nomargin text-center">Confira seu e-mail</h3>
-        </div>
-        <p>Acesse seu e-mail e clique no link de confirmação.</p>
+      <div class="box-login-resp-footer">
+        <p class="nomargin text-center">
+          Não possui uma conta?
+          <a onclick="showRegResp(_callback_function);hideLoginResp()"
+            >Cadastre-se!</a
+          >
+        </p>
       </div>
     </div>
-  </div>
 
-  <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
-  <script src="assets/js/dev/controller.js"></script>
-  <script src="assets/js/dev/app.js"></script>
-  <script>
-    App.Footer();
-  </script>
-  <script>
+    <div id="recover-psw-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRecoverPswResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
 
-    var Quizzes = {
-      template: function ({ titulo, quiz_id }) {
+      <div class="col-md-12 col-sm-12 margin-top-20">
+        <div class="title margin-bottom-40 margin-top-40">
+          <h3 class="nomargin text-center">Recuperar senha</h3>
+        </div>
+        <div>
+          <form
+            id="form-forget-psw-resp"
+            onsubmit="event.preventDefault();submitRecoverPsw(1)"
+          >
+            <div class="loginform-group">
+              <div class="iconLabel"><span class="icon-mail"></span></div>
+              <input
+                placeholder="E-mail"
+                name="ForgotPasswordForm_email"
+                id="ForgotPasswordForm_emailResp"
+                type="text"
+                maxlength="150"
+              />
+            </div>
+            <div class="form-group">
+              <div id="recaptcha-forgot-pwd-resp" class="g-recaptcha"></div>
+            </div>
+            <span id="errorMsgForgetPswResp" class="errorMsgInput"></span>
+            <span id="errorMsgForgetPswRespRel" class="errorMsgInputRel"></span>
+            <div class="margin-top-20">
+              <button type="submit" class="btn btn-danger btn-block btn-submit">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
-        titulo = titulo;
+    <div id="dialogCheckEmailResp" class="loginMaskResp">
+      <div class="col-md-12 col-sm-12 margin-top-20">
+        <div class="title margin-bottom-40 margin-top-40">
+          <h3 class="nomargin text-center">Confira seu e-mail</h3>
+        </div>
+        <div>
+          <div class="margin-bottom-40 text-center">
+            <span
+              >O endereço indicado receberá um e-mail com instruções de como
+              criar uma nova senha.</span
+            >
+          </div>
+          <div class="margin-top-20">
+            <button
+              class="btn btn-block btn-submit"
+              style="background-color:#8293aa"
+              onclick="closeDialogCheckEmailResp()"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade dialog2"
+      id="dialogRegistration"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogRegistration()"
+                ></i>
+              </div>
+              <div class="row row-centered nomargin">
+                <div class="col-md-12 col-sm-12 col-centered nopadding">
+                  <div class="title margin-bottom-40">
+                    <h1>Criar conta</h1>
+                  </div>
+                  <div id="registration-create-form">
+                    <form
+                      id="reg-form"
+                      class="form-floating reg-form-desktop"
+                      onsubmit="registration(0); return false;"
+                      data-gtm-name="formulario-cadastro"
+                    >
+                      <div id="registration-with-email">
+                        <div id="fb-btn">
+                          <a
+                            class="btn btn-fb btn-block"
+                            href="javascript:checkRegState();"
+                          >
+                            <span>Entrar com o Facebook</span>
+                          </a>
+                        </div>
+                        <div class="modal-divider"></div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-name"></span>
+                          </div>
+                          <input
+                            name="User_FIRST_NAME"
+                            id="User_FIRST_NAME"
+                            placeholder="Nome"
+                            data-tck-name="nome"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegFirstname"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-surname"></span>
+                          </div>
+                          <input
+                            name="User_LAST_NAME"
+                            id="User_LAST_NAME"
+                            placeholder="Sobrenome"
+                            data-tck-name="sobrenome"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegLastname"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-mail"></span>
+                          </div>
+                          <input
+                            name="User_EMAIL"
+                            id="User_EMAIL"
+                            placeholder="E-mail"
+                            data-tck-name="email"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegEmail"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="loginform-group">
+                          <div class="iconLabel">
+                            <span class="icon-password"></span>
+                          </div>
+                          <input
+                            class="form-controlold"
+                            name="User_PWD"
+                            id="User_PWD"
+                            placeholder="Senha"
+                            data-tck-name="senha"
+                            type="text"
+                            maxlength="150"
+                          />
+                          <span
+                            id="errorMsgRegPsw"
+                            class="errorMsgInput"
+                          ></span>
+                        </div>
+                        <div class="padding-bottom-20">
+                          <div id="recaptcha-create" class="g-recaptcha"></div>
+                          <span
+                            id="errorMsgRegRecaptcha"
+                            class="errorMsgInputRel"
+                          ></span>
+                        </div>
+                        <div class="row nomargin">
+                          <button
+                            type="submit"
+                            class="btn btn-danger btn-block btn-submit"
+                          >
+                            Cadastrar
+                          </button>
+                        </div>
+                      </div>
 
-        quiz_id = quiz_id;
+                      <div class="row nomargin">
+                        <h6 class="text-center">
+                          Ao me cadastrar, concordo com os
+                          <a target="_blank">Termos de uso</a>
+                          da Tx Concursos
+                        </h6>
+                      </div>
+                      <div id="ajaxResult"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-login-footer">
+              <p class="nomargin text-center">
+                Já possui uma conta?
+                <a onclick="showDialogLogin(_callback_function)">Faça login!</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade dialog2"
+      id="dialogCheckEmailReg"
+      tabindex="-1"
+      role="dialog"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-detail">
+            <div class="modal-body">
+              <div class="close">
+                <i
+                  class="fa icon-close-2"
+                  style=""
+                  onclick="closeDialogCheckEmailReg()"
+                ></i>
+              </div>
+              <div class="row row-centered">
+                <div class="col-md-12 col-sm-12 col-centered">
+                  <div class="title margin-bottom-40">
+                    <h1>Confira seu e-mail</h1>
+                  </div>
+                  <div>
+                    <div class="margin-bottom-40 text-center">
+                      <span
+                        >Acesse seu e-mail e clique no link de
+                        confirmação.</span
+                      >
+                    </div>
+                    <div class="margin-top-20">
+                      <button
+                        class="btn btn-block btn-submit"
+                        style="background-color:#8293aa"
+                        onclick="closeDialogCheckEmailReg()"
+                      >
+                        Fechar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        var item = `
+    <div id="reg-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRegResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+
+      <div class="row row-centered nomargin">
+        <div class="col-md-12 col-sm-12 margin-top-20">
+          <div class="title margin-bottom-20">
+            <h3 class="nomargin text-center">Criar conta</h3>
+          </div>
+          <div id="registration-create-form">
+            <form
+              id="reg-form-mobile"
+              class="form-floating reg-form-mobile"
+              onsubmit="registration(1);return false;"
+              data-gtm-name="formulario-cadastro"
+            >
+              <div id="fb-btn" class="margin-bottom-40">
+                <a
+                  class="btn btn-fb btn-block"
+                  href="javascript:checkRegState();"
+                >
+                  <span>Entrar com o Facebook</span>
+                </a>
+              </div>
+              <div class="modal-divider"></div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-name"></span></div>
+                <input
+                  name="User_FIRST_NAME_resp"
+                  id="User_FIRST_NAME_resp"
+                  placeholder="Nome"
+                  data-tck-name="nome"
+                  type="text"
+                  maxlength="150"
+                />
+                <span
+                  id="errorMsgRegFirstnameResp"
+                  class="errorMsgInput"
+                ></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-surname"></span></div>
+                <input
+                  name="User_LAST_NAME_resp"
+                  id="User_LAST_NAME_resp"
+                  placeholder="Sobrenome"
+                  data-tck-name="sobrenome"
+                  type="text"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegLastnameResp" class="errorMsgInput"></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-mail"></span></div>
+                <input
+                  name="User_EMAIL_resp"
+                  id="User_EMAIL_resp"
+                  placeholder="E-mail"
+                  data-tck-name="email"
+                  type="text"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegEmailResp" class="errorMsgInput"></span>
+              </div>
+              <div class="loginform-group">
+                <div class="iconLabel"><span class="icon-password"></span></div>
+                <input
+                  class="form-controlold"
+                  name="User_PWD_resp"
+                  id="User_PWD_resp"
+                  placeholder="Senha"
+                  data-tck-name="senha"
+                  type="text"
+                  maxlength="150"
+                />
+                <span id="errorMsgRegPswResp" class="errorMsgInput"></span>
+              </div>
+              <div class="padding-bottom-20">
+                <div id="recaptcha-create-resp" class="g-recaptcha"></div>
+                <span
+                  id="errorMsgRegRecaptchaResp"
+                  class="errorMsgInputRel"
+                ></span>
+              </div>
+              <div class="row nomargin">
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-block btn-submit"
+                >
+                  Cadastrar
+                </button>
+              </div>
+              <div class="row">
+                <h6 class="text-center">
+                  Ao me cadastrar, concordo com os
+                  <a href="/termos-de-uso" target="_blank">Termos de uso</a> e
+                  <a href="/politica-de-privacidade" target="_blank"
+                    >Política de privacidade</a
+                  >
+                  da Tx Concursos
+                </h6>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="box-reg-resp-footer">
+        <p class="nomargin text-center">
+          Já possui uma conta?
+          <a onclick="showLoginResp(_callback_function);hideRegResp()"
+            >Faça login!</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div id="reg-confirm-resp-collapsed" class="loginMaskResp">
+      <div class="close" onclick="hideRegConfirmResp()">
+        <i class="fa icon-close-2"></i>
+      </div>
+      <div
+        class="row row-centered"
+        style="display:table;width:100%;height:100%;"
+      >
+        <div
+          class="col-md-12 col-sm-12 margin-top-40"
+          style="display:table-cell;vertical-align:middle;"
+        >
+          <div class="title margin-bottom-40">
+            <h3 class="nomargin text-center">Confira seu e-mail</h3>
+          </div>
+          <p>Acesse seu e-mail e clique no link de confirmação.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="assets/js/controller.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+      App.Footer();
+    </script>
+    <script>
+      var Quizzes = {
+        template: function({ titulo, quiz_id }) {
+          titulo = titulo;
+
+          quiz_id = quiz_id;
+
+          var item = `
 <li class="search-result-li plat-sympla" ">
   <a href="teste.html?quiz_id=${quiz_id}"
    style="border-left:1px solid rgb(58, 31, 60,0.1)!important;
@@ -1159,27 +1709,28 @@
                     </div>
                   </a>
                 </li>`;
-        return item;
-      },
-      run: function () {
-        try {
-          Quiz.all(function (result) {
-            var conteudo = '';
-            result.map(el => {
-              conteudo += Quizzes.template(el);
-            })
-            $('.search-result-list').html(conteudo);
-          })
-        } catch (error) {
-          console.error('Houve um erro:', error)
-        }
-        //return true;
-      }
-    }
+          return item;
+        },
+        run: function() {
+          try {
+            Quiz.all(function(result) {
+              if (result.length > 0) {
+                $("#info-search").html(result.length + " itens encontrados.");
+                var conteudo = "";
+                result.map(el => {
+                  conteudo += Quizzes.template(el);
+                });
+                $(".search-result-list").html(conteudo);
+              }
+            });
+          } catch (error) {
+            console.error("Houve um erro:", error);
+          }
+          //return true;
+        },
+      };
 
-    Quizzes.run()
-  </script>
-
-</body>
-
+      Quizzes.run();
+    </script>
+  </body>
 </html>
