@@ -166,7 +166,7 @@ $(document).ready(function() {
   const templateQuandoVerdadeiroOuFalso = ({ quiz_id }) => {
     var conteudo = `<label><input type="radio" name="alter-correta" required/>Opção de resposta 2</label>
     <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required="">0</textarea>`;
-    document.getElementsByName("a")[0].value = '1';
+    document.getElementsByName("a")[0].value = "1";
     document.getElementsByName("enunciado")[0].focus();
     $("#obter-mais-questoes").html(conteudo);
   };
@@ -438,6 +438,12 @@ $(document).ready(function() {
 
             var questao = $(`#questao_${questaoId}`);
 
+            var details = document.getElementsByTagName("details");
+
+            console.log(this.childNodes);
+
+            //window.location.href = "#questao_" + (parseInt(questaoId) + 1);
+
             let red = "rgba(208,29,29,0.94)",
               green = "#2e7d32";
             if (questaoCorreta === "1") {
@@ -560,7 +566,7 @@ $(document).ready(function() {
           $("#modalidade_id").change(function() {
             var index = this.selectedIndex;
             if (index == 2) {
-              templateQuandoVerdadeiroOuFalso({quiz_id});
+              templateQuandoVerdadeiroOuFalso({ quiz_id });
             }
           });
 
