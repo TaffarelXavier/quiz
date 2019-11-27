@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var eventSelect = $(".js-example-basic-single");
+  var eventSelect = $('.js-example-basic-single');
 
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -8,27 +8,27 @@ $(document).ready(function() {
   }
 
   const ALFABETO = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u'
   ];
 
   /**
@@ -36,17 +36,15 @@ $(document).ready(function() {
    */
   const MuitasQuestoes = {
     addQuestoes: function() {
-      const texto = document.getElementById("textarea-muitas-questoes");
-      const btnMuitQuest = document.getElementById(
-        "btn-salvar-muitas-questoes"
-      );
+      const texto = document.getElementById('textarea-muitas-questoes');
+      const btnMuitQuest = document.getElementById('btn-salvar-muitas-questoes');
       btnMuitQuest.onclick = function() {
         try {
           var str = texto.value; //É o texto de qualquer lugar
           if (str.length > 0) {
-            var spr = "item";
+            var spr = 'item';
 
-            const reg = new RegExp(spr + ".+\\d+", "gi");
+            const reg = new RegExp(spr + '.+\\d+', 'gi');
 
             if (str.match(reg) !== null) {
               let m = str.split(reg);
@@ -61,13 +59,13 @@ $(document).ready(function() {
                 const regex = /^\(?[a-zA-Z0-9]+\)/gim;
 
                 //console.log();
-                var questao = el.split("ff");
+                var questao = el.split('ff');
                 //Pega o enunciando:
-                let enuciado = questao[0].replace(regex, "").trim();
+                let enuciado = questao[0].replace(regex, '').trim();
 
                 let alternativas = questao[1];
 
-                var questao = alternativas.split("\n");
+                var questao = alternativas.split('\n');
 
                 questao = questao.map((el, index) => {
                   var repl = el.match(regex);
@@ -79,7 +77,7 @@ $(document).ready(function() {
                       repl: el.replace(repl, "").trim(),
                       correta: 'a',
                     };*/
-                    return el.replace(repl, "").trim();
+                    return el.replace(repl, '').trim();
                   }
                   return false;
                 });
@@ -92,7 +90,7 @@ $(document).ready(function() {
                   questao.enuciado = enuciado;
                 });
 
-                var content = "";
+                var content = '';
 
                 console.log(questao);
                 // questao.map(el=>{
@@ -104,7 +102,7 @@ $(document).ready(function() {
                   //content+=`<textarea style="width:100%;">${el.enuciado}</textarea>`;
                 });
 
-                $("#muita-questao").append(content);
+                $('#muita-questao').append(content);
               });
             }
           }
@@ -112,7 +110,7 @@ $(document).ready(function() {
           alert(error);
         }
       };
-    },
+    }
   };
 
   MuitasQuestoes.addQuestoes();
@@ -123,27 +121,27 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data,
+      data: data
     });
   });
 
   //Salvar categoria:
-  $("#criar-categoria").submit(ev => {
+  $('#criar-categoria').submit(ev => {
     Categoria.store(this.forms[0].elements1);
     return false;
   });
 
-  $("#criar-sub-categoria").submit(ev => {
+  $('#criar-sub-categoria').submit(ev => {
     SubCategoria.store(this.forms[1].elements);
     return false;
   });
 
-  $("#form-criar-quiz").submit(ev => {
-    var data = eventSelect.select2("data");
-    var form = document.querySelector("#form-criar-quiz");
+  $('#form-criar-quiz').submit(ev => {
+    var data = eventSelect.select2('data');
+    var form = document.querySelector('#form-criar-quiz');
     Quiz.store({ form, data }, result => {
       const { quiz_id } = result;
-      window.location.href = "?quiz_id=" + quiz_id;
+      window.location.href = '?quiz_id=' + quiz_id;
     });
     return false;
   });
@@ -151,7 +149,7 @@ $(document).ready(function() {
   //Adicionar nova questão:
   const novaQuestao = () => {
     //
-    let alternativas = Object.values($(".alternativa")).filter(el => {
+    let alternativas = Object.values($('.alternativa')).filter(el => {
       return el.name;
     });
 
@@ -160,15 +158,15 @@ $(document).ready(function() {
     var conteudo = `<label><input type="radio" name="alter-correta" required/>Alternativa ${letra.toUpperCase()}:</label>
     <textarea class="form-control alternativa col-md-12" rows="3" placeholder="Digite o texto da alternativa ${letra}" name="${letra}" required=""></textarea>`;
 
-    $("#obter-mais-questoes").append(conteudo);
+    $('#obter-mais-questoes').append(conteudo);
   };
 
   const templateQuandoVerdadeiroOuFalso = ({ quiz_id }) => {
     var conteudo = `<label><input type="radio" name="alter-correta" required/>Opção de resposta 2</label>
     <textarea class="form-control alternativa" rows="3" placeholder="Digite o texto da alternativa b" name="b" required="">0</textarea>`;
-    document.getElementsByName("a")[0].value = "1";
-    document.getElementsByName("enunciado")[0].focus();
-    $("#obter-mais-questoes").html(conteudo);
+    document.getElementsByName('a')[0].value = '1';
+    document.getElementsByName('enunciado')[0].focus();
+    $('#obter-mais-questoes').html(conteudo);
   };
 
   /***
@@ -216,20 +214,13 @@ $(document).ready(function() {
 
   //INÍCIO
   const questaoDetalhe = (
-    {
-      questao_id,
-      questao_enunciado,
-      questao_modalidade,
-      alternativas,
-      questao_correcao,
-      incremento,
-    },
+    { questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento },
     titulo
   ) => {
     let enunciado =
       questao_enunciado === undefined
-        ? "Nome do Quiz"
-        : "<pre class='questao-enunciado'>" + questao_enunciado + "</pre>";
+        ? 'Nome do Quiz'
+        : "<pre class='questao-enunciado'>" + questao_enunciado + '</pre>';
 
     let conteudo = `<details open id="questao_${questao_id}">
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
@@ -242,50 +233,48 @@ $(document).ready(function() {
       return 0.5 - Math.random();
     });
 
-    let alt = alternativas.map(
-      ({ alternativa_resposta, alternativa_correta }, index) => {
-        if (questao_modalidade === "1") {
-          //Multipla-escolha
-          var letra = ALFABETO[index];
+    let alt = alternativas.map(({ alternativa_resposta, alternativa_correta }, index) => {
+      if (questao_modalidade === '1') {
+        //Multipla-escolha
+        var letra = ALFABETO[index];
 
-          var _data = "";
-          var red = getRandomIntInclusive(0, 255);
-          var green = getRandomIntInclusive(0, 255);
-          var blue = getRandomIntInclusive(0, 255);
+        var _data = '';
+        var red = getRandomIntInclusive(0, 255);
+        var green = getRandomIntInclusive(0, 255);
+        var blue = getRandomIntInclusive(0, 255);
 
-          var bgColor = `rgba(${red},${green},${blue},0.1)`;
+        var bgColor = `rgba(${red},${green},${blue},0.1)`;
 
-          if (alternativa_correta === 1) {
-            _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
+        if (alternativa_correta === 1) {
+          _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
            <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
-          } else {
-            _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
+        } else {
+          _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
             <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
-          }
-
-          return _data;
         }
 
-        //Verdade-Falso
-        let data = `<div class="col-md-6">`;
-
-        if (alternativa_resposta == "1") {
-          data += `<button class="verdadeiro-falso certo col-md-12" data-questao-id="${questao_id}"
-          data-questao-correta="${alternativa_correta}">Certo</button>`;
-        } else {
-          data += `<button class="verdadeiro-falso errado col-md-12" data-questao-id="${questao_id}"
-          data-questao-correta="${alternativa_correta}">Errado</button>`;
-        }
-
-        data += `</div>`;
-
-        return data;
+        return _data;
       }
-    );
 
-    conteudo += `<div class="row">${alt.join("")}</div></div>`;
+      //Verdade-Falso
+      let data = `<div class="col-md-6">`;
+
+      if (alternativa_resposta == '1') {
+        data += `<button class="verdadeiro-falso certo col-md-12" data-questao-id="${questao_id}"
+          data-questao-correta="${alternativa_correta}">Certo</button>`;
+      } else {
+        data += `<button class="verdadeiro-falso errado col-md-12" data-questao-id="${questao_id}"
+          data-questao-correta="${alternativa_correta}">Errado</button>`;
+      }
+
+      data += `</div>`;
+
+      return data;
+    });
+
+    conteudo += `<div class="row">${alt.join('')}</div></div>`;
 
     if (questao_correcao != null) {
       conteudo += `<p id="correcao_${questao_id}" class="correcao-class" hidden><br/><strong>Correção:</strong>
@@ -316,17 +305,17 @@ $(document).ready(function() {
       conteudoQuestoes += questaoDetalhe(data, titulo);
     }
 
-    conteudoQuestoes += "";
+    conteudoQuestoes += '';
 
-    $("#get-questoes").html(conteudoQuestoes);
+    $('#get-questoes').html(conteudoQuestoes);
   };
 
   const carregarDados = () => {
     let params = new URL(window.location).searchParams;
 
-    let quiz_id = params.get("quiz_id");
+    let quiz_id = params.get('quiz_id');
 
-    let _flashCard = params.get("flashcard");
+    let _flashCard = params.get('flashcard');
 
     if (quiz_id !== null) {
       //Busca um quiz por id
@@ -335,33 +324,33 @@ $(document).ready(function() {
         let { quiz_id, titulo, questoes } = result[0];
         //
         if (questoes.length > 0) {
-          $("#quantidade-questoes-encontradas")
-            .html(questoes.length + " questões encontradas.")
-            .css({ background: "#f8f8f8" });
+          $('#quantidade-questoes-encontradas')
+            .html(questoes.length + ' questões encontradas.')
+            .css({ background: '#f8f8f8' });
         }
 
-        $("#titulo-do-quiz").html(`Questões sobre: ${titulo}`);
+        $('#titulo-do-quiz').html(`Questões sobre: ${titulo}`);
 
-        if (Boolean(_flashCard) && _flashCard == "true") {
+        if (Boolean(_flashCard) && _flashCard == 'true') {
           flashCard(result[0]);
           if (_flashCard) {
-            $("#get-inserir-quiz").hide();
+            $('#get-inserir-quiz').hide();
           }
         } else {
           var isSomenteFlashCard = true;
 
-          $("#links-flashcards")
-            .css({ backgroundColor: "red !important" })
-            .removeClass("bg-esqueleto")
+          $('#links-flashcards')
+            .css({ backgroundColor: 'red !important' })
+            .removeClass('bg-esqueleto')
             .click(ev => {
               if (isSomenteFlashCard) {
                 flashCard(result[0]);
                 isSomenteFlashCard = false;
-                $(ev.target).html("Somente Questões");
+                $(ev.target).html('Somente Questões');
               } else {
                 carregarSomenteQuestoes(questoes, titulo);
                 isSomenteFlashCard = true;
-                $(ev.target).html("Flashcards");
+                $(ev.target).html('Flashcards');
               }
               /*if (_flashCard) {
                 $("#get-inserir-quiz").hide();
@@ -371,113 +360,103 @@ $(document).ready(function() {
           carregarSomenteQuestoes(questoes, titulo);
 
           //Responder quando for verdadeiro ou falso:
-          $(".verdadeiro-falso").click(function() {
+          $('.verdadeiro-falso').click(function() {
             var _this = $(this);
 
-            var resposta = _this.attr("data-questao-correta");
+            var resposta = _this.attr('data-questao-correta');
 
-            var questaoId = _this.attr("data-questao-id");
+            var questaoId = _this.attr('data-questao-id');
 
             var questao = $(`#questao_${questaoId}`);
 
-            let red = "rgba(229,58,5,0.8)",
-              green = "#2e7d32";
+            let red = 'rgba(229,58,5,0.8)',
+              green = '#2e7d32';
 
-            if (resposta == "1") {
-              $("#explicacao_" + questaoId)
-                .html("Parabéns! Você acertou!")
-                .removeAttr("hidden")
+            if (resposta == '1') {
+              $('#explicacao_' + questaoId)
+                .html('Parabéns! Você acertou!')
+                .removeAttr('hidden')
                 .css({
-                  color: "#23be87",
+                  color: '#23be87'
                 });
             } else {
-              $("#explicacao_" + questaoId)
-                .html("Você errou!!!")
-                .removeAttr("hidden")
+              $('#explicacao_' + questaoId)
+                .html('Você errou!!!')
+                .removeAttr('hidden')
                 .css({
-                  color: "red",
+                  color: 'red'
                 });
             }
 
-            if (resposta == "1" && _this.attr("class").includes("certo")) {
-              questao.find(".errado").css({ background: red, color: "white" });
-              questao.find(".certo").css({ background: green, color: "white" });
-            } else if (
-              resposta == "0" &&
-              _this.attr("class").includes("certo")
-            ) {
-              questao
-                .find(".errado")
-                .css({ background: green, color: "white" });
-              questao.find(".certo").css({ background: red, color: "white" });
-            } else if (
-              resposta == "1" &&
-              _this.attr("class").includes("errado")
-            ) {
-              questao
-                .find(".errado")
-                .css({ background: green, color: "white" });
-              questao.find(".certo").css({ background: red, color: "white" });
-            } else if (
-              resposta == "0" &&
-              _this.attr("class").includes("errado")
-            ) {
-              questao.find(".errado").css({ background: red, color: "white" });
-              questao.find(".certo").css({ background: green, color: "white" });
+            if (resposta == '1' && _this.attr('class').includes('certo')) {
+              questao.find('.errado').css({ background: red, color: 'white' });
+              questao.find('.certo').css({ background: green, color: 'white' });
+            } else if (resposta == '0' && _this.attr('class').includes('certo')) {
+              questao.find('.errado').css({ background: green, color: 'white' });
+              questao.find('.certo').css({ background: red, color: 'white' });
+            } else if (resposta == '1' && _this.attr('class').includes('errado')) {
+              questao.find('.errado').css({ background: green, color: 'white' });
+              questao.find('.certo').css({ background: red, color: 'white' });
+            } else if (resposta == '0' && _this.attr('class').includes('errado')) {
+              questao.find('.errado').css({ background: red, color: 'white' });
+              questao.find('.certo').css({ background: green, color: 'white' });
             }
-            $(`#correcao_${questaoId}`).removeAttr("hidden");
+            $(`#correcao_${questaoId}`).removeAttr('hidden');
           });
 
           //.multipla-escolha
-          $(".multipla-escolha").click(function() {
+          //Percorre todas as divs, por exemplo.
+          let arry = [...document.getElementsByTagName('details')];
+
+          $('.multipla-escolha').click(function() {
             var _this = $(this);
 
-            var questaoCorreta = _this.attr("data-questao-correta");
+            var questaoCorreta = _this.attr('data-questao-correta');
 
-            var questaoId = _this.attr("data-questao-id");
+            var questaoId = parseInt(_this.attr('data-questao-id'));
 
             var questao = $(`#questao_${questaoId}`);
 
-            var details = document.getElementsByTagName("details");
+            var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
 
-            console.log(document.getElementById("questao_" + questaoId).childNodes);
+            $('html, body')
+              .delay(1000)
+              .animate({ scrollTop: $('#' + arry[++index].id).offset().top - 55 }, 500);
 
-            //window.location.href = "#questao_" + (parseInt(questaoId) + 1);
-
-            let red = "rgba(208,29,29,0.94)",
-              green = "#2e7d32";
-            if (questaoCorreta === "1") {
-              $("#explicacao_" + questaoId)
-                .html("Parabéns! Você acertou!")
-                .removeAttr("hidden")
+            let red = 'rgba(208,29,29,0.94)',
+              green = '#2e7d32';
+            if (questaoCorreta === '1') {
+              $('#explicacao_' + questaoId)
+                .html('Parabéns! Você acertou!')
+                .removeAttr('hidden')
                 .css({
-                  color: "#23be87",
-                  display: "block",
+                  color: '#23be87',
+                  display: 'block'
                 });
-              questao.find(".errada").css({ background: red, color: "white" });
-              _this.css({ background: green, color: "white" });
+              questao.find('.errada').css({ background: red, color: 'white' });
+              _this.css({ background: green, color: 'white' });
             } else {
-              questao.find(".errada").css({ background: red, color: "white" });
-              questao.find(".certa").css({ background: green, color: "white" });
-              _this.css({ background: red, border: "2px dashed black" });
-              $("#explicacao_" + questaoId)
-                .html("Você errou!!!")
-                .removeAttr("hidden")
+              questao.find('.errada').css({ background: red, color: 'white' });
+              questao.find('.certa').css({ background: green, color: 'white' });
+              _this.css({ background: red, border: '2px dashed black' });
+              $('#explicacao_' + questaoId)
+                .html('Você errou!!!')
+                .removeAttr('hidden')
                 .css({
-                  color: "red",
-                  display: "block",
+                  color: 'red',
+                  display: 'block'
                 });
             }
             $(`#correcao_${questaoId}`)
-              .html("Voce errou!!!")
-              .removeAttr("hidden");
+              .html('Voce errou!!!')
+              .removeAttr('hidden');
           });
 
           var conteudo = `<!--<label>Nome do Quiz:</label>
           <h3>${titulo}</h3><hr/>-->${formCriarQuestao({ quiz_id })}`;
 
           //Adiciona o conteúdo de inserção de questões
-          $("#get-inserir-quiz").html(conteudo); //Add conteúdo
+          $('#get-inserir-quiz').html(conteudo); //Add conteúdo
 
           function insertAtCursor(myField, myValue) {
             //IE support
@@ -487,20 +466,18 @@ $(document).ready(function() {
               sel.text = myValue;
             }
             //MOZILLA and others
-            else if (myField.selectionStart || myField.selectionStart == "0") {
+            else if (myField.selectionStart || myField.selectionStart == '0') {
               var startPos = myField.selectionStart;
               var endPos = myField.selectionEnd;
               myField.value =
-                myField.value.substring(0, startPos) +
-                myValue +
-                myField.value.substring(endPos, myField.value.length);
+                myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
             } else {
               myField.value += myValue;
             }
           }
 
-          const enunciadoEl = document.getElementsByName("enunciado");
-          var separador = document.getElementById("separador");
+          const enunciadoEl = document.getElementsByName('enunciado');
+          var separador = document.getElementById('separador');
 
           function copiarQuestaoExterna(texto) {
             try {
@@ -522,14 +499,14 @@ $(document).ready(function() {
                     let enuciado = m[0].trim();
 
                     if (regex.test(m[0])) {
-                      enuciado = m[0].replace(regex, "").trim();
+                      enuciado = m[0].replace(regex, '').trim();
                     }
 
                     let alternativas = m[1];
 
-                    document.getElementsByName("enunciado")[0].value = enuciado;
+                    document.getElementsByName('enunciado')[0].value = enuciado;
 
-                    var questao = alternativas.split("\n");
+                    var questao = alternativas.split('\n');
 
                     questao = questao.filter(el => {
                       return el.match(regex) ? el : el.trim();
@@ -541,14 +518,10 @@ $(document).ready(function() {
                       novaQuestao();
                     }
 
-                    var alternativaEl = document.getElementsByClassName(
-                      "alternativa"
-                    );
+                    var alternativaEl = document.getElementsByClassName('alternativa');
 
                     for (var i = 0; i < quantLinhas; i++) {
-                      alternativaEl[i].value = questao[i]
-                        .replace(regex, "")
-                        .trim();
+                      alternativaEl[i].value = questao[i].replace(regex, '').trim();
                     }
                   }
                 }
@@ -558,12 +531,12 @@ $(document).ready(function() {
             }
           }
 
-          $("#add-from-external-text").click(function() {
+          $('#add-from-external-text').click(function() {
             insertAtCursor(enunciadoEl[0], separador.value);
             copiarQuestaoExterna(enunciadoEl[0].value);
           });
 
-          $("#modalidade_id").change(function() {
+          $('#modalidade_id').change(function() {
             var index = this.selectedIndex;
             if (index == 2) {
               templateQuandoVerdadeiroOuFalso({ quiz_id });
@@ -571,34 +544,32 @@ $(document).ready(function() {
           });
 
           //Botão > Evento: add nova alternativa
-          $("#btn-add-questao").click(() => {
+          $('#btn-add-questao').click(() => {
             novaQuestao();
           });
 
-          $("#form-criar-questao").submit(function() {
+          $('#form-criar-questao').submit(function() {
             var form = this;
 
-            let alternativas = Object.values($(".alternativa")).filter(el => {
-              if (typeof el == "object") {
+            let alternativas = Object.values($('.alternativa')).filter(el => {
+              if (typeof el == 'object') {
                 return el.value;
               }
             });
 
             alternativas = alternativas.map((el, index) => {
-              var alterCorreta = document.getElementsByName("alter-correta")[
-                index
-              ];
+              var alterCorreta = document.getElementsByName('alter-correta')[index];
               return {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null,
+                questao_id: null
               };
             });
 
             Questao.store(form.elements, alternativas, res => {
-              if (res["questao_enunciado"] !== undefined) {
-                alert("Questão adicionada com sucesso!");
+              if (res['questao_enunciado'] !== undefined) {
+                alert('Questão adicionada com sucesso!');
                 window.location.reload();
               }
             });
@@ -614,8 +585,8 @@ $(document).ready(function() {
           return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> | 
           <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
         });
-        $("#get-questoes").html(result.join(""));
-        $("#get-inserir-quiz").html("");
+        $('#get-questoes').html(result.join(''));
+        $('#get-inserir-quiz').html('');
       });
     }
   };
