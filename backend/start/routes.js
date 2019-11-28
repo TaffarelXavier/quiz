@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +14,13 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
-const Database = use('Database')
+const Route = use("Route");
+const Database = use("Database");
 
+Route.resource("prova", "ProvaController");
 
-Route.resource('quiz', 'QuizController');
-Route.resource('categoria', 'CategoriaController');
-Route.resource('sub_categoria', 'SubCategoriaController');
-Route.resource('questao', 'QuestaoController');
+Route.resource("disciplina", "DisciplinaController");
 
-Route.get('/', ({ view }) => {
-    return view.render('questoes')
-  })
+Route.resource("sub_categoria", "SubCategoriaController");
+
+Route.resource("questao", "QuestaoController");

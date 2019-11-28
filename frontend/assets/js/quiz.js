@@ -7,29 +7,7 @@ $(document).ready(function() {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
   }
 
-  const ALFABETO = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u'
-  ];
+  const ALFABETO = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u'];
 
   /**
    *
@@ -58,7 +36,6 @@ $(document).ready(function() {
               m = m.filter(el => {
                 const regex = /^\(?[a-zA-Z0-9]+\)/gim;
 
-                //console.log();
                 var questao = el.split('ff');
                 //Pega o enunciando:
                 let enuciado = questao[0].replace(regex, '').trim();
@@ -73,10 +50,7 @@ $(document).ready(function() {
                   var correta = el.match(/correta\:\w+/im);
 
                   if (repl !== null) {
-                    /*return {
-                      repl: el.replace(repl, "").trim(),
-                      correta: 'a',
-                    };*/
+
                     return el.replace(repl, '').trim();
                   }
                   return false;
@@ -91,14 +65,7 @@ $(document).ready(function() {
                 });
 
                 var content = '';
-
-                console.log(questao);
-                // questao.map(el=>{
-                //   console.log(el);
-                // })
-
                 questao.map(el => {
-                  console.log(el);
                   //content+=`<textarea style="width:100%;">${el.enuciado}</textarea>`;
                 });
 
@@ -110,7 +77,7 @@ $(document).ready(function() {
           alert(error);
         }
       };
-    }
+    },
   };
 
   MuitasQuestoes.addQuestoes();
@@ -121,7 +88,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data
+      data: data,
     });
   });
 
@@ -139,7 +106,7 @@ $(document).ready(function() {
   $('#form-criar-quiz').submit(ev => {
     var data = eventSelect.select2('data');
     var form = document.querySelector('#form-criar-quiz');
-    Quiz.store({ form, data }, result => {
+    Prova.store({ form, data }, result => {
       const { quiz_id } = result;
       window.location.href = '?quiz_id=' + quiz_id;
     });
@@ -213,14 +180,8 @@ $(document).ready(function() {
   };
 
   //INÍCIO
-  const questaoDetalhe = (
-    { questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento },
-    titulo
-  ) => {
-    let enunciado =
-      questao_enunciado === undefined
-        ? 'Nome do Quiz'
-        : "<pre class='questao-enunciado'>" + questao_enunciado + '</pre>';
+  const questaoDetalhe = ({ questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento }, titulo) => {
+    let enunciado = questao_enunciado === undefined ? 'Nome do Prova' : "<pre class='questao-enunciado'>" + questao_enunciado + '</pre>';
 
     let conteudo = `<details open id="questao_${questao_id}">
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
@@ -310,6 +271,13 @@ $(document).ready(function() {
     $('#get-questoes').html(conteudoQuestoes);
   };
 
+  function irParaProximaQuestao(arry, questaoId, topMargin = 55) {
+    var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
+    $('html, body')
+      .delay(1000)
+      .animate({ scrollTop: $('#' + arry[++index].id).offset().top - topMargin }, 500);
+  }
+
   const carregarDados = () => {
     let params = new URL(window.location).searchParams;
 
@@ -319,7 +287,7 @@ $(document).ready(function() {
 
     if (quiz_id !== null) {
       //Busca um quiz por id
-      Quiz.getByQuizId(quiz_id, result => {
+     Prova.getByProvaId(quiz_id, result => {
         //Destruturing
         let { quiz_id, titulo, questoes } = result[0];
         //
@@ -352,12 +320,14 @@ $(document).ready(function() {
                 isSomenteFlashCard = true;
                 $(ev.target).html('Flashcards');
               }
-              /*if (_flashCard) {
-                $("#get-inserir-quiz").hide();
-              }*/
+              //if (_flashCard) {
+              //  $("#get-inserir-quiz").hide();
+              //}
             });
 
           carregarSomenteQuestoes(questoes, titulo);
+          //Percorre todas as divs, por exemplo.
+          let arry = [...document.getElementsByTagName('details')];
 
           //Responder quando for verdadeiro ou falso:
           $('.verdadeiro-falso').click(function() {
@@ -369,6 +339,8 @@ $(document).ready(function() {
 
             var questao = $(`#questao_${questaoId}`);
 
+            irParaProximaQuestao(arry, questaoId);
+
             let red = 'rgba(229,58,5,0.8)',
               green = '#2e7d32';
 
@@ -377,14 +349,14 @@ $(document).ready(function() {
                 .html('Parabéns! Você acertou!')
                 .removeAttr('hidden')
                 .css({
-                  color: '#23be87'
+                  color: '#23be87',
                 });
             } else {
               $('#explicacao_' + questaoId)
                 .html('Você errou!!!')
                 .removeAttr('hidden')
                 .css({
-                  color: 'red'
+                  color: 'red',
                 });
             }
 
@@ -405,8 +377,6 @@ $(document).ready(function() {
           });
 
           //.multipla-escolha
-          //Percorre todas as divs, por exemplo.
-          let arry = [...document.getElementsByTagName('details')];
 
           $('.multipla-escolha').click(function() {
             var _this = $(this);
@@ -417,11 +387,7 @@ $(document).ready(function() {
 
             var questao = $(`#questao_${questaoId}`);
 
-            var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
-
-            $('html, body')
-              .delay(1000)
-              .animate({ scrollTop: $('#' + arry[++index].id).offset().top - 55 }, 500);
+            irParaProximaQuestao(arry, questaoId);
 
             let red = 'rgba(208,29,29,0.94)',
               green = '#2e7d32';
@@ -431,7 +397,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: '#23be87',
-                  display: 'block'
+                  display: 'block',
                 });
               questao.find('.errada').css({ background: red, color: 'white' });
               _this.css({ background: green, color: 'white' });
@@ -444,7 +410,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: 'red',
-                  display: 'block'
+                  display: 'block',
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -452,7 +418,7 @@ $(document).ready(function() {
               .removeAttr('hidden');
           });
 
-          var conteudo = `<!--<label>Nome do Quiz:</label>
+          var conteudo = `<!--<label>Nome do Prova:</label>
           <h3>${titulo}</h3><hr/>-->${formCriarQuestao({ quiz_id })}`;
 
           //Adiciona o conteúdo de inserção de questões
@@ -469,8 +435,7 @@ $(document).ready(function() {
             else if (myField.selectionStart || myField.selectionStart == '0') {
               var startPos = myField.selectionStart;
               var endPos = myField.selectionEnd;
-              myField.value =
-                myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
+              myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
             } else {
               myField.value += myValue;
             }
@@ -563,7 +528,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null
+                questao_id: null,
               };
             });
 
@@ -578,16 +543,17 @@ $(document).ready(function() {
           });
         }
       });
+
     } else {
-      //Carregar os cartões
-      Quiz.all(function(result) {
-        result = result.map(el => {
-          return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> | 
-          <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
-        });
-        $('#get-questoes').html(result.join(''));
-        $('#get-inserir-quiz').html('');
-      });
+    //Carregar os cartões
+    //   Prova.all(function(result) {
+    //     result = result.map(el => {
+    //       return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> | 
+    //       <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
+    //     });
+    //     $('#get-questoes').html(result.join(''));
+    //     $('#get-inserir-quiz').html('');
+    //   });
     }
   };
 

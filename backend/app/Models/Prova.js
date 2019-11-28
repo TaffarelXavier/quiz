@@ -3,16 +3,19 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use("Model");
 
-class Quiz extends Model {
+class Prova extends Model {
+  
+  static get table() {
+    return "provas";
+  }
 
   static get primaryKey() {
-    return "quiz_id";
+    return "prova_id";
   }
-  
+
   questoes() {
     return this.hasMany("App/Models/Questao");
   }
- 
 }
 
-module.exports = Quiz;
+module.exports = Prova;

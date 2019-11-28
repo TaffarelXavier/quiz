@@ -1,21 +1,22 @@
 $(document).ready(function() {
   const ls = window.localStorage;
 
-  var eventSelect = $(".js-example-basic-single");
+  var eventSelect = $('.js-example-basic-single');
 
   //Mostra todas as categorias:
-  Categoria.all(result => {
+  Disciplina.all(result => {
+
     let data = result.map(({ categoria_id, titulo }) => {
       return { id: categoria_id, text: titulo };
     });
 
     eventSelect
       .select2({
-        data: data
+        data: data,
       })
-      .on("change", function(e) {
+      .on('change', function(e) {
         var categoria_id = parseInt(e.target.value);
-        $("#get-categoria-id").val(categoria_id);
+        $('#get-categoria-id').val(categoria_id);
 
         SubCategoria.getByCategoriaId(categoria_id, function(res) {
           let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
@@ -30,27 +31,29 @@ $(document).ready(function() {
               for="subcategoria_${sub_categoria_id}">${sub_titulo}</label>
               </div>`;
           });
-          $("#get-sub-categorias").html(inputs.join("") + "<br/>");
-          $(".sub-categorias").change(function() {
-            var subCategoriaId = $(this).attr("data-subcategoria-id");
-            $("#sub_categoria_id").val(subCategoriaId);
+          $('#get-sub-categorias').html(inputs.join('') + '<br/>');
+          $('.sub-categorias').change(function() {
+            var subCategoriaId = $(this).attr('data-subcategoria-id');
+            $('#sub_categoria_id').val(subCategoriaId);
           });
         });
       });
 
+      /*
     let inputs = result.map(({ categoria_id, titulo }) => {
       return `<div class="custom-control">
-        <label class="custom-control-label" for="${categoria_id}">${titulo}</label>
+        <label for="${categoria_id}">${titulo}</label>
     </div>`;
     });
 
     //Mostra as categorias:
-    $("#get-categorias").html(inputs.join("") + "<br/>");
-
-    $(".categorias").change(function() {
+    $('#get-categorias').html(inputs.join('') + '<br/>');
+*/
+    $('.categorias').change(function() {
+      
       var categoria_id = parseInt(this.id);
 
-      $("#get-categoria-id").val(categoria_id);
+      $('#get-categoria-id').val(categoria_id);
 
       SubCategoria.getByCategoriaId(categoria_id, function(res) {
         let inputs = res.map(({ sub_categoria_id, sub_titulo }) => {
@@ -64,37 +67,36 @@ $(document).ready(function() {
             <label class="custom-control-label" for="subcategoria_${sub_categoria_id}">${sub_titulo}</label>
             </div>`;
         });
-        $("#get-sub-categorias").html(inputs.join("") + "<br/>");
-        $(".sub-categorias").change(function() {
-          var subCategoriaId = $(this).attr("data-subcategoria-id");
-          $("#sub_categoria_id").val(subCategoriaId);
+        $('#get-sub-categorias').html(inputs.join('') + '<br/>');
+        $('.sub-categorias').change(function() {
+          var subCategoriaId = $(this).attr('data-subcategoria-id');
+          $('#sub_categoria_id').val(subCategoriaId);
         });
       });
     });
   });
 
   //Salvar categoria:
-  $("#criar-categoria").submit(ev => {
-    Categoria.store(this.forms[0].elements);
+  $('#criar-categoria').submit(ev => {
+    Disciplina.store(this.forms[0].elements);
     return false;
   });
-
-  $("#criar-sub-categoria").submit(ev => {
+  //Salvar
+  $('#criar-sub-categoria').submit(ev => {
     SubCategoria.store(this.forms[1].elements);
     return false;
   });
 
-  $("#form-criar-quiz").submit(ev => {
-    var data = eventSelect.select2("data");
-    var form = document.querySelector("#form-criar-quiz");
+  $('#form-criar-quiz').submit(ev => {
+    var data = eventSelect.select2('data');
+    var form = document.querySelector('#form-criar-quiz');
     Quiz.store({ form, data }, result => {
       alert(JSON.stringify(result));
     });
     return false;
   });
 
-  /*
-          $("#btn-salvar-questao").click(() => {
+  /*$("#btn-salvar-questao").click(() => {
               var form = document.getElementsByTagName("form")[0];
       
               let { enuciado, alt_a, alt_b, alt_c, alt_d } = form.elements;

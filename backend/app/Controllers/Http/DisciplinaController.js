@@ -4,15 +4,15 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-const Categoria = use("App/Models/Categoria");
+const Disciplina = use("App/Models/Disciplina");
 
 /**
- * Resourceful controller for interacting with categorias
+ * Resourceful controller for interacting with Disciplinas
  */
-class CategoriaController {
+class DisciplinaController {
   /**
-   * Show a list of all categorias.
-   * GET categorias
+   * Show a list of all Disciplinas.
+   * GET Disciplinas
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -20,13 +20,13 @@ class CategoriaController {
    * @param {View} ctx.view
    */
   async index({ request, response, view }) {
-    const categorias = await Categoria.all();
-    response.send(categorias);
+    const Disciplinas = await Disciplina.all();
+    response.send(Disciplinas);
   }
 
   /**
-   * Render a form to be used for creating a new categoria.
-   * GET categorias/create
+   * Render a form to be used for creating a new Disciplina.
+   * GET Disciplinas/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -36,21 +36,21 @@ class CategoriaController {
   async create({ request, response, view }) {}
 
   /**
-   * Create/save a new categoria.
-   * POST categorias
+   * Create/save a new Disciplina.
+   * POST Disciplinas
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-    const { categoria } = request.only(["categoria"]);
+    const { Disciplina } = request.only(["Disciplina"]);
 
-    console.log(categoria);
+    console.log(Disciplina);
 
-    const cat = new Categoria();
+    const cat = new Disciplina();
 
-    cat.titulo = categoria;
+    cat.titulo = Disciplina;
 
     await cat.save();
 
@@ -58,8 +58,8 @@ class CategoriaController {
   }
 
   /**
-   * Display a single categoria.
-   * GET categorias/:id
+   * Display a single Disciplina.
+   * GET Disciplinas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -69,8 +69,8 @@ class CategoriaController {
   async show({ params, request, response, view }) {}
 
   /**
-   * Render a form to update an existing categoria.
-   * GET categorias/:id/edit
+   * Render a form to update an existing Disciplina.
+   * GET Disciplinas/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -80,8 +80,8 @@ class CategoriaController {
   async edit({ params, request, response, view }) {}
 
   /**
-   * Update categoria details.
-   * PUT or PATCH categorias/:id
+   * Update Disciplina details.
+   * PUT or PATCH Disciplinas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -90,8 +90,8 @@ class CategoriaController {
   async update({ params, request, response }) {}
 
   /**
-   * Delete a categoria with id.
-   * DELETE categorias/:id
+   * Delete a Disciplina with id.
+   * DELETE Disciplinas/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -100,4 +100,4 @@ class CategoriaController {
   async destroy({ params, request, response }) {}
 }
 
-module.exports = CategoriaController;
+module.exports = DisciplinaController;

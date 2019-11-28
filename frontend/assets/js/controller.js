@@ -1,13 +1,13 @@
 const IP = [
   {
-    protocol: "http",
-    address: "lccomputacaoturma2018-com-br.umbler.net",
-    port: "",
+    protocol: 'http',
+    address: 'lccomputacaoturma2018-com-br.umbler.net',
+    port: '',
   },
   {
-    protocol: "http",
-    address: "127.0.0.1",
-    port: "3333",
+    protocol: 'http',
+    address: '127.0.0.1',
+    port: '3333',
   },
 ];
 
@@ -16,7 +16,7 @@ const INDEX = 1;
 const URL_API = `${IP[INDEX].protocol}://${IP[INDEX].address}:${IP[INDEX].port}`;
 
 var carregarCasoFalha = error => {
-  if (error.message === "Failed to fetch") {
+  if (error.message === 'Failed to fetch') {
     setInterval(function() {
       window.location.reload();
     }, 5000);
@@ -26,15 +26,15 @@ var carregarCasoFalha = error => {
 /**
  * CATEGORIAS
  */
-var Categoria = {
+var Disciplina = {
   /*Cria uma categoria*/
   store: function({ categoria }) {
     var form = new FormData();
 
-    form.append("categoria", categoria.value);
+    form.append('categoria', categoria.value);
 
-    fetch(URL_API + "/categoria", {
-      method: "POST",
+    fetch(URL_API + '/disciplina', {
+      method: 'POST',
       body: form,
     })
       .then(function(response) {
@@ -43,19 +43,17 @@ var Categoria = {
             console.log(result);
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
-        console.warn(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        console.warn('There has been a problem with your fetch operation: ' + error.message);
       });
   },
   /*Busca todas as categorias*/
   all: function(callback) {
-    fetch(URL_API + "/categoria", {
-      method: "GET",
+    fetch(URL_API + '/disciplina', {
+      method: 'GET',
     })
       .then(function(response) {
         if (response.ok) {
@@ -63,13 +61,11 @@ var Categoria = {
             callback(result);
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   },
 };
@@ -81,11 +77,11 @@ var SubCategoria = {
   store: function({ sub_titulo, categoria_id }) {
     var form = new FormData();
 
-    form.append("sub_titulo", sub_titulo.value);
-    form.append("categoria_id", categoria_id.value);
+    form.append('sub_titulo', sub_titulo.value);
+    form.append('categoria_id', categoria_id.value);
 
-    fetch(URL_API + "/sub_categoria", {
-      method: "POST",
+    fetch(URL_API + '/sub_categoria', {
+      method: 'POST',
       body: form,
     })
       .then(function(response) {
@@ -94,19 +90,17 @@ var SubCategoria = {
             console.log(result);
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   },
   /*Busca todas as categorias*/
   all: function(callback) {
-    fetch(URL_API + "/sub_categoria", {
-      method: "GET",
+    fetch(URL_API + '/sub_categoria', {
+      method: 'GET',
     })
       .then(function(response) {
         if (response.ok) {
@@ -118,7 +112,7 @@ var SubCategoria = {
             $("#get-categorias").html(inputs.join("<br/>"));*/
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
@@ -126,7 +120,7 @@ var SubCategoria = {
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
-    var url = new URL(URL_API + "/sub_categoria");
+    var url = new URL(URL_API + '/sub_categoria');
     var params = { categoria_id: categoria_id };
     url.search = new URLSearchParams(params).toString();
     fetch(url).then(function(response) {
@@ -139,7 +133,7 @@ var SubCategoria = {
   },
 };
 
-var Quiz = {
+var Prova = {
   /*Cria uma categoria*/
   store: function({ form, data }, callback) {
     var formDt = new FormData();
@@ -148,13 +142,13 @@ var Quiz = {
       if (data[0]) {
         delete data[0].element;
 
-        formDt.append("titulo", form.titulo.value);
+        formDt.append('titulo', form.titulo.value);
         //formDt.append("descricao", descricao.value);
 
-        formDt.append("sub_categoria_id", JSON.stringify(data[0]));
+        formDt.append('sub_categoria_id', JSON.stringify(data[0]));
 
-        fetch(URL_API + "/quiz", {
-          method: "POST",
+        fetch(URL_API + '/prova', {
+          method: 'POST',
           body: formDt,
         })
           .then(function(response) {
@@ -171,13 +165,13 @@ var Quiz = {
           });
       }
     } catch (error) {
-      console.error("Houve um Erro:", error);
+      console.error('Houve um Erro:', error);
     }
   },
   /*Busca todas as categorias*/
   all: function(callback) {
-    fetch(URL_API + "/quiz", {
-      method: "GET",
+    fetch(URL_API + '/prova', {
+      method: 'GET',
     })
       .then(function(response) {
         if (response.ok) {
@@ -185,7 +179,7 @@ var Quiz = {
             callback(result);
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
@@ -193,28 +187,39 @@ var Quiz = {
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
-    var url = new URL(URL_API + "/sub_categoria");
+    var url = new URL(URL_API + '/sub_categoria');
     var params = { categoria_id: categoria_id };
     url.search = new URLSearchParams(params).toString();
-    fetch(url).then(function(response) {
-      if (response.ok) {
-        response.json().then(result => {
-          return callback(result);
-        });
-      }
-    });
+    fetch(url)
+      .then(function(response) {
+        if (response.ok) {
+          response.json().then(result => {
+            return callback(result);
+          });
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   },
-  getByQuizId: function(quizId, callback) {
-    var url = new URL(URL_API + "/quiz");
+  getByProvaId: function(quizId, callback) {
+    var url = new URL(URL_API + '/prova');
+
     var params = { quiz_id: quizId };
+
     url.search = new URLSearchParams(params).toString();
-    fetch(url).then(function(response) {
-      if (response.ok) {
-        response.json().then(result => {
-          return callback(result);
-        });
-      }
-    });
+
+    fetch(url)
+      .then(function(response) {
+        if (response.ok) {
+          response.json().then(result => {
+            return callback(result);
+          });
+        }
+      })
+      .catch(function(error) {
+        console.warn(error);
+      });
   },
 };
 
@@ -223,13 +228,13 @@ var Questao = {
   store: function({ quiz_id, enunciado, modalidade }, alternativas, callback) {
     var formDt = new FormData();
 
-    formDt.append("enunciado", enunciado.value);
-    formDt.append("quiz_id", quiz_id.value);
-    formDt.append("modalidade", $(modalidade).val());
-    formDt.append("alternativas", JSON.stringify(alternativas));
+    formDt.append('enunciado', enunciado.value);
+    formDt.append('quiz_id', quiz_id.value);
+    formDt.append('modalidade', $(modalidade).val());
+    formDt.append('alternativas', JSON.stringify(alternativas));
 
-    fetch(URL_API + "/questao", {
-      method: "POST",
+    fetch(URL_API + '/questao', {
+      method: 'POST',
       body: formDt,
     })
       .then(function(response) {
@@ -239,7 +244,7 @@ var Questao = {
           });
         } else {
           console.log(response);
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
@@ -249,8 +254,8 @@ var Questao = {
   },
   /*Busca todas as categorias*/
   all: function() {
-    fetch(URL_API + "/sub_categoria", {
-      method: "GET",
+    fetch(URL_API + '/sub_categoria', {
+      method: 'GET',
     })
       .then(function(response) {
         if (response.ok) {
@@ -258,20 +263,18 @@ var Questao = {
             let inputs = result.map(({ categoria_id, titulo }) => {
               return `<label><input type="radio" name="categoria" />${titulo}</label>`;
             });
-            $("#get-categorias").html(inputs.join("<br/>"));
+            $('#get-categorias').html(inputs.join('<br/>'));
           });
         } else {
-          console.log("Network response was not ok.");
+          console.log('Network response was not ok.');
         }
       })
       .catch(function(error) {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
-    var url = new URL(URL_API + "/sub_categoria");
+    var url = new URL(URL_API + '/sub_categoria');
     var params = { categoria_id: categoria_id };
     url.search = new URLSearchParams(params).toString();
     fetch(url).then(function(response) {
@@ -282,8 +285,8 @@ var Questao = {
       }
     });
   },
-  getByQuizId: function(quizId, callback) {
-    var url = new URL(URL_API + "/quiz");
+  getBy_QuizId: function(quizId, callback) {
+    var url = new URL(URL_API + '/quiz');
     var params = { quiz_id: quizId };
     url.search = new URLSearchParams(params).toString();
     fetch(url).then(function(response) {
