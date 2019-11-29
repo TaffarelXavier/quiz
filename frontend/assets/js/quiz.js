@@ -7,7 +7,32 @@ $(document).ready(function() {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
   }
 
-  const ALFABETO = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u'];
+  const ALFABETO = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'x',
+    'y',
+    'z'
+  ];
 
   /**
    *
@@ -50,7 +75,6 @@ $(document).ready(function() {
                   var correta = el.match(/correta\:\w+/im);
 
                   if (repl !== null) {
-
                     return el.replace(repl, '').trim();
                   }
                   return false;
@@ -77,7 +101,7 @@ $(document).ready(function() {
           alert(error);
         }
       };
-    },
+    }
   };
 
   MuitasQuestoes.addQuestoes();
@@ -88,7 +112,7 @@ $(document).ready(function() {
     });
 
     eventSelect.select2({
-      data: data,
+      data: data
     });
   });
 
@@ -180,10 +204,21 @@ $(document).ready(function() {
   };
 
   //INÍCIO
-  const questaoDetalhe = ({ questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento }, titulo) => {
-    let enunciado = questao_enunciado === undefined ? 'Nome do Prova' : "<pre class='questao-enunciado'>" + questao_enunciado + '</pre>';
+  const questaoDetalhe = (
+    { questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento },
+    titulo
+  ) => {
+    let enunciado =
+      questao_enunciado === undefined
+        ? 'Nome do Prova'
+        : "<pre class='questao-enunciado'>" + questao_enunciado + '</pre>';
 
-    let conteudo = `<details open id="questao_${questao_id}">
+    let mod = questao_modalidade == 1 ? 'multipla' : 'verdadeiro_falso';
+
+    let conteudo = `<div class="painel-questao" style="border:0px solid rgba(55,0,0,0.2);"
+    id="${incremento}"
+    data-modalidade="${mod}">
+    <details open id="questao_${questao_id}">
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
       <strong>${incremento} > ${titulo} </strong>
   </summary>
@@ -204,7 +239,7 @@ $(document).ready(function() {
         var green = getRandomIntInclusive(0, 255);
         var blue = getRandomIntInclusive(0, 255);
 
-        var bgColor = `rgba(${red},${green},${blue},0.1)`;
+        var bgColor = `rgba(${red},${green},${blue},0.7)`;
 
         if (alternativa_correta === 1) {
           _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
@@ -235,23 +270,22 @@ $(document).ready(function() {
       return data;
     });
 
-    conteudo += `<div class="row">${alt.join('')}</div></div>`;
+    conteudo += `<div class="row">${alt.join('')}</div>`;
 
     if (questao_correcao != null) {
       conteudo += `<p id="correcao_${questao_id}" class="correcao-class" hidden><br/><strong>Correção:</strong>
         <i>${questao_correcao}</i></p>`;
     }
 
-    //if (questao_modalidade == "1") {
-    conteudo += `<p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
-    //}
+    conteudo += `<br/><p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
 
-    conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/>`;
+    conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/></div>`;
 
     return conteudo;
   }; //FIM
 
   const carregarSomenteQuestoes = (questoes, titulo) => {
+    
     var conteudoQuestoes = ``;
 
     questoes = questoes.sort((a, b) => {
@@ -266,13 +300,15 @@ $(document).ready(function() {
       conteudoQuestoes += questaoDetalhe(data, titulo);
     }
 
-    conteudoQuestoes += '';
+    // conteudoQuestoes += '';
 
     $('#get-questoes').html(conteudoQuestoes);
   };
 
   function irParaProximaQuestao(arry, questaoId, topMargin = 55) {
+    //
     var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
+    //
     $('html, body')
       .delay(1000)
       .animate({ scrollTop: $('#' + arry[++index].id).offset().top - topMargin }, 500);
@@ -287,7 +323,8 @@ $(document).ready(function() {
 
     if (quiz_id !== null) {
       //Busca um quiz por id
-     Prova.getByProvaId(quiz_id, result => {
+      Prova.getByProvaId(quiz_id, result => {
+        
         //Destruturing
         let { quiz_id, titulo, questoes } = result[0];
         //
@@ -297,7 +334,7 @@ $(document).ready(function() {
             .css({ background: '#f8f8f8' });
         }
 
-        $('#titulo-do-quiz').html(`Questões sobre: ${titulo}`);
+        $('#titulo-do-quiz').html(`Questões sobre: <strong>${titulo}</strong>`);
 
         if (Boolean(_flashCard) && _flashCard == 'true') {
           flashCard(result[0]);
@@ -326,8 +363,10 @@ $(document).ready(function() {
             });
 
           carregarSomenteQuestoes(questoes, titulo);
-          //Percorre todas as divs, por exemplo.
+
+          //Percorre todas os details, por exemplo.
           let arry = [...document.getElementsByTagName('details')];
+          let cardQuestao = [...document.getElementsByClassName('painel-questao')];
 
           //Responder quando for verdadeiro ou falso:
           $('.verdadeiro-falso').click(function() {
@@ -350,6 +389,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: '#23be87',
+                  display: 'block'
                 });
             } else {
               $('#explicacao_' + questaoId)
@@ -357,6 +397,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: 'red',
+                  display: 'block'
                 });
             }
 
@@ -397,7 +438,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: '#23be87',
-                  display: 'block',
+                  display: 'block'
                 });
               questao.find('.errada').css({ background: red, color: 'white' });
               _this.css({ background: green, color: 'white' });
@@ -410,7 +451,7 @@ $(document).ready(function() {
                 .removeAttr('hidden')
                 .css({
                   color: 'red',
-                  display: 'block',
+                  display: 'block'
                 });
             }
             $(`#correcao_${questaoId}`)
@@ -424,6 +465,31 @@ $(document).ready(function() {
           //Adiciona o conteúdo de inserção de questões
           $('#get-inserir-quiz').html(conteudo); //Add conteúdo
 
+          //Ao clicar seleciona somente questões múltiplas escolhas
+          var idIncremental = 0;
+          $('#btn-verdadeiro-falso').click(() => {
+            cardQuestao.map(el => {
+              if (el.dataset.modalidade === 'multipla') {
+                $(el).css({ display: 'none' });
+              } else {
+                ++idIncremental;
+                el.id = `questao_card_${idIncremental}`;
+                $(el).css({ display: 'block' });
+              }
+            });
+          });
+
+          //Ao clicar seleciona somente questões múltiplas escolhas
+          $('#btn-multipla-escolha').click(() => {
+            cardQuestao.map(el => {
+              if (el.dataset.modalidade === 'verdadeiro_falso') {
+                $(el).css({ display: 'none' });
+              } else {
+                $(el).css({ display: 'block' });
+              }
+            });
+          });
+
           function insertAtCursor(myField, myValue) {
             //IE support
             if (document.selection) {
@@ -431,11 +497,12 @@ $(document).ready(function() {
               sel = document.selection.createRange();
               sel.text = myValue;
             }
-            //MOZILLA and others
+            //MOZILLA e outros
             else if (myField.selectionStart || myField.selectionStart == '0') {
               var startPos = myField.selectionStart;
               var endPos = myField.selectionEnd;
-              myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
+              myField.value =
+                myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
             } else {
               myField.value += myValue;
             }
@@ -528,7 +595,7 @@ $(document).ready(function() {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null,
+                questao_id: null
               };
             });
 
@@ -543,17 +610,16 @@ $(document).ready(function() {
           });
         }
       });
-
     } else {
-    //Carregar os cartões
-    //   Prova.all(function(result) {
-    //     result = result.map(el => {
-    //       return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> | 
-    //       <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
-    //     });
-    //     $('#get-questoes').html(result.join(''));
-    //     $('#get-inserir-quiz').html('');
-    //   });
+      //Carregar os cartões
+      //   Prova.all(function(result) {
+      //     result = result.map(el => {
+      //       return `<a href="?quiz_id=${el.quiz_id}">${el.titulo}</a> |
+      //       <a href="?quiz_id=${el.quiz_id}&flashcard=true">FlashCards</a><br/>`;
+      //     });
+      //     $('#get-questoes').html(result.join(''));
+      //     $('#get-inserir-quiz').html('');
+      //   });
     }
   };
 
