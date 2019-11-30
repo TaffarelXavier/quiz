@@ -72,6 +72,36 @@
                 top: 100px;
                 width: 400px;
             }
+
+            #get-questoes {
+                /* border:1px solid red;
+                height: 1000px !important;
+                overflow: auto;
+                position: relative;
+                z-index: 900;
+                display: inline-block;
+                background: #fff; */
+            }
+
+            #myBtnFlutuante {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 9999;
+                border: none;
+                outline: none;
+                background-color: #555;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+            }
+
+            #myBtnFlutuante:hover {
+                background-color: #555;
+            }
         }
 
         /* Extra large devices (large desktops, 1200px and up) */
@@ -79,10 +109,11 @@
     </style>
 </head>
 
-<body>
+<body style="overflow: auto;">
     <!-- HEADER -->
     <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #fff;">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light"
+            style="background-color: #fff;box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);">
             <a class="main-logo w-inline-block" href="./">
                 <img src="../assets/images/logo.svg" width="128" height="52" />
             </a>
@@ -90,7 +121,6 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <!-- <li class="nav-item active">
@@ -120,7 +150,7 @@
                         </li> -->
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" /> -->
                     <a class="btn my-2 my-sm-0">Login</a>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Criar Conta</button>
                 </form>
@@ -173,18 +203,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-outline btn-primary" id="btn-verdadeiro-falso">
-                                            Somente Verdadeiro ou Falso </button>
-                                        <button class="btn btn-outline btn-primary" id="btn-multipla-escolha">
-                                            Somente Múltipla Escolha </button>
-                                    </div>
-                                    
+                                <div class="col-md-12">
+                                    <button class="btn btn-outline btn-primary my-2 my-sm-0" id="btn-verdadeiro-falso">
+                                        Somente Verdadeiro ou Falso </button> &nbsp;
+                                    <button class="btn btn-outline btn-primary my-2 my-sm-0" id="btn-multipla-escolha">
+                                        Somente Múltipla Escolha </button>
                                 </div>
+                            </div>
+                            <hr>
+                            <div class="row">
                                 <div class="row">
                                     <div class="col-md-12" id="get-questoes">
-                                        <details open="" id="questao_122">
+                                        <details open="">
                                             <summary
                                                 style="padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)">
                                                 <div class="comment br animate line-20"
@@ -220,7 +250,7 @@
                                             </div>
                                             <p id="explicacao_122" class="explicacao" hidden=""></p>
                                         </details>
-                                        <details open="" id="questao_122">
+                                        <details open="">
                                             <summary
                                                 style="padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)">
                                                 <div class="comment br animate line-20"
@@ -317,7 +347,7 @@
     <div id="muita-questao"></div>
 
     <!-- Footer -->
-    <footer>
+    <footer style="position: absolute;width: 100%;">
         <div class="fullwidth-section half-padding footer-sympla-generic">
             <div class="footer-container">
                 <div id="footer-sitemap" class="footer-sitemap w-clearfix row"
@@ -576,6 +606,12 @@
         </div>
     </div>
 
+    <button onclick="topFunction()" id="myBtnFlutuante" title="Ir ao topo">
+        <i class="material-icons">
+            keyboard_arrow_up
+        </i>
+    </button>
+
     <script src="../assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -590,6 +626,7 @@
     <script src="../assets/js/flashcard.js"></script>
     <script src="../assets/js/funcoes.js"></script>
     <script src="../assets/js/palavraChave.js"></script>
+    <script src="../assets/js/cores.js"></script>
     <script src="../assets/js/quiz.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/popper.js"></script>
@@ -604,6 +641,22 @@
       });
       // $("#modalMuitasQuestoes").modal("show");
     </script> -->
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtnFlutuante").style.display = "block";
+            } else {
+                document.getElementById("myBtnFlutuante").style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 </body>
 
 </html>

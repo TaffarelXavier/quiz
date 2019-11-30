@@ -1,1 +1,1 @@
-cd /d backend && npm start
+cd /d backend && adonis serve --dev

@@ -225,11 +225,11 @@ var Prova = {
 
 var Questao = {
   /*Cria uma categoria*/
-  store: function({ quiz_id, enunciado, modalidade }, alternativas, callback) {
+  store: function({ prova_id, enunciado, modalidade }, alternativas, callback) {
     var formDt = new FormData();
 
     formDt.append('enunciado', enunciado.value);
-    formDt.append('quiz_id', quiz_id.value);
+    formDt.append('prova_id', prova_id.value);
     formDt.append('modalidade', $(modalidade).val());
     formDt.append('alternativas', JSON.stringify(alternativas));
 

@@ -7,12 +7,6 @@
 const Questao = use("App/Models/Questao");
 const Alternativa = use("App/Models/Alternativa");
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
-
 /**
  * Resourceful controller for interacting with questaos
  */
@@ -37,14 +31,14 @@ class QuestaoController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-    const { enunciado, quiz_id, alternativas, modalidade } = request.all();
+
+    const { enunciado, prova_id, alternativas, modalidade } = request.all();
 
     const questoes = new Questao();
     questoes.questao_enunciado = enunciado;
     questoes.questao_modalidade = modalidade;
-    questoes.quiz_id = quiz_id;
+    questoes.provum_id = prova_id;
 
-    console.log(getRandomIntInclusive(1, 255));
     await questoes.save();
 
     var result = JSON.parse(alternativas).map(alternativa => {

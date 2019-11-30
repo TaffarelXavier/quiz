@@ -163,7 +163,7 @@ $(document).ready(function() {
   /***
    * Formulário do questões:
    */
-  const formCriarQuestao = ({ quiz_id }) => {
+  const formCriarQuestao = ({ prova_id }) => {
     return `<div class="row">
     <div class="col-md-12">
     <form method="POST" id="form-criar-questao">
@@ -184,7 +184,7 @@ $(document).ready(function() {
         <div class="row">
           <div class="col-md-12">
             <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
-            <input type="hidden" name="quiz_id" value="${quiz_id}" class="col-md-12"/>
+            <input type="" name="prova_id" value="${prova_id}" class="col-md-12"/>
             <textarea class="form-control alternativa col-md-12" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
           </div>
           <div class="col-md-12">
@@ -216,7 +216,8 @@ $(document).ready(function() {
     let mod = questao_modalidade == 1 ? 'multipla' : 'verdadeiro_falso';
 
     let conteudo = `<div class="painel-questao" style="border:0px solid rgba(55,0,0,0.2);"
-    id="${incremento}"
+    id="questao_card_${incremento}"
+    data-questao-id="${questao_id}"
     data-modalidade="${mod}">
     <details open id="questao_${questao_id}">
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
@@ -229,7 +230,7 @@ $(document).ready(function() {
       return 0.5 - Math.random();
     });
 
-    let alt = alternativas.map(({ alternativa_resposta, alternativa_correta }, index) => {
+    let alt = alternativas.map(({ cor, alternativa_resposta, alternativa_correta }, index) => {
       if (questao_modalidade === '1') {
         //Multipla-escolha
         var letra = ALFABETO[index];
@@ -240,6 +241,10 @@ $(document).ready(function() {
         var blue = getRandomIntInclusive(0, 255);
 
         var bgColor = `rgba(${red},${green},${blue},0.7)`;
+
+        if (cor != null) {
+          bgColor = cor;
+        }
 
         if (alternativa_correta === 1) {
           _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
@@ -285,7 +290,6 @@ $(document).ready(function() {
   }; //FIM
 
   const carregarSomenteQuestoes = (questoes, titulo) => {
-    
     var conteudoQuestoes = ``;
 
     questoes = questoes.sort((a, b) => {
@@ -306,12 +310,45 @@ $(document).ready(function() {
   };
 
   function irParaProximaQuestao(arry, questaoId, topMargin = 55) {
-    //
-    var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
-    //
+    var cardQuestao = [...document.getElementsByClassName('painel-questao')];
+
+    var elCartQuestao = cardQuestao.filter(el => {
+      //Verdadeiro ou falso
+      if (el.dataset.modalidade === 'verdadeiro_falso') {
+        if (questaoId == el.dataset.questaoId) {
+          return el;
+        }
+      } else {
+        //Multipla Escolha
+        if (questaoId == el.dataset.questaoId) {
+          return el;
+        }
+      }
+    });
+
+    var myId = elCartQuestao[0].id.split('_');
+
+    var obj = $('#questao_card_' + ++myId[2]).offset();
+
+    if (obj !== undefined) {
+      $('html, body')
+        .delay(1000)
+        .animate({ scrollTop: obj.top - topMargin }, 500);
+    } else {
+      $('html, body')
+        .delay(1000)
+        .animate({ scrollTop: 0 }, 500);
+    }
+
+    /*var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
+    if (index === arry.length - 1) {
+      arry = arry[0];
+    } else {
+      arry = arry[++index];
+    }
     $('html, body')
       .delay(1000)
-      .animate({ scrollTop: $('#' + arry[++index].id).offset().top - topMargin }, 500);
+      .animate({ scrollTop: $('#' + arry.id).offset().top - topMargin }, 500);*/
   }
 
   const carregarDados = () => {
@@ -324,9 +361,8 @@ $(document).ready(function() {
     if (quiz_id !== null) {
       //Busca um quiz por id
       Prova.getByProvaId(quiz_id, result => {
-        
         //Destruturing
-        let { quiz_id, titulo, questoes } = result[0];
+        let { prova_id, titulo, questoes } = result[0];
         //
         if (questoes.length > 0) {
           $('#quantidade-questoes-encontradas')
@@ -366,6 +402,7 @@ $(document).ready(function() {
 
           //Percorre todas os details, por exemplo.
           let arry = [...document.getElementsByTagName('details')];
+          //ArrayPainel
           let cardQuestao = [...document.getElementsByClassName('painel-questao')];
 
           //Responder quando for verdadeiro ou falso:
@@ -460,13 +497,15 @@ $(document).ready(function() {
           });
 
           var conteudo = `<!--<label>Nome do Prova:</label>
-          <h3>${titulo}</h3><hr/>-->${formCriarQuestao({ quiz_id })}`;
+          <h3>${titulo}</h3><hr/>-->${formCriarQuestao({ prova_id })}`;
 
           //Adiciona o conteúdo de inserção de questões
           $('#get-inserir-quiz').html(conteudo); //Add conteúdo
 
           //Ao clicar seleciona somente questões múltiplas escolhas
+
           var idIncremental = 0;
+
           $('#btn-verdadeiro-falso').click(() => {
             cardQuestao.map(el => {
               if (el.dataset.modalidade === 'multipla') {
@@ -485,6 +524,8 @@ $(document).ready(function() {
               if (el.dataset.modalidade === 'verdadeiro_falso') {
                 $(el).css({ display: 'none' });
               } else {
+                ++idIncremental;
+                el.id = `questao_card_${idIncremental}`;
                 $(el).css({ display: 'block' });
               }
             });
@@ -589,13 +630,15 @@ $(document).ready(function() {
               }
             });
 
+            var cor = gerarCorAleatoria(alternativas.length);
+
             alternativas = alternativas.map((el, index) => {
               var alterCorreta = document.getElementsByName('alter-correta')[index];
               return {
                 alternativa_letra: el.name,
                 alternativa_resposta: el.value,
                 alternativa_correta: alterCorreta.checked,
-                questao_id: null
+                cor: cor[index]
               };
             });
 
