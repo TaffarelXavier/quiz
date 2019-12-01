@@ -35,7 +35,7 @@ $(document).ready(function() {
   ];
 
   /**
-   *
+   *Para adicionar muitas questões: modal
    */
   const MuitasQuestoes = {
     addQuestoes: function() {
@@ -116,27 +116,6 @@ $(document).ready(function() {
     });
   });
 
-  //Salvar categoria:
-  $('#criar-categoria').submit(ev => {
-    Categoria.store(this.forms[0].elements1);
-    return false;
-  });
-
-  $('#criar-sub-categoria').submit(ev => {
-    SubCategoria.store(this.forms[1].elements);
-    return false;
-  });
-
-  $('#form-criar-quiz').submit(ev => {
-    var data = eventSelect.select2('data');
-    var form = document.querySelector('#form-criar-quiz');
-    Prova.store({ form, data }, result => {
-      const { quiz_id } = result;
-      window.location.href = '?quiz_id=' + quiz_id;
-    });
-    return false;
-  });
-
   //Adicionar nova questão:
   const novaQuestao = () => {
     //
@@ -184,7 +163,7 @@ $(document).ready(function() {
         <div class="row">
           <div class="col-md-12">
             <label><input type="radio" name="alter-correta" required/>Alternativa A:</label>
-            <input type="" name="prova_id" value="${prova_id}" class="col-md-12"/>
+            <input type="hidden" name="prova_id" value="${prova_id}" class="col-md-12"/>
             <textarea class="form-control alternativa col-md-12" rows="3" placeholder="Digite o texto da alternativa a" name="a" required=""></textarea>
           </div>
           <div class="col-md-12">
@@ -205,7 +184,14 @@ $(document).ready(function() {
 
   //INÍCIO
   const questaoDetalhe = (
-    { questao_id, questao_enunciado, questao_modalidade, alternativas, questao_correcao, incremento },
+    {
+      questao_id,
+      questao_enunciado,
+      questao_modalidade,
+      alternativas,
+      questao_correcao,
+      incremento
+    },
     titulo
   ) => {
     let enunciado =
@@ -223,57 +209,59 @@ $(document).ready(function() {
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
       <strong>${incremento} > ${titulo} </strong>
   </summary>
-  <summary style='padding:0px !important;margin:0px;'>
-  <strong>${enunciado}</strong></summary><hr/>`;
+  <h3 class="enuciado-p"><strong>${enunciado}</strong></h3><hr/>`;
 
     alternativas = alternativas.sort(function(a, b) {
       return 0.5 - Math.random();
     });
 
-    let alt = alternativas.map(({ cor, alternativa_resposta, alternativa_correta }, index) => {
-      if (questao_modalidade === '1') {
-        //Multipla-escolha
-        var letra = ALFABETO[index];
+    let alt = alternativas.map(
+      ({ cor, alternativa_resposta, alternativa_correta }, index) => {
+        if (questao_modalidade === '1') {
+          //Multipla-escolha
+          var letra = ALFABETO[index];
 
-        var _data = '';
-        var red = getRandomIntInclusive(0, 255);
-        var green = getRandomIntInclusive(0, 255);
-        var blue = getRandomIntInclusive(0, 255);
+          var _data = '';
 
-        var bgColor = `rgba(${red},${green},${blue},0.7)`;
+          var red = getRandomIntInclusive(0, 255);
+          var green = getRandomIntInclusive(0, 255);
+          var blue = getRandomIntInclusive(0, 255);
 
-        if (cor != null) {
-          bgColor = cor;
-        }
+          var bgColor = `rgba(${red},${green},${blue},0.7)`;
 
-        if (alternativa_correta === 1) {
-          _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
+          if (cor != null) {
+            bgColor = cor;
+          }
+
+          if (alternativa_correta === 1) {
+            _data += `<div class="col-md-12"><p class="multipla-escolha certa" style="background:${bgColor}" data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
            <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
-        } else {
-          _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
+          } else {
+            _data += `<div class="col-md-12"><p class="multipla-escolha errada" style="background:${bgColor}"  data-questao-id="${questao_id}"
             data-questao-correta="${alternativa_correta}">
             <span class="letra-enuc">${letra.toUpperCase()}</span> ${alternativa_resposta}</p></div>`;
+          }
+
+          return _data;
         }
 
-        return _data;
-      }
+        //Verdadeiro ou Falso
+        let data = `<div class="col-md-6">`;
 
-      //Verdade-Falso
-      let data = `<div class="col-md-6">`;
-
-      if (alternativa_resposta == '1') {
-        data += `<button class="verdadeiro-falso certo col-md-12" data-questao-id="${questao_id}"
+        if (alternativa_resposta == '1') {
+          data += `<button class="verdadeiro-falso certo col-md-12" data-questao-id="${questao_id}"
           data-questao-correta="${alternativa_correta}">Certo</button>`;
-      } else {
-        data += `<button class="verdadeiro-falso errado col-md-12" data-questao-id="${questao_id}"
+        } else {
+          data += `<button class="verdadeiro-falso errado col-md-12" data-questao-id="${questao_id}"
           data-questao-correta="${alternativa_correta}">Errado</button>`;
+        }
+
+        data += `</div>`;
+
+        return data;
       }
-
-      data += `</div>`;
-
-      return data;
-    });
+    );
 
     conteudo += `<div class="row">${alt.join('')}</div>`;
 
@@ -282,29 +270,26 @@ $(document).ready(function() {
         <i>${questao_correcao}</i></p>`;
     }
 
-    conteudo += `<br/><p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
+    conteudo += `<!--<br/>--><p id="explicacao_${questao_id}" class="explicacao" hidden></p>`;
 
     conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/></div>`;
 
     return conteudo;
-  }; //FIM
+  }; //FIM DO TEMPLATE questaoDetalhe
 
   const carregarSomenteQuestoes = (questoes, titulo) => {
     var conteudoQuestoes = ``;
+    var incremento = 0;
 
     questoes = questoes.sort((a, b) => {
       return 0.5 - Math.random();
     });
-
-    var incremento = 0;
 
     for (let data of questoes) {
       incremento++;
       data.incremento = incremento;
       conteudoQuestoes += questaoDetalhe(data, titulo);
     }
-
-    // conteudoQuestoes += '';
 
     $('#get-questoes').html(conteudoQuestoes);
   };
@@ -328,16 +313,20 @@ $(document).ready(function() {
 
     var myId = elCartQuestao[0].id.split('_');
 
-    var obj = $('#questao_card_' + ++myId[2]).offset();
+    var nId = parseInt(++myId[2]);
+
+    console.log(nId);
+
+    var obj = $('#questao_card_' + nId).offset();
 
     if (obj !== undefined) {
       $('html, body')
         .delay(1000)
-        .animate({ scrollTop: obj.top - topMargin }, 500);
+        .animate({ scrollTop: obj.top - topMargin }, 100);
     } else {
       $('html, body')
         .delay(1000)
-        .animate({ scrollTop: 0 }, 500);
+        .animate({ scrollTop: 0 }, 100);
     }
 
     /*var index = arry.findIndex(el => el.id == 'questao_' + questaoId);
@@ -393,9 +382,6 @@ $(document).ready(function() {
                 isSomenteFlashCard = true;
                 $(ev.target).html('Flashcards');
               }
-              //if (_flashCard) {
-              //  $("#get-inserir-quiz").hide();
-              //}
             });
 
           carregarSomenteQuestoes(questoes, titulo);
@@ -507,6 +493,7 @@ $(document).ready(function() {
           var idIncremental = 0;
 
           $('#btn-verdadeiro-falso').click(() => {
+            $('.painel-questao').removeAttr('id');
             cardQuestao.map(el => {
               if (el.dataset.modalidade === 'multipla') {
                 $(el).css({ display: 'none' });
@@ -520,6 +507,7 @@ $(document).ready(function() {
 
           //Ao clicar seleciona somente questões múltiplas escolhas
           $('#btn-multipla-escolha').click(() => {
+            $('.painel-questao').removeAttr('id');
             cardQuestao.map(el => {
               if (el.dataset.modalidade === 'verdadeiro_falso') {
                 $(el).css({ display: 'none' });
@@ -543,7 +531,9 @@ $(document).ready(function() {
               var startPos = myField.selectionStart;
               var endPos = myField.selectionEnd;
               myField.value =
-                myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
+                myField.value.substring(0, startPos) +
+                myValue +
+                myField.value.substring(endPos, myField.value.length);
             } else {
               myField.value += myValue;
             }
