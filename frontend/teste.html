@@ -71,10 +71,11 @@
             .painel-esquerdo {
                 position: fixed;
                 top: 100px;
-                width: 300px;
-                border: 1px solid red;
-                z-index: 99999;
+                width: 340px;
+                /* border: 1px solid red; */
+                /* z-index: 99999; */
                 background: #fff;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
             }
 
             /* .painel-direito{
@@ -117,6 +118,25 @@
             }
         }
 
+        .list-group-item :first-child {
+            margin-right: 0.3rem;
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            position: relative;
+            font-weight: normal;
+            top: 10px;
+            font-style: normal;
+            font-size: 30px;
+            /* line-height: 1; */
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+
         /* Extra large devices (large desktops, 1200px and up) */
         @media (min-width: 1200px) {}
     </style>
@@ -128,7 +148,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light"
             style="background-color: #fff;box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);">
             <a class="main-logo w-inline-block" href="./">
-                <img src="../assets/images/logo.svg" width="128" height="52" />
+                <img src="assets/images/desenhando.svg" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,24 +197,51 @@
                 <!-- MENU BARRA LATERAL ESQUERDA -->
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-12">
+
+                        <div class="col-md-12 painel-esquerdo">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a data-toggle="modal" data-target="#exampleModal">Adicionar Nova
-                                        Questão</a>
-                                </li>
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="material-icons">
+                                            add_circle_outline
+                                        </i>Adicionar Nova Questão
+                                    </a></li>
                                 <li class="list-group-item">
-                                    <a data-toggle="modal" data-target="#modalMuitasQuestoes">
-                                        Adicionar Muitas Questões
+                                    <a href="#" data-toggle="modal" data-target="#modalMuitasQuestoes">
+                                        <i class="material-icons">
+                                            add_circle_outline
+                                        </i>Adicionar Muitas Questões
                                     </a>
                                 </li>
+
                                 <li class="list-group-item">
-                                    <a id="links-flashcards" class="bg-esqueleto" style="display:inline-block;">
-                                        Flashcards
+                                    <a href="#" id="links-flashcards" class="bg-esqueleto"
+                                        style="display:inline-block;">
+                                        <i class="material-icons">
+                                            flash_on
+                                        </i>Flashcards
                                     </a>
                                 </li>
-                                <li class="list-group-item"><a href="">Atualizar</a></li>
-                                <li class="list-group-item"><a href="./">Voltar</a></li>
+                                <li class="list-group-item"><a href="">
+                                        <i class="material-icons">
+                                            refresh
+                                        </i>
+                                        Atualizar</a></li>
+                                <li class="list-group-item">
+                                    <a href="./">
+                                        <i class="material-icons">
+                                            arrow_back
+                                        </i>
+                                        Voltar</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li class="list-group-item">
+                                    <a class="btn-outline my-2 my-sm-0" id="btn-verdadeiro-falso">
+                                        Somente Verdadeiro ou Falso </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a class="btn-outline my-2 my-sm-0" id="btn-multipla-escolha">
+                                        Somente Múltipla Escolha </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -212,16 +259,9 @@
                             <h3 id="quantidade-questoes-encontradas" class="bg-esqueleto"></h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="btn btn-outline btn-primary my-2 my-sm-0" id="btn-verdadeiro-falso">
-                                Somente Verdadeiro ou Falso </button> &nbsp;
-                            <button class="btn btn-outline btn-primary my-2 my-sm-0" id="btn-multipla-escolha">
-                                Somente Múltipla Escolha </button>
-                        </div>
-                    </div>
                     <hr>
                     <div class="row">
+                        <img src="" alt="">
                         <div class="col-md-12" id="get-questoes">
                             <details open="">
                                 <summary style="padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)">

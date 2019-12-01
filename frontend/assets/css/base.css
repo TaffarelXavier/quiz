@@ -7296,13 +7296,14 @@ label.error
     margin: 10px 10px 10px 0;
     display: block;
     width: 128px;
-    height: 48px;
+    height: 50px;
     float: left;
-    background-image: url(../images/logo.svg);
+    background-image: url(../images/desenhando.svg);
     background-position: 50% 50%;
     background-size: 100%;
     background-repeat: no-repeat;
     text-decoration: none;
+    /* border:1px solid red; */
 }
 
 .large-logo {
