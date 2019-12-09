@@ -6,7 +6,7 @@
 
 const Questao = use("App/Models/Questao");
 const Alternativa = use("App/Models/Alternativa");
-
+const Database = use("Database");
 /**
  * Resourceful controller for interacting with questaos
  */
@@ -31,7 +31,6 @@ class QuestaoController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-
     const { enunciado, prova_id, alternativas, modalidade } = request.all();
 
     const questoes = new Questao();
@@ -49,6 +48,32 @@ class QuestaoController {
     const alternativa = await Alternativa.createMany(result);
 
     response.send(questoes);
+  }
+
+  async destroy({ request, response }) {
+    try {
+      const { id } = request.params;
+
+      if (id) {
+        const questao = await Questao.find(id);
+
+        var rowAffect = await questao.delete();
+
+        if (rowAffect > 0) {
+          const affectedRows = await Alternativa.query()
+            .where("questao_id", id)
+            .delete();
+          if (affectedRows > 0) {
+            return response.send({ message: [1] });
+          }
+        } else {
+          return response.send({ message: [0] });
+        }
+      }
+      return response.send({ message: [-2, "ID_INCORRETO"] });
+    } catch (error) {
+      return response.send({ message: [-1, error] });
+    }
   }
 }
 

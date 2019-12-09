@@ -75,7 +75,7 @@ $(document).ready(function() {
       });
     });
   });
-
+ 
   //Salvar categoria:
   $('#criar-categoria').submit(ev => {
     Disciplina.store(this.forms[0].elements);
@@ -88,11 +88,17 @@ $(document).ready(function() {
   });
 
   $('#form-criar-quiz').submit(ev => {
-    var data = eventSelect.select2('data');
-    var form = document.querySelector('#form-criar-quiz');
-    Quiz.store({ form, data }, result => {
-      alert(JSON.stringify(result));
-    });
+    try {
+      var data = eventSelect.select2('data');
+      var form = document.querySelector('#form-criar-quiz');
+      Prova.store({ form, data }, result => {
+        window.location.href="/teste?quiz_id=";
+        alert(JSON.stringify(result));
+      }); 
+    } catch (error) {
+      console.error('Error ao tentar incluir uma nova prova:',error);
+    }
+    
     return false;
   });
 

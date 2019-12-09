@@ -2,13 +2,13 @@ const IP = [
   {
     protocol: 'http',
     address: 'lccomputacaoturma2018-com-br.umbler.net',
-    port: '',
+    port: ''
   },
   {
     protocol: 'http',
     address: '127.0.0.1',
-    port: '3333',
-  },
+    port: '3333'
+  }
 ];
 
 const INDEX = 1;
@@ -35,7 +35,7 @@ var Disciplina = {
 
     fetch(URL_API + '/disciplina', {
       method: 'POST',
-      body: form,
+      body: form
     })
       .then(function(response) {
         if (response.ok) {
@@ -47,13 +47,15 @@ var Disciplina = {
         }
       })
       .catch(function(error) {
-        console.warn('There has been a problem with your fetch operation: ' + error.message);
+        console.warn(
+          'There has been a problem with your fetch operation: ' + error.message
+        );
       });
   },
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + '/disciplina', {
-      method: 'GET',
+      method: 'GET'
     })
       .then(function(response) {
         if (response.ok) {
@@ -65,9 +67,11 @@ var Disciplina = {
         }
       })
       .catch(function(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
+        console.log(
+          'There has been a problem with your fetch operation: ' + error.message
+        );
       });
-  },
+  }
 };
 /**
  * SUB-CATEGORIAS
@@ -82,7 +86,7 @@ var SubCategoria = {
 
     fetch(URL_API + '/sub_categoria', {
       method: 'POST',
-      body: form,
+      body: form
     })
       .then(function(response) {
         if (response.ok) {
@@ -94,13 +98,15 @@ var SubCategoria = {
         }
       })
       .catch(function(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
+        console.log(
+          'There has been a problem with your fetch operation: ' + error.message
+        );
       });
   },
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + '/sub_categoria', {
-      method: 'GET',
+      method: 'GET'
     })
       .then(function(response) {
         if (response.ok) {
@@ -130,7 +136,7 @@ var SubCategoria = {
         });
       }
     });
-  },
+  }
 };
 
 var Prova = {
@@ -149,7 +155,7 @@ var Prova = {
 
         fetch(URL_API + '/prova', {
           method: 'POST',
-          body: formDt,
+          body: formDt
         })
           .then(function(response) {
             if (response.ok) {
@@ -171,7 +177,7 @@ var Prova = {
   /*Busca todas as categorias*/
   all: function(callback) {
     fetch(URL_API + '/prova', {
-      method: 'GET',
+      method: 'GET'
     })
       .then(function(response) {
         if (response.ok) {
@@ -220,7 +226,7 @@ var Prova = {
       .catch(function(error) {
         console.warn(error);
       });
-  },
+  }
 };
 
 var Questao = {
@@ -235,7 +241,7 @@ var Questao = {
 
     fetch(URL_API + '/questao', {
       method: 'POST',
-      body: formDt,
+      body: formDt
     })
       .then(function(response) {
         if (response.ok) {
@@ -255,7 +261,7 @@ var Questao = {
   /*Busca todas as categorias*/
   all: function() {
     fetch(URL_API + '/sub_categoria', {
-      method: 'GET',
+      method: 'GET'
     })
       .then(function(response) {
         if (response.ok) {
@@ -270,7 +276,9 @@ var Questao = {
         }
       })
       .catch(function(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
+        console.log(
+          'There has been a problem with your fetch operation: ' + error.message
+        );
       });
   },
   getByCategoriaId: function(categoria_id, callback) {
@@ -297,4 +305,17 @@ var Questao = {
       }
     });
   },
+  delete: function(questao_id, callback) {
+    alert(questao_id);
+    var url = new URL(URL_API + '/questao/' + questao_id);
+    fetch(url, {
+      method: 'DELETE'
+    }).then(function(response) {
+      if (response.ok) {
+        response.json().then(result => {
+          return callback(result);
+        });
+      }
+    });
+  }
 };

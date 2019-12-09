@@ -207,7 +207,10 @@ $(document).ready(function() {
     data-modalidade="${mod}">
     <details open id="questao_${questao_id}">
   <summary style='padding:10px !important;margin:0px;background:rgba(241,243,245,0.94)'>
-      <strong>${incremento} > ${titulo} </strong>
+  <strong>${incremento} > ${titulo} </strong>
+  <button class="btn excluir-questao" style="float:right;margin:0;padding:0;" data-id="${questao_id}">
+  <i class="material-icons-sharp">restore_from_trash
+  </i></button>   
   </summary>
   <h3 class="enuciado-p"><strong>${enunciado}</strong></h3><hr/>`;
 
@@ -275,7 +278,7 @@ $(document).ready(function() {
     conteudo += `</details><hr style='margin-bottom:30px;margin-top:30px;'/></div>`;
 
     return conteudo;
-  }; //FIM DO TEMPLATE questaoDetalhe
+  }; //FIM DO TEMPLATE questaoDetalhe--
 
   const carregarSomenteQuestoes = (questoes, titulo) => {
     var conteudoQuestoes = ``;
@@ -290,8 +293,9 @@ $(document).ready(function() {
       data.incremento = incremento;
       conteudoQuestoes += questaoDetalhe(data, titulo);
     }
-
-    $('#get-questoes').html(conteudoQuestoes);
+    if (questoes.length) {
+      $('#get-questoes').html(conteudoQuestoes);
+    }
   };
 
   function irParaProximaQuestao(arry, questaoId, topMargin = 55) {
@@ -352,6 +356,7 @@ $(document).ready(function() {
       Prova.getByProvaId(quiz_id, result => {
         //Destruturing
         let { prova_id, titulo, questoes } = result[0];
+
         //
         if (questoes.length > 0) {
           $('#quantidade-questoes-encontradas')
@@ -519,6 +524,25 @@ $(document).ready(function() {
             });
           });
 
+          var painelQuestao = [...document.getElementsByClassName('painel-questao')];
+
+          $('.excluir-questao').click(function(ev) {
+            var _this = $(this);
+            ev.preventDefault();
+            if (confirm('Deseja realmente excluir esta nota?')) {
+              var questaoId = parseInt(_this.attr('data-id'));
+              painelQuestao.filter(el => {
+                if (el.dataset.questaoId == questaoId) {
+                  Questao.delete(questaoId, function(result){
+                   alert(result);
+                  })
+                  el.remove();
+                }
+              });
+            }
+            return false;
+          });
+
           function insertAtCursor(myField, myValue) {
             //IE support
             if (document.selection) {
@@ -540,6 +564,7 @@ $(document).ready(function() {
           }
 
           const enunciadoEl = document.getElementsByName('enunciado');
+
           var separador = document.getElementById('separador');
 
           function copiarQuestaoExterna(texto) {
@@ -638,7 +663,6 @@ $(document).ready(function() {
                 window.location.reload();
               }
             });
-
             return false;
           });
         }
